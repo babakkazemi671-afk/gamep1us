@@ -4,13 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GamePlus | گیم‌پلاس</title>
-
-<meta name="description"
-content="GamePlus؛ مرجع بازی، اخبار گیم، دانلود رسمی بازی‌ها و کدهای تقلب.">
+<title>گیم‌پلاس | GamePlus</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -22,34 +18,16 @@ html{
 }
 
 body{
-    font-family:
-    Tahoma,
-    Arial,
-    sans-serif;
-
-    background:
-    radial-gradient(
-        circle at top right,
-        #172554 0,
-        #070b16 35%,
-        #03050b 100%
-    );
-
+    font-family:Tahoma,Arial,sans-serif;
+    background:#060a12;
     color:#fff;
-
-    min-height:100vh;
-
-    padding-bottom:90px;
+    line-height:1.8;
+    padding-bottom:85px;
 }
 
 button,
-input,
-select{
+input{
     font-family:inherit;
-}
-
-button{
-    cursor:pointer;
 }
 
 a{
@@ -57,3191 +35,2871 @@ a{
     color:inherit;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .header{
-
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:100;
+    background:rgba(6,10,18,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #202b3d;
+}
 
-    height:70px;
-
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:15px 18px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:0 22px;
-
-    background:
-    rgba(4,8,18,.88);
-
-    backdrop-filter:blur(18px);
-
-    border-bottom:
-    1px solid
-    rgba(255,255,255,.08);
+    gap:15px;
 }
 
 .logo{
-
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    font-size:23px;
+    font-size:25px;
     font-weight:900;
-
-    color:#fff;
-}
-
-.logo-icon{
-
-    width:42px;
-    height:42px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:13px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #7c3aed,
-        #2563eb
-    );
-
-    box-shadow:
-    0 8px 30px
-    rgba(59,130,246,.35);
+    color:#27d5ff;
+    white-space:nowrap;
 }
 
 .logo span{
-    color:#60a5fa;
+    color:#fff;
 }
 
-/* =========================
-   HERO
-========================= */
+.search{
+    width:100%;
+    max-width:500px;
+}
+
+.search input{
+    width:100%;
+    padding:12px 17px;
+    border-radius:14px;
+    border:1px solid #27364c;
+    background:#0e1725;
+    color:#fff;
+    outline:none;
+}
+
+.search input:focus{
+    border-color:#27d5ff;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 18px;
+}
 
 .hero{
-
-    width:min(1200px,94%);
-
-    margin:28px auto 0;
-
-    min-height:350px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:28px;
-
-    padding:45px;
-
+    max-width:1200px;
+    min-height:330px;
+    margin:25px auto;
+    padding:55px 30px;
+    border:1px solid #27364c;
+    border-radius:25px;
     display:flex;
     align-items:center;
-
     background:
-    linear-gradient(
-        100deg,
-        rgba(4,7,17,.98),
-        rgba(15,23,42,.78),
-        rgba(30,41,59,.55)
-    );
-
-    border:
-    1px solid
-    rgba(255,255,255,.1);
-
-    box-shadow:
-    0 25px 70px
-    rgba(0,0,0,.35);
-}
-
-.hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:430px;
-    height:430px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(124,58,237,.45),
-        transparent 68%
-    );
-
-    left:-120px;
-    top:-150px;
-}
-
-.hero-content{
-
-    position:relative;
-    z-index:2;
-
-    max-width:720px;
-}
-
-.hero-badge{
-
-    display:inline-flex;
-
-    padding:8px 14px;
-
-    border-radius:30px;
-
-    background:
-    rgba(96,165,250,.12);
-
-    border:
-    1px solid
-    rgba(96,165,250,.3);
-
-    color:#93c5fd;
-
-    font-size:13px;
-
-    margin-bottom:18px;
+    linear-gradient(90deg,rgba(3,7,15,.98),rgba(3,7,15,.55)),
+    url("https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg")
+    center/cover;
 }
 
 .hero h1{
-
-    font-size:
-    clamp(32px,5vw,64px);
-
-    line-height:1.1;
-
-    margin-bottom:18px;
-}
-
-.hero h1 span{
-    color:#60a5fa;
+    font-size:42px;
+    margin-bottom:12px;
 }
 
 .hero p{
-
-    color:#cbd5e1;
-
-    line-height:2;
-
+    max-width:650px;
+    color:#b8c5d6;
     font-size:16px;
-
-    margin-bottom:25px;
 }
 
-.hero-buttons{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-}
-
-.btn{
-
-    border:0;
-
-    padding:13px 21px;
-
-    border-radius:13px;
-
-    font-weight:800;
-
-    transition:.2s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.btn-primary{
-
-    color:#fff;
-
-    background:
-    linear-gradient(
-        135deg,
-        #7c3aed,
-        #2563eb
-    );
-
-    box-shadow:
-    0 10px 30px
-    rgba(37,99,235,.25);
-}
-
-.btn-secondary{
-
-    background:
-    rgba(255,255,255,.07);
-
-    border:
-    1px solid
-    rgba(255,255,255,.1);
-
-    color:#fff;
-}
-
-/* =========================
-   SECTION
-========================= */
-
-.section{
-
-    width:min(1200px,94%);
-
-    margin:45px auto 0;
-}
-
-.section-head{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    margin-bottom:20px;
+section{
+    margin:55px 0;
+    scroll-margin-top:90px;
 }
 
 .section-title{
-
-    font-size:25px;
-
-    font-weight:900;
-}
-
-.section-title span{
-    color:#60a5fa;
-}
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-box{
-
-    display:flex;
-
-    gap:10px;
-
-    width:min(500px,100%);
-}
-
-.search-box input{
-
-    width:100%;
-
-    padding:14px 17px;
-
-    border-radius:14px;
-
-    border:
-    1px solid
-    rgba(255,255,255,.1);
-
-    outline:none;
-
-    background:
-    rgba(255,255,255,.06);
-
-    color:white;
-
-    font-size:14px;
-}
-
-.search-box input:focus{
-
-    border-color:#60a5fa;
-
-    box-shadow:
-    0 0 0 3px
-    rgba(96,165,250,.1);
-}
-
-/* =========================
-   FILTERS
-========================= */
-
-.filters{
-
-    display:flex;
-
-    gap:9px;
-
-    overflow-x:auto;
-
-    padding-bottom:8px;
-
-    margin-bottom:22px;
-}
-
-.filters::-webkit-scrollbar{
-    height:4px;
-}
-
-.filters::-webkit-scrollbar-thumb{
-    background:#334155;
-    border-radius:20px;
-}
-
-.filter-btn{
-
-    white-space:nowrap;
-
-    padding:10px 16px;
-
-    border-radius:30px;
-
-    color:#cbd5e1;
-
-    background:
-    rgba(255,255,255,.05);
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
-}
-
-.filter-btn.active{
-
-    color:#fff;
-
-    background:
-    linear-gradient(
-        135deg,
-        #7c3aed,
-        #2563eb
-    );
-
-    border-color:transparent;
-}
-
-/* =========================
-   GAME GRID
-========================= */
-
-.game-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fill,
-        minmax(190px,1fr)
-    );
-
-    gap:18px;
-}
-
-.game-card{
-
-    overflow:hidden;
-
-    border-radius:19px;
-
-    background:
-    rgba(15,23,42,.78);
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
-
-    transition:
-    transform .25s,
-    border-color .25s,
-    box-shadow .25s;
-
-    cursor:pointer;
-}
-
-.game-card:hover{
-
-    transform:
-    translateY(-6px);
-
-    border-color:
-    rgba(96,165,250,.4);
-
-    box-shadow:
-    0 18px 45px
-    rgba(0,0,0,.3);
-}
-
-.game-image{
-
-    width:100%;
-
-    aspect-ratio:16/9;
-
-    object-fit:cover;
-
-    display:block;
-
-    background:#111827;
-}
-
-.game-info{
-
-    padding:15px;
-}
-
-.game-name{
-
-    font-size:16px;
-
-    font-weight:900;
-
-    margin-bottom:9px;
-}
-
-.game-meta{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:6px;
-}
-
-.tag{
-
-    padding:5px 8px;
-
-    border-radius:7px;
-
-    font-size:11px;
-
-    color:#cbd5e1;
-
-    background:
-    rgba(255,255,255,.06);
-}
-
-/* =========================
-   NEWS
-========================= */
-
-.news-list{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(280px,1fr)
-    );
-
-    gap:16px;
-}
-
-.news-card{
-
-    padding:20px;
-
-    border-radius:18px;
-
-    background:
-    rgba(15,23,42,.78);
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
-}
-
-.news-card h3{
-
-    font-size:17px;
-
-    line-height:1.7;
-
-    margin-bottom:10px;
-}
-
-.news-card p{
-
-    color:#94a3b8;
-
-    line-height:1.9;
-
-    font-size:13px;
-
-    margin-bottom:15px;
-}
-
-.news-date{
-
-    color:#60a5fa;
-
-    font-size:12px;
-
-    margin-bottom:10px;
-}
-
-.news-source{
-
-    display:inline-block;
-
-    color:#93c5fd;
-
-    font-size:12px;
-
-    padding:7px 10px;
-
-    border-radius:8px;
-
-    background:
-    rgba(59,130,246,.1);
-}
-
-/* =========================
-   DOWNLOADS
-========================= */
-
-.download-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(260px,1fr)
-    );
-
-    gap:15px;
-}
-
-.download-card{
-
-    padding:20px;
-
-    border-radius:18px;
-
-    background:
-    rgba(15,23,42,.8);
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-}
-
-.download-card h3{
-
-    font-size:16px;
-
-    margin-bottom:8px;
-}
-
-.download-card p{
-
-    color:#94a3b8;
-
-    font-size:12px;
-}
-
-/* =========================
-   CHEATS
-========================= */
-
-.cheat-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(270px,1fr)
-    );
-
-    gap:15px;
-}
-
-.cheat-card{
-
-    background:
-    rgba(15,23,42,.8);
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
-
-    border-radius:17px;
-
-    padding:18px;
-}
-
-.cheat-game{
-
-    color:#60a5fa;
-
-    font-weight:900;
-
-    margin-bottom:8px;
-}
-
-.cheat-code{
-
-    direction:ltr;
-
-    text-align:left;
-
-    padding:11px;
-
-    border-radius:9px;
-
-    background:#020617;
-
-    color:#a7f3d0;
-
-    font-family:
-    Consolas,
-    monospace;
-
-    margin:10px 0;
-}
-
-.cheat-desc{
-
-    color:#94a3b8;
-
-    font-size:12px;
-
-    line-height:1.8;
-}
-
-/* =========================
-   PROMO
-========================= */
-
-.promo{
-
-    width:min(1200px,94%);
-
-    margin:45px auto 0;
-
-    padding:28px;
-
-    border-radius:22px;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(124,58,237,.18),
-        rgba(37,99,235,.15)
-    );
-
-    border:
-    1px solid
-    rgba(96,165,250,.2);
-}
-
-.promo h2{
-
-    font-size:25px;
-
-    margin-bottom:10px;
-}
-
-.promo p{
-
-    color:#cbd5e1;
-
-    line-height:2;
-
+    font-size:29px;
     margin-bottom:20px;
 }
 
-.promo-items{
+.section-title span{
+    color:#27d5ff;
+}
 
+/* ================= PLATFORM GAMES ================= */
+
+.platforms{
     display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(150px,1fr)
-    );
-
-    gap:10px;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-bottom:22px;
 }
 
-.promo-item{
-
-    padding:14px;
-
-    border-radius:12px;
-
-    background:
-    rgba(255,255,255,.05);
-
-    color:#dbeafe;
-
-    font-size:13px;
-
-    text-align:center;
-}
-
-/* =========================
-   PROFILE
-========================= */
-
-.profile-box{
-
-    max-width:600px;
-
-    margin:auto;
-
-    padding:25px;
-
+.platform-card{
+    background:#0d1624;
+    border:1px solid #26354a;
     border-radius:20px;
-
-    background:
-    rgba(15,23,42,.8);
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
+    padding:25px;
+    cursor:pointer;
+    transition:.2s;
 }
 
-.profile-box input{
+.platform-card:hover{
+    transform:translateY(-4px);
+    border-color:#27d5ff;
+}
 
+.platform-card.active{
+    border-color:#27d5ff;
+    background:#101f31;
+}
+
+.platform-icon{
+    font-size:42px;
+}
+
+.platform-card h3{
+    margin-top:5px;
+    font-size:21px;
+}
+
+.platform-card p{
+    color:#8f9eb2;
+}
+
+/* ================= FILTER ================= */
+
+.filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.filter{
+    background:#0d1624;
+    border:1px solid #26354a;
+    color:#aab6c7;
+    padding:9px 15px;
+    border-radius:11px;
+    cursor:pointer;
+}
+
+.filter:hover,
+.filter.active{
+    background:#27d5ff;
+    color:#001018;
+    border-color:#27d5ff;
+}
+
+/* ================= GAMES ================= */
+
+.games{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.game{
+    background:#0d1624;
+    border:1px solid #202e42;
+    border-radius:18px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.game:hover{
+    transform:translateY(-5px);
+    border-color:#27d5ff;
+}
+
+.game img{
     width:100%;
+    height:150px;
+    object-fit:cover;
+    display:block;
+}
 
+.game-info{
     padding:14px;
+}
 
-    margin:10px 0 15px;
+.game-info h3{
+    margin-bottom:7px;
+}
 
+.tags{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.tag{
+    display:inline-block;
+    padding:3px 8px;
+    background:#172437;
+    color:#83e6ff;
+    border-radius:7px;
+    font-size:11px;
+}
+
+/* ================= NEWS ================= */
+
+.news-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.news{
+    background:#0d1624;
+    border:1px solid #202e42;
+    border-radius:18px;
+    padding:18px;
+}
+
+.news-date{
+    color:#27d5ff;
+    font-size:12px;
+}
+
+.news h3{
+    margin:8px 0;
+}
+
+.news p{
+    color:#aab6c7;
+    font-size:14px;
+}
+
+.news a{
+    display:inline-block;
+    margin-top:12px;
+    color:#27d5ff;
+}
+
+/* ================= DOWNLOAD ================= */
+
+.downloads{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.download{
+    background:#0d1624;
+    border:1px solid #202e42;
+    border-radius:18px;
+    padding:20px;
+}
+
+.primary{
+    display:block;
+    width:100%;
+    margin-top:14px;
+    padding:11px;
+    text-align:center;
+    border:0;
+    border-radius:11px;
+    background:#27d5ff;
+    color:#001018;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= CHEATS ================= */
+
+.cheat-platforms{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+    margin-bottom:22px;
+}
+
+.cheat-platform{
+    border:1px solid #26354a;
+    background:#0d1624;
+    border-radius:16px;
+    padding:17px 10px;
+    text-align:center;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.cheat-platform:hover{
+    border-color:#27d5ff;
+    transform:translateY(-3px);
+}
+
+.cheat-platform.active{
+    background:#102136;
+    border-color:#27d5ff;
+}
+
+.cheat-platform .icon{
+    display:block;
+    font-size:30px;
+}
+
+.cheat-platform strong{
+    display:block;
+    margin-top:5px;
+}
+
+.cheat-platform small{
+    color:#8492a6;
+}
+
+.cheat-search{
+    margin-bottom:20px;
+}
+
+.cheat-search input{
+    width:100%;
+    padding:12px 16px;
     border-radius:12px;
-
-    border:
-    1px solid
-    rgba(255,255,255,.1);
-
-    background:
-    rgba(255,255,255,.05);
-
-    color:white;
-
+    border:1px solid #27364c;
+    background:#0d1624;
+    color:#fff;
     outline:none;
 }
 
-/* =========================
-   MODAL
-========================= */
+.cheats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.cheat{
+    background:#0d1624;
+    border:1px solid #202e42;
+    border-radius:15px;
+    padding:16px;
+}
+
+.cheat-title{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:7px;
+}
+
+.cheat-title strong{
+    color:#27d5ff;
+}
+
+.cheat-game{
+    color:#8e9db1;
+    font-size:12px;
+}
+
+.code{
+    direction:ltr;
+    text-align:left;
+    display:block;
+    background:#050911;
+    border:1px solid #182436;
+    padding:10px;
+    border-radius:9px;
+    color:#a6efff;
+    font-family:monospace;
+    overflow:auto;
+    margin:8px 0;
+}
+
+.cheat-note{
+    color:#8795a9;
+    font-size:12px;
+}
+
+.empty{
+    grid-column:1/-1;
+    text-align:center;
+    padding:40px;
+    color:#8492a5;
+}
+
+/* ================= PROFILE ================= */
+
+.profile{
+    background:#0d1624;
+    border:1px solid #202e42;
+    border-radius:20px;
+    padding:25px;
+}
+
+.profile input{
+    width:100%;
+    max-width:500px;
+    margin:10px 0;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #27364c;
+    background:#070c14;
+    color:#fff;
+    outline:none;
+}
+
+/* ================= MODAL ================= */
 
 .modal{
-
     position:fixed;
-
     inset:0;
-
-    z-index:2000;
-
+    z-index:500;
+    background:rgba(0,0,0,.82);
     display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:20px;
-
-    background:
-    rgba(0,0,0,.75);
-
-    backdrop-filter:blur(8px);
+    overflow:auto;
+    padding:25px 15px;
 }
 
 .modal.show{
-    display:flex;
+    display:block;
 }
 
 .modal-box{
-
-    width:min(700px,100%);
-
-    max-height:90vh;
-
-    overflow:auto;
-
-    border-radius:23px;
-
-    background:#0b1120;
-
-    border:
-    1px solid
-    rgba(255,255,255,.1);
-
-    box-shadow:
-    0 30px 100px
-    rgba(0,0,0,.6);
+    max-width:850px;
+    margin:auto;
+    background:#0b1421;
+    border:1px solid #2b3b52;
+    border-radius:22px;
+    overflow:hidden;
 }
 
-.modal-image{
-
+.modal-img{
     width:100%;
-
-    aspect-ratio:16/7;
-
+    max-height:350px;
     object-fit:cover;
 }
 
 .modal-content{
-
     padding:25px;
 }
 
-.modal-content h2{
-
-    font-size:26px;
-
-    margin-bottom:13px;
-}
-
-.modal-content p{
-
-    color:#cbd5e1;
-
-    line-height:2;
-
-    margin-bottom:18px;
-}
-
-.modal-close{
-
-    position:absolute;
-
-    top:20px;
-    left:20px;
-
+.close{
+    float:left;
     width:40px;
     height:40px;
-
     border:0;
-
     border-radius:50%;
-
-    background:
-    rgba(255,255,255,.12);
-
+    background:#202e42;
     color:#fff;
-
-    font-size:20px;
+    cursor:pointer;
+    font-size:22px;
 }
 
-/* =========================
-   BOTTOM NAV
-========================= */
+.meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:15px 0;
+}
+
+.meta div{
+    background:#172437;
+    padding:7px 11px;
+    border-radius:9px;
+    font-size:13px;
+}
+
+.related-news{
+    margin-top:30px;
+    padding-top:20px;
+    border-top:1px solid #27364c;
+}
+
+.related-item{
+    background:#101b2b;
+    border-radius:12px;
+    padding:14px;
+    margin-top:10px;
+}
+
+.related-item small{
+    color:#27d5ff;
+}
+
+.related-item a{
+    display:inline-block;
+    margin-top:8px;
+    color:#27d5ff;
+}
+
+/* ================= NAV ================= */
 
 .bottom-nav{
-
     position:fixed;
-
     bottom:0;
-    right:0;
     left:0;
+    right:0;
+    z-index:300;
+    height:72px;
+    background:rgba(6,10,18,.98);
+    border-top:1px solid #202b3d;
+}
 
-    z-index:1500;
-
-    height:74px;
-
+.bottom-nav-inner{
+    max-width:700px;
+    height:100%;
+    margin:auto;
     display:grid;
-
-    grid-template-columns:
-    repeat(5,1fr);
-
-    background:
-    rgba(3,7,18,.94);
-
-    backdrop-filter:blur(18px);
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.09);
+    grid-template-columns:repeat(5,1fr);
 }
 
-.nav-item{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:4px;
-
-    color:#64748b;
-
-    font-size:11px;
-
+.nav-btn{
     border:0;
-
-    background:transparent;
+    background:none;
+    color:#78879b;
+    cursor:pointer;
+    font-size:12px;
 }
 
-.nav-icon{
-
-    font-size:21px;
-
-    line-height:1;
+.nav-btn span{
+    display:block;
+    font-size:22px;
 }
 
-.nav-item.active{
-
-    color:#60a5fa;
+.nav-btn:hover,
+.nav-btn.active{
+    color:#27d5ff;
 }
 
-/* =========================
-   EMPTY
-========================= */
+/* ================= FOOTER ================= */
 
-.empty{
-
+.footer{
     text-align:center;
-
-    padding:50px 20px;
-
-    color:#64748b;
+    color:#647287;
+    padding:30px 0;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px){
+
+    .games{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .news-list,
+    .downloads{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .cheat-platforms{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
 
 @media(max-width:700px){
 
-    .header{
-        padding:0 14px;
-        height:62px;
+    .header-inner{
+        flex-wrap:wrap;
     }
 
-    .logo{
-        font-size:18px;
-    }
-
-    .logo-icon{
-        width:36px;
-        height:36px;
+    .search{
+        order:3;
+        max-width:none;
     }
 
     .hero{
-
-        min-height:390px;
-
-        padding:28px 22px;
-
-        border-radius:21px;
+        min-height:280px;
     }
 
-    .hero p{
-        font-size:14px;
+    .hero h1{
+        font-size:30px;
     }
 
-    .section{
-        margin-top:32px;
-    }
-
-    .section-head{
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    .game-grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-        gap:11px;
-    }
-
-    .game-info{
-        padding:11px;
-    }
-
-    .game-name{
-        font-size:13px;
-    }
-
-    .tag{
-        font-size:9px;
-    }
-
-    .promo{
-        padding:21px;
-    }
-
-    .bottom-nav{
-        height:68px;
-    }
-}
-
-@media(max-width:390px){
-
-    .game-grid{
+    .platforms{
         grid-template-columns:1fr;
     }
+
+    .games{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .news-list,
+    .downloads,
+    .cheats{
+        grid-template-columns:1fr;
+    }
+
+    .cheat-platforms{
+        grid-template-columns:repeat(2,1fr);
+    }
 }
 
+@media(max-width:430px){
+
+    .games{
+        grid-template-columns:1fr;
+    }
+
+    .cheat-platforms{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .game img{
+        height:170px;
+    }
+}
 </style>
 </head>
 
+
 <body>
+
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
-    <a href="#home" class="logo">
+<div class="header-inner">
 
-        <div class="logo-icon">
-            🎮
-        </div>
+<div class="logo">
+🎮 گیم<span>‌پلاس</span>
+</div>
 
-        Game<span>Plus</span>
+<div class="search">
 
-    </a>
+<input
+id="search"
+type="search"
+placeholder="جستجوی بازی..."
+oninput="renderGames()">
 
-    <button
-        class="btn btn-secondary"
-        onclick="scrollToSection('profile')">
+</div>
 
-        👤 پروفایل
-
-    </button>
+</div>
 
 </header>
 
 
+<!-- ================= MAIN ================= -->
+
 <main>
 
-<!-- =========================
-     HOME
-========================= -->
+<section class="hero">
 
-<section
-    id="home"
-    class="hero">
+<div class="container">
 
-    <div class="hero-content">
+<h1>
+دنیای بازی‌ها در گیم‌پلاس 🎮
+</h1>
 
-        <div class="hero-badge">
-            🎮 مرجع گیمینگ فارسی
-        </div>
+<p>
+بازی‌های کامپیوتری و موبایلی، اخبار بازی‌ها،
+دانلودهای رسمی و کدهای بازی را در یک سایت پیدا کن.
+</p>
 
-        <h1>
-            دنیای بازی‌ها
-            <span>اینجاست</span>
-        </h1>
-
-        <p>
-            در GamePlus بازی‌های محبوب،
-            اخبار گیم، لینک‌های رسمی دانلود
-            و کدهای تقلب بازی‌ها را در یک
-            محیط سریع و حرفه‌ای پیدا کن.
-        </p>
-
-        <div class="hero-buttons">
-
-            <button
-                class="btn btn-primary"
-                onclick="scrollToSection('games')">
-
-                🎮 مشاهده بازی‌ها
-
-            </button>
-
-            <button
-                class="btn btn-secondary"
-                onclick="scrollToSection('news')">
-
-                📰 آخرین اخبار
-
-            </button>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
-     PROMO
-========================= -->
+<div class="container">
 
-<section class="promo">
 
-    <h2>
-        🚀 امکانات GamePlus
-    </h2>
+<!-- ================= GAMES ================= -->
 
-    <p>
-        همه‌چیز برای علاقه‌مندان به بازی
-        در یک سایت ساده و سریع.
-    </p>
+<section id="games-section">
 
-    <div class="promo-items">
+<h2 class="section-title">
+🎮 <span>بازی‌ها</span>
+</h2>
 
-        <div class="promo-item">
-            🎮 بازی‌ها
-        </div>
 
-        <div class="promo-item">
-            📰 اخبار
-        </div>
-
-        <div class="promo-item">
-            ⬇️ دانلود رسمی
-        </div>
-
-        <div class="promo-item">
-            🎯 کدهای تقلب
-        </div>
-
-        <div class="promo-item">
-            🔎 جستجو
-        </div>
-
-        <div class="promo-item">
-            📱 موبایل‌پسند
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     GAMES
-========================= -->
-
-<section
-    id="games"
-    class="section">
-
-    <div class="section-head">
-
-        <h2 class="section-title">
-            🎮 <span>بازی‌ها</span>
-        </h2>
-
-        <div class="search-box">
-
-            <input
-                id="gameSearch"
-                type="search"
-                placeholder="اسم بازی را جستجو کن..."
-                oninput="renderGames()">
-
-        </div>
-
-    </div>
-
-    <div class="filters">
-
-        <button
-            class="filter-btn active"
-            onclick="setPlatform('همه',this)">
-            همه
-        </button>
-
-        <button
-            class="filter-btn"
-            onclick="setPlatform('PC',this)">
-            💻 PC
-        </button>
-
-        <button
-            class="filter-btn"
-            onclick="setPlatform('Mobile',this)">
-            📱 موبایل
-        </button>
-
-        <button
-            class="filter-btn"
-            onclick="setPlatform('PlayStation',this)">
-            🎮 PlayStation
-        </button>
-
-        <button
-            class="filter-btn"
-            onclick="setPlatform('Xbox',this)">
-            🟢 Xbox
-        </button>
-
-        <button
-            class="filter-btn"
-            onclick="setPlatform('Nintendo',this)">
-            🔴 Nintendo
-        </button>
-
-    </div>
-
-    <div
-        id="gameGrid"
-        class="game-grid">
-    </div>
-
-</section>
-
-
-<!-- =========================
-     NEWS
-========================= -->
-
-<section
-    id="news"
-    class="section">
-
-    <div class="section-head">
-
-        <h2 class="section-title">
-            📰 <span>آخرین اخبار</span>
-        </h2>
-
-    </div>
-
-    <div
-        id="newsList"
-        class="news-list">
-    </div>
-
-</section>
-
-
-<!-- =========================
-     DOWNLOADS
-========================= -->
-
-<section
-    id="downloads"
-    class="section">
-
-    <div class="section-head">
-
-        <h2 class="section-title">
-            ⬇️ <span>دانلود رسمی</span>
-        </h2>
-
-    </div>
-
-    <div
-        id="downloadGrid"
-        class="download-grid">
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CHEATS
-========================= -->
-
-<section
-    id="cheats"
-    class="section">
-
-    <div class="section-head">
-
-        <h2 class="section-title">
-            🎯 <span>کدهای تقلب</span>
-        </h2>
-
-        <div class="search-box">
-
-            <input
-                id="cheatSearch"
-                type="search"
-                placeholder="جستجوی کد..."
-                oninput="renderCheats()">
-
-        </div>
-
-    </div>
-
-    <div
-        id="cheatGrid"
-        class="cheat-grid">
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PROFILE
-========================= -->
-
-<section
-    id="profile"
-    class="section">
-
-    <div class="section-head">
-
-        <h2 class="section-title">
-            👤 <span>پروفایل</span>
-        </h2>
-
-    </div>
-
-    <div class="profile-box">
-
-        <h3>
-            پروفایل گیمینگ من
-        </h3>
-
-        <p
-            style="
-            color:#94a3b8;
-            margin-top:8px;
-            line-height:1.8;
-            ">
-
-            اسمت را وارد کن تا روی همین
-            دستگاه ذخیره شود.
-
-        </p>
-
-        <input
-            id="profileName"
-            type="text"
-            maxlength="30"
-            placeholder="نام گیمر">
-
-        <button
-            class="btn btn-primary"
-            onclick="saveProfile()">
-
-            ذخیره پروفایل
-
-        </button>
-
-        <p
-            id="profileResult"
-            style="
-            margin-top:15px;
-            color:#60a5fa;
-            ">
-
-        </p>
-
-    </div>
-
-</section>
-
-</main>
-
-
-<!-- =========================
-     GAME MODAL
-========================= -->
+<div class="platforms">
 
 <div
-    id="gameModal"
-    class="modal"
-    onclick="closeModal(event)">
+class="platform-card active"
+id="pcPlatform"
+onclick="setGamePlatform('PC')">
 
-    <div class="modal-box">
+<div class="platform-icon">💻</div>
 
-        <button
-            class="modal-close"
-            onclick="hideModal()">
+<h3>
+بازی‌های کامپیوتری
+</h3>
 
-            ×
-
-        </button>
-
-        <img
-            id="modalImage"
-            class="modal-image"
-            src=""
-            alt="">
-
-        <div class="modal-content">
-
-            <h2 id="modalTitle"></h2>
-
-            <p id="modalDescription"></p>
-
-            <div
-                id="modalMeta"
-                class="game-meta">
-            </div>
-
-            <br>
-
-            <a
-                id="modalDownload"
-                class="btn btn-primary"
-                href="#"
-                target="_blank"
-                rel="noopener">
-
-                ⬇️ صفحه رسمی بازی
-
-            </a>
-
-        </div>
-
-    </div>
+<p>
+بازی‌های Windows و PC
+</p>
 
 </div>
 
 
-<!-- =========================
-     BOTTOM NAV
-========================= -->
+<div
+class="platform-card"
+id="mobilePlatform"
+onclick="setGamePlatform('Mobile')">
+
+<div class="platform-icon">📱</div>
+
+<h3>
+بازی‌های موبایلی
+</h3>
+
+<p>
+بازی‌های Android و iOS
+</p>
+
+</div>
+
+</div>
+
+
+<div class="filters">
+
+<button
+class="filter active"
+onclick="setGenre('همه',this)">
+همه
+</button>
+
+<button
+class="filter"
+onclick="setGenre('اکشن',this)">
+اکشن
+</button>
+
+<button
+class="filter"
+onclick="setGenre('ماجراجویی',this)">
+ماجراجویی
+</button>
+
+<button
+class="filter"
+onclick="setGenre('RPG',this)">
+RPG
+</button>
+
+<button
+class="filter"
+onclick="setGenre('استراتژی',this)">
+استراتژی
+</button>
+
+<button
+class="filter"
+onclick="setGenre('شبیه‌سازی',this)">
+شبیه‌سازی
+</button>
+
+</div>
+
+
+<div id="games" class="games"></div>
+
+</section>
+
+
+<!-- ================= NEWS ================= -->
+
+<section id="news-section">
+
+<h2 class="section-title">
+📰 <span>اخبار بازی</span>
+</h2>
+
+<div id="newsList" class="news-list"></div>
+
+</section>
+
+
+<!-- ================= DOWNLOAD ================= -->
+
+<section id="downloads-section">
+
+<h2 class="section-title">
+⬇️ <span>دانلودهای رسمی</span>
+</h2>
+
+<div id="downloads" class="downloads"></div>
+
+</section>
+
+
+<!-- ================= CHEATS ================= -->
+
+<section id="cheats-section">
+
+<h2 class="section-title">
+🕹️ <span>کدهای بازی</span>
+</h2>
+
+
+<p style="color:#8998aa;margin-bottom:20px">
+پلتفرم موردنظرت را انتخاب کن تا فقط کدهای همان پلتفرم نمایش داده شوند.
+</p>
+
+
+<!-- PLATFORM CHEAT BUTTONS -->
+
+<div class="cheat-platforms">
+
+
+<div
+class="cheat-platform active"
+onclick="setCheatPlatform('PC',this)">
+
+<span class="icon">💻</span>
+
+<strong>کامپیوتر</strong>
+
+<small>PC / Windows</small>
+
+</div>
+
+
+<div
+class="cheat-platform"
+onclick="setCheatPlatform('PlayStation',this)">
+
+<span class="icon">🎮</span>
+
+<strong>پلی‌استیشن</strong>
+
+<small>PS4 / PS5</small>
+
+</div>
+
+
+<div
+class="cheat-platform"
+onclick="setCheatPlatform('Xbox',this)">
+
+<span class="icon">🟢</span>
+
+<strong>ایکس‌باکس</strong>
+
+<small>Xbox One / Series</small>
+
+</div>
+
+
+<div
+class="cheat-platform"
+onclick="setCheatPlatform('Mobile',this)">
+
+<span class="icon">📱</span>
+
+<strong>موبایل</strong>
+
+<small>Android / iOS</small>
+
+</div>
+
+
+<div
+class="cheat-platform"
+onclick="setCheatPlatform('Nintendo',this)">
+
+<span class="icon">🕹️</span>
+
+<strong>نینتندو</strong>
+
+<small>Switch</small>
+
+</div>
+
+</div>
+
+
+<div class="cheat-search">
+
+<input
+id="cheatSearch"
+type="search"
+placeholder="جستجوی کد یا نام بازی..."
+oninput="renderCheats()">
+
+</div>
+
+
+<div id="cheats" class="cheats"></div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="profile-section">
+
+<h2 class="section-title">
+👤 <span>پروفایل</span>
+</h2>
+
+<div class="profile">
+
+<h3>
+پروفایل گیمر
+</h3>
+
+<input
+id="profileName"
+placeholder="اسم گیمرت را وارد کن">
+
+<button
+class="primary"
+onclick="saveProfile()">
+
+ذخیره پروفایل
+
+</button>
+
+<p
+id="profileResult"
+style="margin-top:15px;color:#27d5ff">
+</p>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+
+© 2026 GamePlus — گیم‌پلاس
+
+</div>
+
+
+</div>
+
+</main>
+
+
+<!-- ================= BOTTOM NAV ================= -->
 
 <nav class="bottom-nav">
 
-    <button
-        class="nav-item active"
-        onclick="activateNav(this);scrollToSection('home')">
+<div class="bottom-nav-inner">
 
-        <span class="nav-icon">🏠</span>
-        خانه
 
-    </button>
+<button
+class="nav-btn active"
+onclick="goTo('games-section',this)">
 
-    <button
-        class="nav-item"
-        onclick="activateNav(this);scrollToSection('games')">
+<span>🏠</span>
+خانه
 
-        <span class="nav-icon">🎮</span>
-        بازی‌ها
+</button>
 
-    </button>
 
-    <button
-        class="nav-item"
-        onclick="activateNav(this);scrollToSection('news')">
+<button
+class="nav-btn"
+onclick="goTo('games-section',this)">
 
-        <span class="nav-icon">📰</span>
-        اخبار
+<span>🎮</span>
+بازی‌ها
 
-    </button>
+</button>
 
-    <button
-        class="nav-item"
-        onclick="activateNav(this);scrollToSection('downloads')">
 
-        <span class="nav-icon">⬇️</span>
-        دانلود
+<button
+class="nav-btn"
+onclick="goTo('news-section',this)">
 
-    </button>
+<span>📰</span>
+اخبار
 
-    <button
-        class="nav-item"
-        onclick="activateNav(this);scrollToSection('profile')">
+</button>
 
-        <span class="nav-icon">👤</span>
-        پروفایل
 
-    </button>
+<button
+class="nav-btn"
+onclick="goTo('downloads-section',this)">
+
+<span>⬇️</span>
+دانلود
+
+</button>
+
+
+<button
+class="nav-btn"
+onclick="goTo('profile-section',this)">
+
+<span>👤</span>
+پروفایل
+
+</button>
+
+
+</div>
 
 </nav>
 
 
+<!-- ================= GAME MODAL ================= -->
+
+<div
+id="modal"
+class="modal"
+onclick="closeOutside(event)">
+
+<div class="modal-box">
+
+<img
+id="modalImg"
+class="modal-img"
+alt="">
+
+<div class="modal-content">
+
+<button
+class="close"
+onclick="closeModal()">
+×
+</button>
+
+<h2 id="modalTitle"></h2>
+
+<div
+id="modalMeta"
+class="meta">
+</div>
+
+<p
+id="modalDescription">
+</p>
+
+
+<a
+id="modalDownload"
+class="primary"
+target="_blank"
+rel="noopener">
+
+⬇️ دانلود رسمی
+
+</a>
+
+
+<div class="related-news">
+
+<h3>
+📰 اخبار مربوط به این بازی
+</h3>
+
+<div id="relatedNews"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
 <script>
 
-/* =====================================
+/* =====================================================
    GAME DATA
-===================================== */
+===================================================== */
 
 const games = [
 
 {
-    id:1,
-    name:"Minecraft",
-    platform:"PC",
-    genre:"Sandbox",
-    year:"2011",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1672970/header.jpg",
-    description:
-    "بازی سندباکس محبوب Minecraft که در آن می‌توانی ساخت‌وساز کنی، منابع جمع کنی و جهان‌های مختلف را کشف کنی.",
-    download:
-    "https://www.minecraft.net/download"
+id:1,
+name:"Minecraft",
+platform:"PC",
+genre:"ماجراجویی",
+date:"2011",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/253230/header.jpg",
+description:"Minecraft یک بازی سندباکس است که در آن می‌توانی منابع جمع‌آوری کنی، ابزار بسازی، خانه درست کنی و جهان خودت را بسازی.",
+download:"https://www.minecraft.net/download",
+news:[1]
 },
 
 {
-    id:2,
-    name:"Grand Theft Auto V",
-    platform:"PC",
-    genre:"Action",
-    year:"2015",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg",
-    description:
-    "نسخه PC بازی Grand Theft Auto V با بخش داستانی و GTA Online.",
-    download:
-    "https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/"
+id:2,
+name:"Grand Theft Auto V",
+platform:"PC",
+genre:"اکشن",
+date:"2015",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg",
+description:"GTA V یک بازی جهان‌باز اکشن است که در شهر Los Santos جریان دارد.",
+download:"https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/",
+news:[2]
 },
 
 {
-    id:3,
-    name:"Red Dead Redemption 2",
-    platform:"PC",
-    genre:"Action",
-    year:"2019",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
-    description:
-    "ماجراجویی جهان‌باز و داستانی در غرب وحشی آمریکا.",
-    download:
-    "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/"
+id:3,
+name:"Red Dead Redemption 2",
+platform:"PC",
+genre:"ماجراجویی",
+date:"2019",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
+description:"یک بازی جهان‌باز داستانی در غرب آمریکا.",
+download:"https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/",
+news:[3]
 },
 
 {
-    id:4,
-    name:"Cyberpunk 2077",
-    platform:"PC",
-    genre:"RPG",
-    year:"2020",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg",
-    description:
-    "یک RPG جهان‌باز در شهر آینده‌نگر Night City.",
-    download:
-    "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"
+id:4,
+name:"Cyberpunk 2077",
+platform:"PC",
+genre:"RPG",
+date:"2020",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg",
+description:"یک RPG جهان‌باز در شهر Night City.",
+download:"https://store.steampowered.com/app/1091500/Cyberpunk_2077/",
+news:[4]
 },
 
 {
-    id:5,
-    name:"Elden Ring",
-    platform:"PC",
-    genre:"RPG",
-    year:"2022",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg",
-    description:
-    "یک بازی اکشن RPG بزرگ با دنیای وسیع و مبارزات چالش‌برانگیز.",
-    download:
-    "https://store.steampowered.com/app/1245620/ELDEN_RING/"
+id:5,
+name:"Elden Ring",
+platform:"PC",
+genre:"RPG",
+date:"2022",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg",
+description:"یک اکشن RPG فانتزی با جهان وسیع.",
+download:"https://store.steampowered.com/app/1245620/ELDEN_RING/",
+news:[5]
 },
 
 {
-    id:6,
-    name:"Baldur's Gate 3",
-    platform:"PC",
-    genre:"RPG",
-    year:"2023",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg",
-    description:
-    "یک RPG داستان‌محور با انتخاب‌های گسترده و مبارزات نوبتی.",
-    download:
-    "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/"
+id:6,
+name:"Baldur's Gate 3",
+platform:"PC",
+genre:"RPG",
+date:"2023",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg",
+description:"یک RPG داستان‌محور با انتخاب‌های فراوان.",
+download:"https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
+news:[6]
 },
 
 {
-    id:7,
-    name:"Stardew Valley",
-    platform:"PC",
-    genre:"Simulation",
-    year:"2016",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg",
-    description:
-    "یک بازی کشاورزی و زندگی آرام با فعالیت‌های متنوع.",
-    download:
-    "https://store.steampowered.com/app/413150/Stardew_Valley/"
+id:7,
+name:"Stardew Valley",
+platform:"PC",
+genre:"شبیه‌سازی",
+date:"2016",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg",
+description:"بازی کشاورزی و زندگی روستایی.",
+download:"https://store.steampowered.com/app/413150/Stardew_Valley/",
+news:[7]
 },
 
 {
-    id:8,
-    name:"Terraria",
-    platform:"PC",
-    genre:"Adventure",
-    year:"2011",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg",
-    description:
-    "اکشن ماجراجویی دوبعدی با ساخت‌وساز، مبارزه و اکتشاف.",
-    download:
-    "https://store.steampowered.com/app/105600/Terraria/"
+id:8,
+name:"Terraria",
+platform:"PC",
+genre:"ماجراجویی",
+date:"2011",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg",
+description:"بازی دوبعدی سندباکس با ساخت‌وساز و مبارزه.",
+download:"https://store.steampowered.com/app/105600/Terraria/",
+news:[8]
 },
 
 {
-    id:9,
-    name:"Rust",
-    platform:"PC",
-    genre:"Survival",
-    year:"2018",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/252490/header.jpg",
-    description:
-    "برای زنده ماندن منابع جمع کن، پایگاه بساز و با بازیکنان دیگر رقابت کن.",
-    download:
-    "https://store.steampowered.com/app/252490/Rust/"
+id:9,
+name:"Rust",
+platform:"PC",
+genre:"اکشن",
+date:"2018",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/252490/header.jpg",
+description:"بازی بقا و ساخت پایگاه.",
+download:"https://store.steampowered.com/app/252490/Rust/",
+news:[9]
 },
 
 {
-    id:10,
-    name:"ARK: Survival Evolved",
-    platform:"PC",
-    genre:"Survival",
-    year:"2017",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/346110/header.jpg",
-    description:
-    "در دنیایی پر از دایناسورها زنده بمان، آن‌ها را اهلی کن و پایگاه بساز.",
-    download:
-    "https://store.steampowered.com/app/346110/ARK_Survival_Evolved/"
+id:10,
+name:"ARK: Survival Evolved",
+platform:"PC",
+genre:"ماجراجویی",
+date:"2017",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/346110/header.jpg",
+description:"بازی بقا در جهانی پر از دایناسورها.",
+download:"https://store.steampowered.com/app/346110/ARK_Survival_Evolved/",
+news:[10]
 },
 
 {
-    id:11,
-    name:"Warframe",
-    platform:"PC",
-    genre:"Action",
-    year:"2013",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/230410/header.jpg",
-    description:
-    "اکشن آنلاین سریع با مبارزات فضایی و شخصیت‌های مختلف.",
-    download:
-    "https://www.warframe.com/download"
+id:11,
+name:"Warframe",
+platform:"PC",
+genre:"اکشن",
+date:"2013",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/230410/header.jpg",
+description:"شوتر اکشن سریع با Warframeهای مختلف.",
+download:"https://www.warframe.com/download",
+news:[11]
 },
 
 {
-    id:12,
-    name:"War Thunder",
-    platform:"PC",
-    genre:"Simulation",
-    year:"2013",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/236390/header.jpg",
-    description:
-    "نبردهای وسیع با هواپیما، تانک و وسایل نقلیه نظامی.",
-    download:
-    "https://store.steampowered.com/app/236390/War_Thunder/"
+id:12,
+name:"War Thunder",
+platform:"PC",
+genre:"اکشن",
+date:"2013",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/236390/header.jpg",
+description:"نبرد هواپیماها، تانک‌ها و وسایل نقلیه نظامی.",
+download:"https://store.steampowered.com/app/236390/War_Thunder/",
+news:[12]
 },
 
 {
-    id:13,
-    name:"Counter-Strike 2",
-    platform:"PC",
-    genre:"FPS",
-    year:"2023",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",
-    description:
-    "بازی رقابتی تیراندازی اول‌شخص از Valve.",
-    download:
-    "https://store.steampowered.com/app/730/CounterStrike_2/"
+id:13,
+name:"Counter-Strike 2",
+platform:"PC",
+genre:"اکشن",
+date:"2023",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",
+description:"شوتر رقابتی تیمی Valve.",
+download:"https://store.steampowered.com/app/730/CounterStrike_2/",
+news:[13]
 },
 
 {
-    id:14,
-    name:"Dota 2",
-    platform:"PC",
-    genre:"MOBA",
-    year:"2013",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg",
-    description:
-    "بازی رقابتی MOBA با قهرمان‌های متعدد و مسابقات تیمی.",
-    download:
-    "https://store.steampowered.com/app/570/Dota_2/"
+id:14,
+name:"Dota 2",
+platform:"PC",
+genre:"استراتژی",
+date:"2013",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg",
+description:"بازی رقابتی MOBA.",
+download:"https://store.steampowered.com/app/570/Dota_2/",
+news:[14]
 },
 
 {
-    id:15,
-    name:"Team Fortress 2",
-    platform:"PC",
-    genre:"FPS",
-    year:"2007",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg",
-    description:
-    "تیراندازی تیمی با کلاس‌های مختلف و سبک هنری کارتونی.",
-    download:
-    "https://store.steampowered.com/app/440/Team_Fortress_2/"
+id:15,
+name:"Team Fortress 2",
+platform:"PC",
+genre:"اکشن",
+date:"2007",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg",
+description:"شوتر تیمی کلاس‌محور.",
+download:"https://store.steampowered.com/app/440/Team_Fortress_2/",
+news:[15]
 },
 
 {
-    id:16,
-    name:"PUBG: BATTLEGROUNDS",
-    platform:"PC",
-    genre:"Battle Royale",
-    year:"2017",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg",
-    description:
-    "بازی بتل رویال که در آن بازیکنان برای آخرین نفر یا تیم باقی‌مانده رقابت می‌کنند.",
-    download:
-    "https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/"
+id:16,
+name:"PUBG: BATTLEGROUNDS",
+platform:"PC",
+genre:"اکشن",
+date:"2017",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg",
+description:"بتل رویال رقابتی.",
+download:"https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/",
+news:[16]
 },
 
 {
-    id:17,
-    name:"God of War",
-    platform:"PC",
-    genre:"Action",
-    year:"2022",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg",
-    description:
-    "ماجراجویی کریتوس و آترئوس در سرزمین‌های اساطیری.",
-    download:
-    "https://store.steampowered.com/app/1593500/God_of_War/"
+id:17,
+name:"God of War",
+platform:"PC",
+genre:"اکشن",
+date:"2022",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg",
+description:"ماجراجویی کریتوس و آترئوس.",
+download:"https://store.steampowered.com/app/1593500/God_of_War/",
+news:[17]
 },
 
 {
-    id:18,
-    name:"Hades",
-    platform:"PC",
-    genre:"Action",
-    year:"2020",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg",
-    description:
-    "اکشن روگ‌لایک سریع با داستان و شخصیت‌های متعدد.",
-    download:
-    "https://store.steampowered.com/app/1145360/Hades/"
+id:18,
+name:"Hades",
+platform:"PC",
+genre:"اکشن",
+date:"2020",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg",
+description:"اکشن روگ‌لایک سریع.",
+download:"https://store.steampowered.com/app/1145360/Hades/",
+news:[18]
 },
 
 {
-    id:19,
-    name:"Hollow Knight",
-    platform:"PC",
-    genre:"Metroidvania",
-    year:"2017",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg",
-    description:
-    "ماجراجویی دوبعدی در دنیایی زیرزمینی و مرموز.",
-    download:
-    "https://store.steampowered.com/app/367520/Hollow_Knight/"
+id:19,
+name:"Hollow Knight",
+platform:"PC",
+genre:"ماجراجویی",
+date:"2017",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg",
+description:"ماجراجویی دوبعدی در یک دنیای مرموز.",
+download:"https://store.steampowered.com/app/367520/Hollow_Knight/",
+news:[19]
 },
 
 {
-    id:20,
-    name:"Among Us",
-    platform:"PC",
-    genre:"Party",
-    year:"2018",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
-    description:
-    "در یک سفینه فضایی گروهی بازی کن و خائن‌ها را پیدا کن.",
-    download:
-    "https://store.steampowered.com/app/945360/Among_Us/"
+id:20,
+name:"Among Us",
+platform:"PC",
+genre:"اکشن",
+date:"2018",
+image:"https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
+description:"بازی گروهی با خدمه و Impostor.",
+download:"https://store.steampowered.com/app/945360/Among_Us/",
+news:[20]
+},
+
+/* MOBILE */
+
+{
+id:21,
+name:"Minecraft",
+platform:"Mobile",
+genre:"ماجراجویی",
+date:"2011",
+image:"https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/MC_Java_Bedrock_600x338.jpg",
+description:"نسخه موبایل Minecraft برای دستگاه‌های همراه.",
+download:"https://www.minecraft.net/download",
+news:[1]
 },
 
 {
-    id:21,
-    name:"Portal 2",
-    platform:"PC",
-    genre:"Puzzle",
-    year:"2011",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/620/header.jpg",
-    description:
-    "بازی معمایی مشهور Valve با مکانیک پورتال.",
-    download:
-    "https://store.steampowered.com/app/620/Portal_2/"
+id:22,
+name:"Call of Duty: Mobile",
+platform:"Mobile",
+genre:"اکشن",
+date:"2019",
+image:"https://www.callofduty.com/content/dam/atvi/callofduty/mobile/home/codm-season-8-against-all-fate.jpg",
+description:"شوتر موبایلی Call of Duty با Multiplayer و Battle Royale.",
+download:"https://www.callofduty.com/mobile",
+news:[31]
 },
 
 {
-    id:22,
-    name:"Left 4 Dead 2",
-    platform:"PC",
-    genre:"FPS",
-    year:"2009",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg",
-    description:
-    "با دوستانت در برابر موج‌های زامبی‌ها مبارزه کن.",
-    download:
-    "https://store.steampowered.com/app/550/Left_4_Dead_2/"
+id:23,
+name:"PUBG MOBILE",
+platform:"Mobile",
+genre:"اکشن",
+date:"2018",
+image:"https://www.pubgmobile.com/images/event/pc/home.jpg",
+description:"نسخه موبایلی PUBG.",
+download:"https://www.pubgmobile.com/",
+news:[32]
 },
 
 {
-    id:23,
-    name:"Euro Truck Simulator 2",
-    platform:"PC",
-    genre:"Simulation",
-    year:"2012",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/227300/header.jpg",
-    description:
-    "با کامیون در جاده‌های اروپا رانندگی کن و شرکت حمل‌ونقل خودت را بساز.",
-    download:
-    "https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/"
+id:24,
+name:"Roblox",
+platform:"Mobile",
+genre:"ماجراجویی",
+date:"2006",
+image:"https://tr.rbxcdn.com/placeholder/420/420/Image/Png",
+description:"پلتفرمی شامل تجربه‌ها و بازی‌های ساخته‌شده توسط کاربران.",
+download:"https://www.roblox.com/download",
+news:[33]
 },
 
 {
-    id:24,
-    name:"The Elder Scrolls V: Skyrim Special Edition",
-    platform:"PC",
-    genre:"RPG",
-    year:"2016",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/489830/header.jpg",
-    description:
-    "ماجراجویی نقش‌آفرینی عظیم در دنیای Skyrim.",
-    download:
-    "https://store.steampowered.com/app/489830/Skyrim_Special_Edition/"
+id:25,
+name:"Genshin Impact",
+platform:"Mobile",
+genre:"RPG",
+date:"2020",
+image:"https://fastcdn.hoyoverse.com/content-v2/hoyoverse/placeholder",
+description:"RPG جهان‌باز با اکتشاف و شخصیت‌های مختلف.",
+download:"https://genshin.hoyoverse.com/",
+news:[34]
 },
 
 {
-    id:25,
-    name:"Fallout 4",
-    platform:"PC",
-    genre:"RPG",
-    year:"2015",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/377160/header.jpg",
-    description:
-    "یک RPG جهان‌باز پساآخرالزمانی با ساخت‌وساز و اکتشاف.",
-    download:
-    "https://store.steampowered.com/app/377160/Fallout_4/"
+id:26,
+name:"Free Fire",
+platform:"Mobile",
+genre:"اکشن",
+date:"2017",
+image:"https://play-lh.googleusercontent.com/placeholder-free-fire",
+description:"بتل رویال سریع برای موبایل.",
+download:"https://ff.garena.com/",
+news:[35]
 },
 
 {
-    id:26,
-    name:"The Forest",
-    platform:"PC",
-    genre:"Survival",
-    year:"2018",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/242760/header.jpg",
-    description:
-    "پس از سقوط هواپیما باید در جنگلی خطرناک زنده بمانی.",
-    download:
-    "https://store.steampowered.com/app/242760/The_Forest/"
+id:27,
+name:"Brawl Stars",
+platform:"Mobile",
+genre:"اکشن",
+date:"2018",
+image:"https://play-lh.googleusercontent.com/placeholder-brawl-stars",
+description:"بازی اکشن چندنفره با حالت‌های مختلف.",
+download:"https://supercell.com/en/games/brawlstars/",
+news:[36]
 },
 
 {
-    id:27,
-    name:"Subnautica",
-    platform:"PC",
-    genre:"Survival",
-    year:"2018",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/264710/header.jpg",
-    description:
-    "در یک سیاره اقیانوسی ناشناخته اکتشاف و بقا کن.",
-    download:
-    "https://store.steampowered.com/app/264710/Subnautica/"
-},
-
-{
-    id:28,
-    name:"Valheim",
-    platform:"PC",
-    genre:"Survival",
-    year:"2021",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/892970/header.jpg",
-    description:
-    "بازی بقا و اکتشاف با حال‌وهوای اساطیر نورس.",
-    download:
-    "https://store.steampowered.com/app/892970/Valheim/"
-},
-
-{
-    id:29,
-    name:"Sons of the Forest",
-    platform:"PC",
-    genre:"Survival",
-    year:"2024",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1326470/header.jpg",
-    description:
-    "بازی بقا و ترس در یک جزیره خطرناک.",
-    download:
-    "https://store.steampowered.com/app/1326470/Sons_Of_The_Forest/"
-},
-
-{
-    id:30,
-    name:"Dead by Daylight",
-    platform:"PC",
-    genre:"Horror",
-    year:"2016",
-    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/381210/header.jpg",
-    description:
-    "یک قاتل در برابر چهار بازمانده؛ برای فرار باید همکاری کنید.",
-    download:
-    "https://store.steampowered.com/app/381210/Dead_by_Daylight/"
+id:28,
+name:"Clash of Clans",
+platform:"Mobile",
+genre:"استراتژی",
+date:"2012",
+image:"https://play-lh.googleusercontent.com/placeholder-clash",
+description:"بازی استراتژی ساخت و ارتقای دهکده.",
+download:"https://supercell.com/en/games/clashofclans/",
+news:[37]
 }
 
 ];
 
 
-/* =====================================
-   NEWS DATA
-===================================== */
+/* =====================================================
+   NEWS
+===================================================== */
 
 const news = [
 
 {
-    game:"Call of Duty",
-    date:"2026-09-08",
-    title:"Call of Duty: Black Ops 7 و Warzone فصل 06 معرفی شد",
-    text:
-    "فصل ششم با رویداد The Haunting، نقشه‌های جدید، محتوای Zombies، تجهیزات تازه و محتوای جدید Warzone معرفی شد.",
-    source:
-    "https://www.callofduty.com/blog/2026/09/call-of-duty-black-ops-7-warzone-season-6-the-haunting-announcement"
+id:1,
+game:"Minecraft",
+date:"2026-09-08",
+title:"Minecraft Java 26.3 Pre-Release 3",
+text:"نسخه Java 26.3 Pre-Release 3 منتشر شده و تمرکز آن روی رفع باگ‌ها و بهبودهای فنی است.",
+source:"https://www.minecraft.net/en-us/article/minecraft-26-3-pre-release-3"
 },
 
 {
-    game:"Minecraft",
-    date:"2026-09-08",
-    title:"Minecraft 26.3 Pre-Release 3 منتشر شد",
-    text:
-    "نسخه پیش‌انتشار Java Edition شامل مجموعه‌ای از رفع باگ‌ها و تغییرات فنی است.",
-    source:
-    "https://www.minecraft.net/en-us/article/minecraft-26-3-pre-release-3"
+id:2,
+game:"Grand Theft Auto V",
+date:"2026-09-02",
+title:"آخرین اخبار Rockstar",
+text:"خبرها و اطلاعیه‌های رسمی بازی‌های Rockstar در Newswire منتشر می‌شوند.",
+source:"https://www.rockstargames.com/newswire"
 },
 
 {
-    game:"Call of Duty Mobile",
-    date:"2026-09-02",
-    title:"Season 8: Against All Fate معرفی شد",
-    text:
-    "فصل هشتم Call of Duty Mobile شامل همکاری با Honkai Impact 3rd، حالت جدید و محتوای تازه است.",
-    source:
-    "https://www.callofduty.com/blog/2026/09/call-of-duty-mobile-season-8-against-all-fate"
+id:3,
+game:"Red Dead Redemption 2",
+date:"2026-09-02",
+title:"آخرین اخبار Red Dead Redemption",
+text:"آخرین اخبار رسمی Rockstar Games.",
+source:"https://www.rockstargames.com/newswire"
 },
 
 {
-    game:"Call of Duty",
-    date:"2026-09-01",
-    title:"Modern Warfare 4 Beta Patch Notes منتشر شد",
-    text:
-    "Infinity Ward درباره تغییرات بتای Modern Warfare 4 در زمینه سلاح‌ها، TTK، حرکت و Spawnها توضیح داد.",
-    source:
-    "https://www.callofduty.com/patchnotes/2026/08/call-of-duty-modern-warfare-4-beta-patch-notes"
+id:4,
+game:"Cyberpunk 2077",
+date:"2026-09-01",
+title:"اخبار Cyberpunk 2077",
+text:"خبرها و اطلاعیه‌های رسمی بازی.",
+source:"https://www.cyberpunk.net/en/news"
 },
 
 {
-    game:"Fortnite",
-    date:"2026-09-04",
-    title:"نقشه راه عمومی Fortnite برای سازندگان معرفی شد",
-    text:
-    "Epic Games نقشه راه عمومی جدیدی را برای سازندگان Fortnite منتشر کرد.",
-    source:
-    "https://www.fortnite.com/news/tag/all-news"
+id:5,
+game:"Elden Ring",
+date:"2026-09-01",
+title:"اخبار Elden Ring",
+text:"اطلاعیه‌های رسمی Bandai Namco.",
+source:"https://www.bandainamcoent.com/news"
 },
 
 {
-    game:"Fortnite",
-    date:"2026-08-20",
-    title:"Fortnite Override معرفی شد",
-    text:
-    "Fortnite Override با تمرکز بر تغییرات و تجربه جدید برای بازیکنان معرفی شد.",
-    source:
-    "https://www.fortnite.com/news/tag/all-news"
+id:6,
+game:"Baldur's Gate 3",
+date:"2026-09-01",
+title:"اخبار Baldur's Gate 3",
+text:"خبرهای رسمی Larian Studios.",
+source:"https://larian.com/news"
 },
 
 {
-    game:"Fortnite",
-    date:"2026-08-20",
-    title:"Unreal MCP برای UEFN در دسترس قرار گرفت",
-    text:
-    "ابزار Unreal MCP برای UEFN معرفی و در دسترس سازندگان قرار گرفت.",
-    source:
-    "https://www.fortnite.com/news/tag/all-news"
+id:7,
+game:"Stardew Valley",
+date:"2026-09-01",
+title:"اخبار Stardew Valley",
+text:"اخبار و اطلاعیه‌های رسمی بازی.",
+source:"https://www.stardewvalley.net/"
 },
 
 {
-    game:"Fortnite",
-    date:"2026-07-27",
-    title:"Lil Tecca به عنوان آیکون Season 15 Fortnite Festival معرفی شد",
-    text:
-    "Lil Tecca به عنوان آیکون فصل پانزدهم Fortnite Festival معرفی شد.",
-    source:
-    "https://www.fortnite.com/news/tag/all-news"
+id:8,
+game:"Terraria",
+date:"2026-09-01",
+title:"اخبار Terraria",
+text:"خبرها و آپدیت‌های Terraria.",
+source:"https://forums.terraria.org/"
 },
 
 {
-    game:"Fortnite",
-    date:"2026-07-16",
-    title:"DC Sirens وارد Fortnite شدند",
-    text:
-    "شخصیت‌های DC Sirens به Fortnite اضافه شدند.",
-    source:
-    "https://www.fortnite.com/news/tag/all-news"
+id:9,
+game:"Rust",
+date:"2026-09-01",
+title:"اخبار Rust",
+text:"اخبار و آپدیت‌های رسمی Rust.",
+source:"https://rust.facepunch.com/news/"
 },
 
 {
-    game:"Fortnite",
-    date:"2026-06-05",
-    title:"Sidekicks به عنوان NPC وارد جزایر Fortnite شدند",
-    text:
-    "سازندگان Fortnite اکنون می‌توانند از Sidekicks به عنوان NPC در جزایر خود استفاده کنند.",
-    source:
-    "https://www.fortnite.com/news/tag/all-news"
+id:10,
+game:"ARK: Survival Evolved",
+date:"2026-09-01",
+title:"اخبار ARK",
+text:"آخرین اخبار رسمی مجموعه ARK.",
+source:"https://survivetheark.com/"
+},
+
+{
+id:11,
+game:"Warframe",
+date:"2026-09-01",
+title:"اخبار Warframe",
+text:"اخبار رسمی Warframe.",
+source:"https://www.warframe.com/news"
+},
+
+{
+id:12,
+game:"War Thunder",
+date:"2026-09-01",
+title:"اخبار War Thunder",
+text:"آخرین اخبار بازی.",
+source:"https://warthunder.com/en/news/"
+},
+
+{
+id:13,
+game:"Counter-Strike 2",
+date:"2026-09-01",
+title:"اخبار Counter-Strike 2",
+text:"خبرهای رسمی Valve.",
+source:"https://www.counter-strike.net/news"
+},
+
+{
+id:14,
+game:"Dota 2",
+date:"2026-09-01",
+title:"اخبار Dota 2",
+text:"اطلاعیه‌های رسمی Dota 2.",
+source:"https://www.dota2.com/news"
+},
+
+{
+id:15,
+game:"Team Fortress 2",
+date:"2026-09-01",
+title:"اخبار Team Fortress 2",
+text:"اطلاعات رسمی بازی.",
+source:"https://www.teamfortress.com/"
+},
+
+{
+id:16,
+game:"PUBG: BATTLEGROUNDS",
+date:"2026-09-01",
+title:"اخبار PUBG",
+text:"آخرین اخبار PUBG.",
+source:"https://pubg.com/en/news"
+},
+
+{
+id:17,
+game:"God of War",
+date:"2026-09-01",
+title:"اخبار God of War",
+text:"اخبار رسمی مجموعه.",
+source:"https://blog.playstation.com/"
+},
+
+{
+id:18,
+game:"Hades",
+date:"2026-09-01",
+title:"اخبار Hades",
+text:"اخبار رسمی Supergiant Games.",
+source:"https://www.supergiantgames.com/blog/"
+},
+
+{
+id:19,
+game:"Hollow Knight",
+date:"2026-09-01",
+title:"اخبار Hollow Knight",
+text:"اخبار رسمی Team Cherry.",
+source:"https://www.teamcherry.com.au/"
+},
+
+{
+id:20,
+game:"Among Us",
+date:"2026-09-01",
+title:"اخبار Among Us",
+text:"اخبار و آپدیت‌های رسمی.",
+source:"https://www.innersloth.com/news/"
+},
+
+{
+id:31,
+game:"Call of Duty: Mobile",
+date:"2026-09-02",
+title:"Call of Duty: Mobile Season 8",
+text:"فصل هشتم با عنوان Against All Fate معرفی شده و محتوای جدیدی به بازی اضافه می‌کند.",
+source:"https://www.callofduty.com/blog/2026/09/call-of-duty-mobile-season-8-against-all-fate"
+},
+
+{
+id:32,
+game:"PUBG MOBILE",
+date:"2026-09-01",
+title:"اخبار رسمی PUBG MOBILE",
+text:"آخرین اطلاعیه‌های رسمی PUBG MOBILE.",
+source:"https://www.pubgmobile.com/"
+},
+
+{
+id:33,
+game:"Roblox",
+date:"2026-09-01",
+title:"اخبار Roblox",
+text:"آخرین اخبار رسمی Roblox.",
+source:"https://corp.roblox.com/newsroom/"
+},
+
+{
+id:34,
+game:"Genshin Impact",
+date:"2026-09-01",
+title:"اخبار Genshin Impact",
+text:"آخرین اخبار رسمی HoYoverse.",
+source:"https://www.hoyolab.com/"
+},
+
+{
+id:35,
+game:"Free Fire",
+date:"2026-09-01",
+title:"اخبار Free Fire",
+text:"آخرین اخبار رسمی Free Fire.",
+source:"https://ff.garena.com/"
+},
+
+{
+id:36,
+game:"Brawl Stars",
+date:"2026-09-01",
+title:"اخبار Brawl Stars",
+text:"آخرین اخبار و آپدیت‌های رسمی.",
+source:"https://supercell.com/en/games/brawlstars/"
+},
+
+{
+id:37,
+game:"Clash of Clans",
+date:"2026-09-01",
+title:"اخبار Clash of Clans",
+text:"آخرین اخبار و آپدیت‌های رسمی.",
+source:"https://supercell.com/en/games/clashofclans/"
 }
 
 ];
 
 
-/* =====================================
-   DOWNLOAD DATA
-===================================== */
+/* =====================================================
+   DOWNLOADS
+===================================================== */
 
 const downloads = [
 
 {
-    name:"Minecraft",
-    platform:"PC",
-    description:"دانلود رسمی Minecraft Java & Bedrock",
-    url:"https://www.minecraft.net/download"
+name:"Minecraft",
+platform:"PC / Mobile",
+description:"دانلود رسمی Minecraft",
+link:"https://www.minecraft.net/download"
 },
 
 {
-    name:"Steam",
-    platform:"PC",
-    description:"دانلود رسمی Steam",
-    url:"https://store.steampowered.com/about/"
+name:"Fortnite",
+platform:"PC / Mobile",
+description:"دانلود رسمی Fortnite",
+link:"https://www.fortnite.com/download"
 },
 
 {
-    name:"Epic Games Launcher",
-    platform:"PC",
-    description:"لانچر رسمی Epic Games",
-    url:"https://store.epicgames.com/en-US/download"
+name:"Roblox",
+platform:"PC / Mobile",
+description:"دانلود رسمی Roblox",
+link:"https://www.roblox.com/download"
 },
 
 {
-    name:"Call of Duty Mobile",
-    platform:"Mobile",
-    description:"صفحه رسمی Call of Duty Mobile",
-    url:"https://www.callofduty.com/mobile"
+name:"Call of Duty Mobile",
+platform:"Mobile",
+description:"صفحه رسمی Call of Duty Mobile",
+link:"https://www.callofduty.com/mobile"
 },
 
 {
-    name:"PUBG Mobile",
-    platform:"Mobile",
-    description:"سایت رسمی PUBG Mobile",
-    url:"https://www.pubgmobile.com/"
+name:"PUBG MOBILE",
+platform:"Mobile",
+description:"وب‌سایت رسمی PUBG MOBILE",
+link:"https://www.pubgmobile.com/"
 },
 
 {
-    name:"Genshin Impact",
-    platform:"Mobile / PC",
-    description:"صفحه رسمی Genshin Impact",
-    url:"https://genshin.hoyoverse.com/"
+name:"Genshin Impact",
+platform:"PC / Mobile",
+description:"دانلود رسمی Genshin Impact",
+link:"https://genshin.hoyoverse.com/"
 },
 
 {
-    name:"Warframe",
-    platform:"PC",
-    description:"صفحه دانلود رسمی Warframe",
-    url:"https://www.warframe.com/download"
+name:"Steam",
+platform:"PC",
+description:"دانلود رسمی Steam",
+link:"https://store.steampowered.com/about/"
 },
 
 {
-    name:"Dota 2",
-    platform:"PC",
-    description:"صفحه رسمی Steam بازی Dota 2",
-    url:"https://store.steampowered.com/app/570/Dota_2/"
-},
-
-{
-    name:"Counter-Strike 2",
-    platform:"PC",
-    description:"صفحه رسمی Steam بازی CS2",
-    url:"https://store.steampowered.com/app/730/CounterStrike_2/"
-},
-
-{
-    name:"Terraria",
-    platform:"PC",
-    description:"صفحه رسمی Steam بازی Terraria",
-    url:"https://store.steampowered.com/app/105600/Terraria/"
+name:"Epic Games Launcher",
+platform:"PC",
+description:"دانلود رسمی Epic Games Launcher",
+link:"https://store.epicgames.com/en-US/download"
 }
 
 ];
 
 
-/* =====================================
-   CHEAT DATA
-===================================== */
+/* =====================================================
+   CHEAT DATABASE
+   PLATFORM-SPECIFIC
+===================================================== */
 
 const cheats = [
 
-{
-    game:"GTA V",
-    code:"PAINKILLER",
-    desc:"فعال کردن حالت ضدضربه موقت"
-},
-
-{
-    game:"GTA V",
-    code:"TURTLE",
-    desc:"پر کردن Health و Armor"
-},
-
-{
-    game:"GTA V",
-    code:"TOOLUP",
-    desc:"دریافت مجموعه سلاح‌ها"
-},
-
-{
-    game:"GTA V",
-    code:"LAWYERUP",
-    desc:"کاهش سطح Wanted"
-},
-
-{
-    game:"GTA V",
-    code:"FUGITIVE",
-    desc:"افزایش سطح Wanted"
-},
-
-{
-    game:"GTA V",
-    code:"CATCHME",
-    desc:"افزایش سرعت دویدن"
-},
-
-{
-    game:"GTA V",
-    code:"GOTGILLS",
-    desc:"افزایش سرعت شنا"
-},
-
-{
-    game:"GTA V",
-    code:"HOPTOIT",
-    desc:"پرش بلند"
-},
-
-{
-    game:"GTA V",
-    code:"HOTHANDS",
-    desc:"ضربات انفجاری"
-},
-
-{
-    game:"GTA V",
-    code:"HIGHEX",
-    desc:"گلوله‌های انفجاری"
-},
-
-{
-    game:"GTA V",
-    code:"INCENDIARY",
-    desc:"گلوله‌های آتش‌زا"
-},
-
-{
-    game:"GTA V",
-    code:"DEADEYE",
-    desc:"فعال کردن قابلیت نشانه‌گیری آهسته"
-},
-
-{
-    game:"GTA V",
-    code:"SKYDIVE",
-    desc:"دادن چتر نجات"
-},
-
-{
-    game:"GTA V",
-    code:"LIQUOR",
-    desc:"حالت مستی"
-},
-
-{
-    game:"GTA V",
-    code:"FLOATER",
-    desc:"جاذبه کم"
-},
-
-{
-    game:"GTA V",
-    code:"MAKEITRAIN",
-    desc:"تغییر آب‌وهوا"
-},
-
-{
-    game:"GTA V",
-    code:"BUZZOFF",
-    desc:"ظاهر کردن هلیکوپتر Buzzard"
-},
+/* ================= PC ================= */
 
 {
-    game:"GTA V",
-    code:"COMET",
-    desc:"ظاهر کردن خودرو Comet"
+platform:"PC",
+game:"GTA V",
+code:"PAINKILLER",
+title:"جان و مقاومت",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA V",
-    code:"OFFROAD",
-    desc:"ظاهر کردن Sanchez"
+platform:"PC",
+game:"GTA V",
+code:"TURTLE",
+title:"جان و زره",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA V",
-    code:"BANDIT",
-    desc:"ظاهر کردن BMX"
+platform:"PC",
+game:"GTA V",
+code:"TOOLUP",
+title:"تمام سلاح‌ها",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"HESOYAM",
-    desc:"Health، Armor و پول"
+platform:"PC",
+game:"GTA V",
+code:"LAWYERUP",
+title:"کاهش Wanted Level",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"LXGIWYL",
-    desc:"مجموعه سلاح شماره 1"
+platform:"PC",
+game:"GTA V",
+code:"FUGITIVE",
+title:"افزایش Wanted Level",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"KJKSZPJ",
-    desc:"مجموعه سلاح شماره 2"
+platform:"PC",
+game:"GTA V",
+code:"CATCHME",
+title:"دویدن سریع",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"UZUMYMW",
-    desc:"مجموعه سلاح شماره 3"
+platform:"PC",
+game:"GTA V",
+code:"GOTGILLS",
+title:"شنای سریع",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"WANRLTW",
-    desc:"مهمات نامحدود"
+platform:"PC",
+game:"GTA V",
+code:"HOPTOIT",
+title:"پرش بلند",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"ASNAEB",
-    desc:"پاک کردن Wanted Level"
+platform:"PC",
+game:"GTA V",
+code:"HOTHANDS",
+title:"مشت انفجاری",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"OSRBLHH",
-    desc:"افزایش Wanted Level"
+platform:"PC",
+game:"GTA V",
+code:"HIGHEX",
+title:"گلوله انفجاری",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"ROCKETMAN",
-    desc:"Jetpack"
+platform:"PC",
+game:"GTA V",
+code:"INCENDIARY",
+title:"گلوله آتش‌زا",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"JUMPJET",
-    desc:"ظاهر کردن Hydra"
+platform:"PC",
+game:"GTA V",
+code:"SKYDIVE",
+title:"چتر نجات",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"AIYPWZQP",
-    desc:"ظاهر کردن چتر نجات"
+platform:"PC",
+game:"GTA V",
+code:"LIQUOR",
+title:"مستی",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"KANGAROO",
-    desc:"پرش بسیار بلند"
+platform:"PC",
+game:"GTA V",
+code:"MAKEITRAIN",
+title:"تغییر آب‌وهوا",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA San Andreas",
-    code:"BAGUVIX",
-    desc:"Health بسیار زیاد"
+platform:"PC",
+game:"GTA V",
+code:"BUZZOFF",
+title:"هلیکوپتر Buzzard",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA Vice City",
-    code:"THUGSTOOLS",
-    desc:"مجموعه سلاح اول"
+platform:"PC",
+game:"GTA V",
+code:"COMET",
+title:"ماشین Comet",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA Vice City",
-    code:"PROFESSIONALTOOLS",
-    desc:"مجموعه سلاح دوم"
+platform:"PC",
+game:"GTA V",
+code:"OFFROAD",
+title:"موتورسیکلت Sanchez",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA Vice City",
-    code:"NUTTERTOOLS",
-    desc:"مجموعه سلاح سنگین"
+platform:"PC",
+game:"GTA V",
+code:"BANDIT",
+title:"دوچرخه BMX",
+note:"کد نسخه PC"
 },
 
 {
-    game:"GTA Vice City",
-    code:"ASPIRINE",
-    desc:"پر کردن Health"
+platform:"PC",
+game:"GTA San Andreas",
+code:"HESOYAM",
+title:"سلامتی، زره و پول",
+note:"کد PC"
 },
 
 {
-    game:"GTA Vice City",
-    code:"PRECIOUSPROTECTION",
-    desc:"پر کردن Armor"
+platform:"PC",
+game:"GTA San Andreas",
+code:"ROCKETMAN",
+title:"Jetpack",
+note:"کد PC"
 },
 
 {
-    game:"GTA Vice City",
-    code:"LEAVEMEALONE",
-    desc:"کاهش Wanted Level"
+platform:"PC",
+game:"GTA San Andreas",
+code:"JUMPJET",
+title:"جت Hydra",
+note:"کد PC"
 },
 
 {
-    game:"GTA Vice City",
-    code:"YOUWONTTAKEMEALIVE",
-    desc:"افزایش Wanted Level"
+platform:"PC",
+game:"GTA San Andreas",
+code:"KANGAROO",
+title:"پرش بلند",
+note:"کد PC"
 },
 
 {
-    game:"GTA Vice City",
-    code:"PANZER",
-    desc:"ظاهر کردن تانک"
+platform:"PC",
+game:"The Sims 4",
+code:"motherlode",
+title:"50000 Simoleons",
+note:"Cheat مخصوص PC/Mac"
 },
 
 {
-    game:"GTA III",
-    code:"GESUNDHEIT",
-    desc:"پر کردن Health"
+platform:"PC",
+game:"The Sims 4",
+code:"kaching",
+title:"1000 Simoleons",
+note:"Cheat مخصوص PC/Mac"
 },
 
 {
-    game:"GTA III",
-    code:"GUNSGUNSGUNS",
-    desc:"دریافت سلاح‌ها"
+platform:"PC",
+game:"Skyrim",
+code:"tgm",
+title:"God Mode",
+note:"Console Command نسخه PC"
 },
 
 {
-    game:"GTA III",
-    code:"TORTOISE",
-    desc:"پر کردن Armor"
+platform:"PC",
+game:"Skyrim",
+code:"tcl",
+title:"عبور از دیوار",
+note:"Console Command نسخه PC"
 },
 
 {
-    game:"GTA III",
-    code:"NOPOLICEPLEASE",
-    desc:"کاهش Wanted"
+platform:"PC",
+game:"Skyrim",
+code:"player.additem 0000000F 1000",
+title:"1000 Gold",
+note:"Console Command نسخه PC"
 },
 
 {
-    game:"GTA III",
-    code:"MOREPOLICEPLEASE",
-    desc:"افزایش Wanted"
+platform:"PC",
+game:"Fallout 4",
+code:"tgm",
+title:"God Mode",
+note:"Console Command نسخه PC"
 },
 
 {
-    game:"GTA III",
-    code:"GIVEUSATANK",
-    desc:"ظاهر کردن تانک"
+platform:"PC",
+game:"Fallout 4",
+code:"tcl",
+title:"عبور از دیوار",
+note:"Console Command نسخه PC"
 },
 
 {
-    game:"The Sims 4",
-    code:"kaching",
-    desc:"دریافت پول"
+platform:"PC",
+game:"DOOM",
+code:"iddqd",
+title:"God Mode",
+note:"در نسخه‌های پشتیبانی‌شده"
 },
 
 {
-    game:"The Sims 4",
-    code:"rosebud",
-    desc:"دریافت پول"
+platform:"PC",
+game:"DOOM",
+code:"idkfa",
+title:"سلاح و مهمات",
+note:"در نسخه‌های پشتیبانی‌شده"
 },
 
-{
-    game:"The Sims 4",
-    code:"motherlode",
-    desc:"دریافت 50000 سیمولئون"
-},
-
-{
-    game:"The Sims 4",
-    code:"FreeRealEstate on",
-    desc:"رایگان شدن خانه‌ها هنگام خرید"
-},
-
-{
-    game:"DOOM",
-    code:"iddqd",
-    desc:"God Mode در نسخه‌های پشتیبانی‌شده"
-},
-
-{
-    game:"DOOM",
-    code:"idkfa",
-    desc:"دریافت سلاح‌ها و مهمات در نسخه‌های پشتیبانی‌شده"
-},
-
-{
-    game:"DOOM",
-    code:"idclip",
-    desc:"عبور از موانع در نسخه‌های پشتیبانی‌شده"
-},
-
-{
-    game:"DOOM",
-    code:"idclev",
-    desc:"تغییر مرحله با شماره مرحله"
-},
-
-{
-    game:"Age of Empires II",
-    code:"cheese steak jimmy's",
-    desc:"دریافت Food"
-},
-
-{
-    game:"Age of Empires II",
-    code:"lumberjack",
-    desc:"دریافت Wood"
-},
-
-{
-    game:"Age of Empires II",
-    code:"robin hood",
-    desc:"دریافت Gold"
-},
-
-{
-    game:"Age of Empires II",
-    code:"rock on",
-    desc:"دریافت Stone"
-},
-
-{
-    game:"Age of Empires II",
-    code:"aegis",
-    desc:"ساخت‌وساز سریع"
-},
-
-{
-    game:"Age of Empires II",
-    code:"marco",
-    desc:"نمایش نقشه"
-},
-
-{
-    game:"Age of Empires II",
-    code:"polo",
-    desc:"برداشتن Fog of War"
-},
-
-{
-    game:"Age of Empires II",
-    code:"i r winner",
-    desc:"بردن سناریو"
-},
-
-{
-    game:"Age of Empires II",
-    code:"resign",
-    desc:"تسلیم شدن"
-},
+/* ================= PLAYSTATION ================= */
 
 {
-    game:"StarCraft",
-    code:"show me the money",
-    desc:"دریافت منابع"
+platform:"PlayStation",
+game:"GTA V",
+code:"△ → → ← → □ ○ ←",
+title:"جان و زره",
+note:"ترتیب دکمه‌های PlayStation"
 },
 
 {
-    game:"StarCraft",
-    code:"power overwhelming",
-    desc:"God Mode"
+platform:"PlayStation",
+game:"GTA V",
+code:"○ ○ L1 ○ ○ ○ L1 L2 R1 △ ○ △",
+title:"هلیکوپتر Buzzard",
+note:"ترتیب دکمه‌های PlayStation"
 },
 
 {
-    game:"StarCraft",
-    code:"operation cwal",
-    desc:"ساخت سریع"
+platform:"PlayStation",
+game:"GTA V",
+code:"R1 R1 ○ R2 → ← → ← → ←",
+title:"Wanted Level پایین",
+note:"ترتیب دکمه‌های PlayStation"
 },
 
 {
-    game:"StarCraft",
-    code:"there is no cow level",
-    desc:"پایان سریع مرحله"
+platform:"PlayStation",
+game:"GTA V",
+code:"△ ← → → □ R2 R1",
+title:"ماشین Comet",
+note:"ترتیب دکمه‌های PlayStation"
 },
 
 {
-    game:"StarCraft",
-    code:"black sheep wall",
-    desc:"نمایش کامل نقشه"
+platform:"PlayStation",
+game:"GTA V",
+code:"← → □ → ← R1 → ← □ △",
+title:"پرش بلند",
+note:"ترتیب دکمه‌های PlayStation"
 },
 
 {
-    game:"StarCraft",
-    code:"food for thought",
-    desc:"رفع محدودیت Supply"
+platform:"PlayStation",
+game:"GTA San Andreas",
+code:"R1 R2 L1 X ← ↓ → ↑ ← ↓ → ↑",
+title:"سلامتی، زره و پول",
+note:"ترکیب دکمه‌ای PlayStation"
 },
 
 {
-    game:"StarCraft",
-    code:"something for nothing",
-    desc:"ارتقای رایگان"
+platform:"PlayStation",
+game:"GTA San Andreas",
+code:"L1 L2 R1 R2 ↑ ↓ ← → ↑ ↓ ← →",
+title:"Jetpack",
+note:"ترکیب دکمه‌ای نسخه‌های سازگار"
 },
 
 {
-    game:"Warcraft III",
-    code:"whosyourdaddy",
-    desc:"قدرت بسیار زیاد و آسیب بسیار بالا"
+platform:"PlayStation",
+game:"GTA San Andreas",
+code:"△ △ □ ○ X L1 L1 ↓ ↑",
+title:"پرش بلند",
+note:"ترکیب دکمه‌ای PlayStation"
 },
 
 {
-    game:"Warcraft III",
-    code:"iseedeadpeople",
-    desc:"نمایش نقشه"
+platform:"PlayStation",
+game:"GTA Vice City",
+code:"R1 R2 L1 ○ ← ↓ → ↑ ← ↓ → ↑",
+title:"سلامتی",
+note:"ترکیب دکمه‌ای PlayStation"
 },
 
 {
-    game:"Warcraft III",
-    code:"thereisnospoon",
-    desc:"Mana نامحدود"
+platform:"PlayStation",
+game:"GTA III",
+code:"R2 R2 L1 R2 ← ↓ → ↑ ← ↓ → ↑",
+title:"سلاح‌ها",
+note:"ترکیب دکمه‌ای PlayStation"
 },
 
-{
-    game:"Warcraft III",
-    code:"greedisgood 10000",
-    desc:"دریافت منابع"
-},
+/* ================= XBOX ================= */
 
 {
-    game:"Warcraft III",
-    code:"keysersoze 10000",
-    desc:"دریافت Gold"
+platform:"Xbox",
+game:"GTA V",
+code:"Y → → ← → X B ←",
+title:"جان و زره",
+note:"ترتیب دکمه‌های Xbox"
 },
 
 {
-    game:"Warcraft III",
-    code:"leafittome 500",
-    desc:"دریافت Lumber"
+platform:"Xbox",
+game:"GTA V",
+code:"B B LB B B B LB LT RB Y B Y",
+title:"هلیکوپتر Buzzard",
+note:"ترتیب دکمه‌های Xbox"
 },
 
 {
-    game:"Warcraft III",
-    code:"warpten",
-    desc:"ساخت سریع"
+platform:"Xbox",
+game:"GTA V",
+code:"RB RB B RT → ← → ← → ←",
+title:"کاهش Wanted Level",
+note:"ترتیب دکمه‌های Xbox"
 },
 
 {
-    game:"Warcraft III",
-    code:"pointbreak",
-    desc:"رفع محدودیت غذا"
+platform:"Xbox",
+game:"GTA V",
+code:"Y ← → → X RT RB",
+title:"ماشین Comet",
+note:"ترتیب دکمه‌های Xbox"
 },
 
 {
-    game:"Warcraft III",
-    code:"synergy",
-    desc:"حذف محدودیت‌های Tech Tree"
+platform:"Xbox",
+game:"GTA V",
+code:"← → X → ← RB → ← X Y",
+title:"پرش بلند",
+note:"ترتیب دکمه‌های Xbox"
 },
 
 {
-    game:"Skyrim",
-    code:"tgm",
-    desc:"God Mode"
+platform:"Xbox",
+game:"GTA San Andreas",
+code:"RB RT LB A ← ↓ → ↑ ← ↓ → ↑",
+title:"سلامتی، زره و پول",
+note:"ترکیب دکمه‌ای Xbox"
 },
 
 {
-    game:"Skyrim",
-    code:"tcl",
-    desc:"عبور از دیوارها و پرواز آزاد"
+platform:"Xbox",
+game:"GTA San Andreas",
+code:"LB LT RB RT ↑ ↓ ← → ↑ ↓ ← →",
+title:"Jetpack",
+note:"در نسخه‌های پشتیبانی‌شده"
 },
 
 {
-    game:"Skyrim",
-    code:"player.additem 0000000F 1000",
-    desc:"دریافت 1000 Gold"
+platform:"Xbox",
+game:"GTA Vice City",
+code:"RB RT LB B ← ↓ → ↑ ← ↓ → ↑",
+title:"سلامتی",
+note:"ترکیب دکمه‌ای Xbox"
 },
 
-{
-    game:"Skyrim",
-    code:"player.additem 0000000A 100",
-    desc:"دریافت Lockpick"
-},
+/* ================= MOBILE ================= */
 
 {
-    game:"Skyrim",
-    code:"player.setav carryweight 1000",
-    desc:"افزایش ظرفیت حمل"
+platform:"Mobile",
+game:"Minecraft",
+code:"/gamemode creative",
+title:"Creative Mode",
+note:"با فعال بودن Cheats"
 },
 
 {
-    game:"Fallout 4",
-    code:"tgm",
-    desc:"God Mode"
+platform:"Mobile",
+game:"Minecraft",
+code:"/gamemode survival",
+title:"Survival Mode",
+note:"با فعال بودن Cheats"
 },
 
 {
-    game:"Fallout 4",
-    code:"tcl",
-    desc:"No Clip"
+platform:"Mobile",
+game:"Minecraft",
+code:"/give @p diamond 64",
+title:"64 الماس",
+note:"Java/Bedrock با توجه به نسخه"
 },
 
 {
-    game:"Fallout 4",
-    code:"tai",
-    desc:"توقف هوش مصنوعی"
+platform:"Mobile",
+game:"Minecraft",
+code:"/time set day",
+title:"روز کردن زمان",
+note:"با فعال بودن Cheats"
 },
 
 {
-    game:"Fallout 4",
-    code:"tdetect",
-    desc:"مخفی شدن از تشخیص NPCها"
+platform:"Mobile",
+game:"Minecraft",
+code:"/time set night",
+title:"شب کردن زمان",
+note:"با فعال بودن Cheats"
 },
 
 {
-    game:"Fallout 4",
-    code:"player.additem 0000000F 1000",
-    desc:"دریافت 1000 Caps"
+platform:"Mobile",
+game:"Minecraft",
+code:"/weather clear",
+title:"هوای صاف",
+note:"با فعال بودن Cheats"
 },
 
 {
-    game:"Minecraft",
-    code:"/gamemode creative",
-    desc:"تغییر حالت بازی به Creative؛ نیازمند فعال بودن Cheats"
+platform:"Mobile",
+game:"Minecraft",
+code:"/weather rain",
+title:"باران",
+note:"با فعال بودن Cheats"
 },
 
 {
-    game:"Minecraft",
-    code:"/gamemode survival",
-    desc:"تغییر حالت بازی به Survival؛ نیازمند فعال بودن Cheats"
+platform:"Mobile",
+game:"Minecraft",
+code:"/gamerule keepInventory true",
+title:"حفظ وسایل بعد از مرگ",
+note:"با فعال بودن Cheats"
 },
 
 {
-    game:"Minecraft",
-    code:"/give @p diamond 64",
-    desc:"دادن 64 الماس در نسخه‌های سازگار"
+platform:"Mobile",
+game:"Minecraft",
+code:"/tp @p 0 100 0",
+title:"Teleport",
+note:"با فعال بودن Cheats"
 },
 
 {
-    game:"Minecraft",
-    code:"/time set day",
-    desc:"تنظیم زمان روی روز"
+platform:"Mobile",
+game:"Minecraft",
+code:"/gamerule doDaylightCycle false",
+title:"توقف چرخه روز و شب",
+note:"با فعال بودن Cheats"
 },
 
 {
-    game:"Minecraft",
-    code:"/time set night",
-    desc:"تنظیم زمان روی شب"
+platform:"Mobile",
+game:"Minecraft",
+code:"/difficulty peaceful",
+title:"Peaceful",
+note:"با فعال بودن Cheats"
 },
 
-{
-    game:"Minecraft",
-    code:"/weather clear",
-    desc:"پاک کردن باران و طوفان"
-},
+/* ================= NINTENDO ================= */
 
 {
-    game:"Minecraft",
-    code:"/weather rain",
-    desc:"شروع باران"
+platform:"Nintendo",
+game:"The Legend of Zelda: Breath of the Wild",
+code:"Save / Load",
+title:"سیستم ذخیره و بارگذاری",
+note:"کد تقلب رسمی ندارد؛ از Save/Load بازی استفاده می‌شود."
 },
 
 {
-    game:"Minecraft",
-    code:"/gamerule keepInventory true",
-    desc:"حفظ وسایل بعد از مرگ"
+platform:"Nintendo",
+game:"Minecraft",
+code:"/gamemode creative",
+title:"Creative Mode",
+note:"در نسخه Bedrock با فعال بودن Cheats"
 },
 
 {
-    game:"Minecraft",
-    code:"/tp @p 0 100 0",
-    desc:"انتقال بازیکن به مختصات مشخص"
+platform:"Nintendo",
+game:"Minecraft",
+code:"/time set day",
+title:"روز کردن زمان",
+note:"در نسخه Bedrock با فعال بودن Cheats"
 },
 
 {
-    game:"Minecraft",
-    code:"/gamerule doDaylightCycle false",
-    desc:"متوقف کردن چرخه روز و شب"
+platform:"Nintendo",
+game:"Minecraft",
+code:"/weather clear",
+title:"هوای صاف",
+note:"در نسخه Bedrock با فعال بودن Cheats"
 }
 
 ];
 
 
-/* =====================================
+/* =====================================================
    STATE
-===================================== */
+===================================================== */
 
-let currentPlatform = "همه";
+let currentGamePlatform = "PC";
+
+let currentGenre = "همه";
+
+let currentCheatPlatform = "PC";
 
 
-/* =====================================
+/* =====================================================
    RENDER GAMES
-===================================== */
+===================================================== */
 
 function renderGames(){
 
-    const grid =
-        document.getElementById("gameGrid");
+    const box =
+        document.getElementById("games");
 
-    const search =
+    const query =
         document
-        .getElementById("gameSearch")
+        .getElementById("search")
         .value
         .trim()
         .toLowerCase();
 
-    const filtered =
-        games.filter(game => {
+    const result =
+        games.filter(game=>{
 
-            const platformMatch =
-                currentPlatform === "همه" ||
-                game.platform === currentPlatform;
+            const platformOK =
+                game.platform === currentGamePlatform;
 
-            const searchMatch =
+            const genreOK =
+                currentGenre === "همه" ||
+                game.genre === currentGenre;
+
+            const searchOK =
+                !query ||
                 game.name
                 .toLowerCase()
-                .includes(search);
+                .includes(query) ||
+                game.genre
+                .toLowerCase()
+                .includes(query);
 
-            return platformMatch &&
-                   searchMatch;
+            return platformOK &&
+                   genreOK &&
+                   searchOK;
+
         });
 
-    if(filtered.length === 0){
 
-        grid.innerHTML =
+    if(!result.length){
+
+        box.innerHTML =
         `<div class="empty">
-            بازی موردنظر پیدا نشد 😕
+        بازی‌ای پیدا نشد 😕
         </div>`;
 
         return;
     }
 
-    grid.innerHTML =
-        filtered.map(game => `
+
+    box.innerHTML =
+        result.map(game=>`
 
         <article
-            class="game-card"
-            onclick="showGame(${game.id})">
+        class="game"
+        onclick="openGame(${game.id})">
 
-            <img
-                class="game-image"
-                src="${game.image}"
-                alt="${escapeHTML(game.name)}"
-                loading="lazy">
+        <img
+        src="${game.image}"
+        alt="${game.name}"
+        loading="lazy"
+        onerror="this.style.display='none'">
 
-            <div class="game-info">
+        <div class="game-info">
 
-                <div class="game-name">
-                    ${escapeHTML(game.name)}
-                </div>
+        <h3>
+        ${game.name}
+        </h3>
 
-                <div class="game-meta">
+        <div class="tags">
 
-                    <span class="tag">
-                        ${escapeHTML(game.platform)}
-                    </span>
+        <span class="tag">
+        ${
+            game.platform === "PC"
+            ? "💻 PC"
+            : "📱 Mobile"
+        }
+        </span>
 
-                    <span class="tag">
-                        ${escapeHTML(game.genre)}
-                    </span>
+        <span class="tag">
+        ${game.genre}
+        </span>
 
-                    <span class="tag">
-                        ${escapeHTML(game.year)}
-                    </span>
+        </div>
 
-                </div>
-
-            </div>
+        </div>
 
         </article>
 
-        `).join("");
+        `)
+        .join("");
+
 }
 
 
-/* =====================================
-   PLATFORM
-===================================== */
+/* =====================================================
+   GAME PLATFORM
+===================================================== */
 
-function setPlatform(platform,button){
+function setGamePlatform(platform){
 
-    currentPlatform = platform;
+    currentGamePlatform =
+        platform;
 
     document
-        .querySelectorAll(".filter-btn")
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
+    .getElementById("pcPlatform")
+    .classList
+    .toggle(
+        "active",
+        platform === "PC"
+    );
+
+    document
+    .getElementById("mobilePlatform")
+    .classList
+    .toggle(
+        "active",
+        platform === "Mobile"
+    );
+
+    renderGames();
+
+}
+
+
+/* =====================================================
+   GAME GENRE
+===================================================== */
+
+function setGenre(genre,button){
+
+    currentGenre = genre;
+
+    document
+    .querySelectorAll(
+        "#games-section .filter"
+    )
+    .forEach(btn=>{
+        btn.classList.remove("active");
+    });
 
     button.classList.add("active");
 
     renderGames();
+
 }
 
 
-/* =====================================
-   SHOW GAME
-===================================== */
+/* =====================================================
+   OPEN GAME
+===================================================== */
 
-function showGame(id){
+function openGame(id){
 
     const game =
-        games.find(g => g.id === id);
+        games.find(x=>x.id===id);
 
     if(!game) return;
 
-    document
-        .getElementById("modalImage")
-        .src = game.image;
 
     document
-        .getElementById("modalTitle")
-        .textContent = game.name;
+    .getElementById("modalImg")
+    .src = game.image;
+
 
     document
-        .getElementById("modalDescription")
-        .textContent = game.description;
+    .getElementById("modalTitle")
+    .textContent =
+        game.name;
+
 
     document
-        .getElementById("modalMeta")
-        .innerHTML = `
+    .getElementById("modalDescription")
+    .textContent =
+        game.description;
 
-            <span class="tag">
-                ${escapeHTML(game.platform)}
-            </span>
-
-            <span class="tag">
-                ${escapeHTML(game.genre)}
-            </span>
-
-            <span class="tag">
-                ${escapeHTML(game.year)}
-            </span>
-
-        `;
 
     document
-        .getElementById("modalDownload")
-        .href = game.download;
+    .getElementById("modalDownload")
+    .href =
+        game.download;
+
 
     document
-        .getElementById("gameModal")
-        .classList.add("show");
+    .getElementById("modalMeta")
+    .innerHTML = `
+
+    <div>
+    پلتفرم:
+    ${
+        game.platform === "PC"
+        ? "💻 کامپیوتر"
+        : "📱 موبایل"
+    }
+    </div>
+
+    <div>
+    ژانر: ${game.genre}
+    </div>
+
+    <div>
+    سال انتشار: ${game.date}
+    </div>
+
+    `;
+
+
+    const related =
+        news.filter(n=>
+            game.news.includes(n.id)
+        );
+
+
+    document
+    .getElementById("relatedNews")
+    .innerHTML =
+        related.length
+
+        ? related.map(n=>`
+
+        <div class="related-item">
+
+        <small>
+        ${n.date}
+        </small>
+
+        <h4>
+        ${n.title}
+        </h4>
+
+        <p>
+        ${n.text}
+        </p>
+
+        <a
+        href="${n.source}"
+        target="_blank"
+        rel="noopener">
+
+        مشاهده منبع رسمی ↗
+
+        </a>
+
+        </div>
+
+        `).join("")
+
+        :
+
+        `<p style="color:#8998aa">
+        فعلاً خبر مرتبطی ثبت نشده.
+        </p>`;
+
+
+    document
+    .getElementById("modal")
+    .classList.add("show");
+
 
     document.body.style.overflow =
         "hidden";
+
 }
 
 
-/* =====================================
-   HIDE MODAL
-===================================== */
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
 
-function hideModal(){
+function closeModal(){
 
     document
-        .getElementById("gameModal")
-        .classList.remove("show");
+    .getElementById("modal")
+    .classList
+    .remove("show");
 
     document.body.style.overflow =
         "";
+
 }
 
 
-/* =====================================
-   CLOSE MODAL
-===================================== */
+function closeOutside(event){
 
-function closeModal(event){
+    if(event.target.id === "modal"){
 
-    if(
-        event.target.id ===
-        "gameModal"
-    ){
-
-        hideModal();
+        closeModal();
 
     }
+
 }
 
 
-/* =====================================
-   RENDER NEWS
-===================================== */
+/* =====================================================
+   NEWS
+===================================================== */
 
 function renderNews(){
 
-    const container =
-        document.getElementById("newsList");
+    document
+    .getElementById("newsList")
+    .innerHTML =
 
-    container.innerHTML =
-        news.map(item => `
+    news.map(n=>`
 
-        <article class="news-card">
+    <article class="news">
 
-            <div class="news-date">
-                📅 ${escapeHTML(item.date)}
-            </div>
+    <div class="news-date">
+    ${n.date}
+    </div>
 
-            <h3>
-                ${escapeHTML(item.title)}
-            </h3>
+    <h3>
+    ${n.title}
+    </h3>
 
-            <p>
-                ${escapeHTML(item.text)}
-            </p>
+    <p>
+    ${n.text}
+    </p>
 
-            <span class="tag">
-                🎮 ${escapeHTML(item.game)}
-            </span>
+    <a
+    href="${n.source}"
+    target="_blank"
+    rel="noopener">
 
-            <br><br>
+    منبع رسمی ↗
 
-            <a
-                class="news-source"
-                href="${item.source}"
-                target="_blank"
-                rel="noopener">
+    </a>
 
-                منبع رسمی ↗
+    </article>
 
-            </a>
+    `).join("");
 
-        </article>
-
-        `).join("");
 }
 
 
-/* =====================================
-   RENDER DOWNLOADS
-===================================== */
+/* =====================================================
+   DOWNLOADS
+===================================================== */
 
 function renderDownloads(){
 
-    const container =
-        document.getElementById("downloadGrid");
+    document
+    .getElementById("downloads")
+    .innerHTML =
 
-    container.innerHTML =
-        downloads.map(item => `
+    downloads.map(d=>`
 
-        <article class="download-card">
+    <article class="download">
 
-            <div>
+    <h3>
+    ${d.name}
+    </h3>
 
-                <h3>
-                    ${escapeHTML(item.name)}
-                </h3>
+    <p style="color:#98a7ba">
+    ${d.description}
+    </p>
 
-                <p>
-                    ${escapeHTML(item.description)}
-                </p>
+    <span class="tag">
+    ${d.platform}
+    </span>
 
-                <br>
+    <a
+    href="${d.link}"
+    target="_blank"
+    rel="noopener"
+    class="primary">
 
-                <span class="tag">
-                    ${escapeHTML(item.platform)}
-                </span>
+    دانلود رسمی ↗
 
-            </div>
+    </a>
 
-            <a
-                class="btn btn-primary"
-                href="${item.url}"
-                target="_blank"
-                rel="noopener">
+    </article>
 
-                دانلود
+    `).join("");
 
-            </a>
-
-        </article>
-
-        `).join("");
 }
 
 
-/* =====================================
-   RENDER CHEATS
-===================================== */
+/* =====================================================
+   CHEAT PLATFORM
+===================================================== */
+
+function setCheatPlatform(platform,button){
+
+    currentCheatPlatform =
+        platform;
+
+
+    document
+    .querySelectorAll(
+        ".cheat-platform"
+    )
+    .forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+
+    button.classList.add("active");
+
+
+    document
+    .getElementById("cheatSearch")
+    .value = "";
+
+
+    renderCheats();
+
+}
+
+
+/* =====================================================
+   CHEAT SEARCH + RENDER
+===================================================== */
 
 function renderCheats(){
 
-    const container =
-        document.getElementById("cheatGrid");
+    const box =
+        document.getElementById("cheats");
 
-    const input =
-        document.getElementById("cheatSearch");
 
-    const search =
-        input.value
+    const query =
+        document
+        .getElementById("cheatSearch")
+        .value
         .trim()
         .toLowerCase();
 
-    const filtered =
-        cheats.filter(item =>
 
-            item.game
+    const result =
+        cheats.filter(c=>{
+
+            const platformOK =
+                c.platform ===
+                currentCheatPlatform;
+
+
+            const searchOK =
+                !query ||
+                c.game
                 .toLowerCase()
-                .includes(search)
-
-            ||
-
-            item.code
+                .includes(query) ||
+                c.code
                 .toLowerCase()
-                .includes(search)
-
-            ||
-
-            item.desc
+                .includes(query) ||
+                c.title
                 .toLowerCase()
-                .includes(search)
+                .includes(query);
 
-        );
 
-    if(filtered.length === 0){
+            return platformOK &&
+                   searchOK;
 
-        container.innerHTML =
+        });
+
+
+    if(!result.length){
+
+        box.innerHTML =
         `<div class="empty">
-            کدی پیدا نشد 😕
+        برای این پلتفرم کدی پیدا نشد.
         </div>`;
 
         return;
+
     }
 
-    container.innerHTML =
-        filtered.map(item => `
 
-        <article class="cheat-card">
+    box.innerHTML =
+        result.map(c=>`
 
-            <div class="cheat-game">
-                🎮 ${escapeHTML(item.game)}
-            </div>
+        <article class="cheat">
 
-            <div class="cheat-code">
-                ${escapeHTML(item.code)}
-            </div>
+        <div class="cheat-title">
 
-            <div class="cheat-desc">
-                ${escapeHTML(item.desc)}
-            </div>
+        <strong>
+        ${c.title}
+        </strong>
+
+        <span class="cheat-game">
+        ${c.game}
+        </span>
+
+        </div>
+
+        <span class="code">
+        ${c.code}
+        </span>
+
+        <div class="cheat-note">
+        ${c.note}
+        </div>
 
         </article>
 
         `).join("");
+
 }
 
 
-/* =====================================
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function goTo(id,button){
+
+    document
+    .getElementById(id)
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+
+    document
+    .querySelectorAll(".nav-btn")
+    .forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+
+    button.classList.add("active");
+
+}
+
+
+/* =====================================================
    PROFILE
-===================================== */
+===================================================== */
 
 function saveProfile(){
 
-    const input =
-        document.getElementById(
-            "profileName"
-        );
-
-    const result =
-        document.getElementById(
-            "profileResult"
-        );
-
     const name =
-        input.value.trim();
+        document
+        .getElementById("profileName")
+        .value
+        .trim();
+
 
     if(!name){
 
-        result.textContent =
-            "اول اسمت را وارد کن.";
+        document
+        .getElementById("profileResult")
+        .textContent =
+        "اول اسمت رو وارد کن 😄";
 
         return;
+
     }
 
+
     localStorage.setItem(
-        "gameplus_name",
+        "gameplus_profile",
         name
     );
 
-    result.textContent =
-        "پروفایل ذخیره شد 👑";
+
+    document
+    .getElementById("profileResult")
+    .textContent =
+        `سلام ${name} 👋 پروفایلت ذخیره شد.`;
 
 }
 
-
-/* =====================================
-   LOAD PROFILE
-===================================== */
 
 function loadProfile(){
 
     const name =
         localStorage.getItem(
-            "gameplus_name"
+            "gameplus_profile"
         );
 
-    if(!name) return;
 
-    document
+    if(name){
+
+        document
         .getElementById("profileName")
-        .value = name;
+        .value =
+            name;
 
-    document
+        document
         .getElementById("profileResult")
         .textContent =
-        `خوش آمدی ${name} 🎮`;
+            `خوش اومدی ${name} 👋`;
+
+    }
 
 }
 
 
-/* =====================================
-   NAVIGATION
-===================================== */
-
-function scrollToSection(id){
-
-    const section =
-        document.getElementById(id);
-
-    if(!section) return;
-
-    section.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
-
-}
-
-
-/* =====================================
-   NAV ACTIVE
-===================================== */
-
-function activateNav(button){
-
-    document
-        .querySelectorAll(".nav-item")
-        .forEach(item =>
-            item.classList.remove("active")
-        );
-
-    button.classList.add("active");
-
-}
-
-
-/* =====================================
-   ESCAPE HTML
-===================================== */
-
-function escapeHTML(value){
-
-    return String(value)
-
-        .replaceAll("&","&amp;")
-
-        .replaceAll("<","&lt;")
-
-        .replaceAll(">","&gt;")
-
-        .replaceAll('"',"&quot;")
-
-        .replaceAll("'","&#039;");
-
-}
-
-
-/* =====================================
-   INITIALIZE
-===================================== */
+/* =====================================================
+   START
+===================================================== */
 
 renderGames();
 
@@ -3254,22 +2912,19 @@ renderCheats();
 loadProfile();
 
 
-/* =====================================
-   ESC KEY
-===================================== */
+/* ESC CLOSE */
 
 document.addEventListener(
-    "keydown",
-    event => {
+"keydown",
+function(event){
 
-        if(event.key === "Escape"){
-            hideModal();
-        }
-
+    if(event.key === "Escape"){
+        closeModal();
     }
-);
+
+});
 
 </script>
 
 </body>
-   </html>
+    </html>
