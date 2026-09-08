@@ -3,110 +3,1011 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>گیم‌پلاس | دنیای گیمرها</title>
+<title>GamePlus | گیم‌پلاس</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Tahoma,Arial,sans-serif;background:#0b0d12;color:#fff}
-header{background:#121620;padding:20px 7%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
-.logo{font-size:28px;font-weight:bold}
-.logo span{color:#00e5ff}
-nav a{color:#ddd;text-decoration:none;margin:0 12px}
-nav a:hover{color:#00e5ff}
-.hero{margin:35px 7%;padding:55px 40px;border-radius:25px;background:linear-gradient(135deg,#171d2b,#10131b);text-align:center}
-.hero h1{font-size:45px;margin-bottom:15px}
-.hero p{color:#aaa;font-size:18px}
-.container{width:86%;margin:auto}
-.title{margin:35px 0 20px;font-size:25px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:#141925;border-radius:18px;padding:25px;transition:.2s}
-.card:hover{transform:translateY(-5px)}
-.card h3{margin-bottom:10px}
-.card p{color:#aaa;line-height:1.8}
-.badge{display:inline-block;margin-bottom:15px;padding:6px 12px;border-radius:20px;background:#00e5ff;color:#001014;font-size:12px;font-weight:bold}
-.live{border:1px solid #ff3158}
-.live .badge{background:#ff3158;color:#fff}
-footer{margin-top:60px;padding:30px;text-align:center;background:#121620;color:#888}
-@media(max-width:700px){
-nav{display:none}
-.cards{grid-template-columns:1fr}
-.hero h1{font-size:32px}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Tahoma,Arial,sans-serif;
+  background:#080b12;
+  color:white;
+  line-height:1.7;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,input{
+  font-family:inherit;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(8,11,18,.95);
+  border-bottom:1px solid #242938;
+  backdrop-filter:blur(15px);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:10px 20px;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+}
+
+.logo span{
+  color:#795cff;
+}
+
+.menu{
+  display:flex;
+  gap:18px;
+  margin-right:auto;
+}
+
+.menu a{
+  color:#aeb5c4;
+  font-size:14px;
+}
+
+.menu a:hover{
+  color:white;
+}
+
+.search{
+  width:230px;
+  background:#151a24;
+  border:1px solid #2b3140;
+  border-radius:12px;
+  padding:9px 12px;
+  color:white;
+  outline:none;
+}
+
+.container{
+  width:min(1150px,92%);
+  margin:auto;
+}
+
+.hero{
+  margin-top:30px;
+  padding:55px 35px;
+  border-radius:25px;
+  background:linear-gradient(135deg,#19122f,#101827,#11141c);
+  border:1px solid #30294a;
+}
+
+.badge{
+  display:inline-block;
+  background:#251d42;
+  color:#b9a9ff;
+  padding:6px 12px;
+  border-radius:30px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  font-size:clamp(32px,6vw,58px);
+  line-height:1.2;
+  margin-bottom:15px;
+}
+
+.hero p{
+  color:#aab1bf;
+  max-width:650px;
+}
+
+.buttons{
+  margin-top:25px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:11px 18px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.primary{
+  background:#795cff;
+  color:white;
+}
+
+.secondary{
+  background:#1b202b;
+  color:white;
+  border:1px solid #303746;
+}
+
+section{
+  padding:32px 0;
+}
+
+.title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.title h2{
+  font-size:22px;
+}
+
+.muted{
+  color:#8992a2;
+  font-size:13px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.games{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.card{
+  background:#121720;
+  border:1px solid #252b38;
+  border-radius:17px;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#4b5264;
+}
+
+.image{
+  height:150px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:50px;
+  background:linear-gradient(135deg,#242a38,#141923);
+}
+
+.game .image{
+  height:125px;
+}
+
+.card-body{
+  padding:15px;
+}
+
+.card h3{
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+.live{
+  color:#ff526c;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.stats{
+  margin-top:10px;
+  display:flex;
+  gap:12px;
+  color:#8f98a8;
+  font-size:12px;
+}
+
+.poll{
+  padding:18px;
+}
+
+.poll button{
+  display:block;
+  width:100%;
+  text-align:right;
+  background:#191f2a;
+  color:white;
+  border:1px solid #2b3240;
+  border-radius:11px;
+  padding:10px;
+  margin-top:9px;
+  cursor:pointer;
+}
+
+.poll button:hover{
+  border-color:#795cff;
+}
+
+.rank{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+
+.rank-item{
+  background:#121720;
+  border:1px solid #252b38;
+  border-radius:15px;
+  padding:15px;
+  text-align:center;
+}
+
+.number{
+  color:#907cff;
+  font-size:25px;
+  font-weight:900;
+}
+
+.comments{
+  background:#11161f;
+  border:1px solid #252b38;
+  border-radius:17px;
+  padding:18px;
+}
+
+.comment-box{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
+
+.comment-box input{
+  flex:1;
+  background:#171d27;
+  color:white;
+  border:1px solid #2b3240;
+  border-radius:11px;
+  padding:11px;
+  outline:none;
+}
+
+.comment-list{
+  margin-top:15px;
+}
+
+.comment{
+  background:#171d27;
+  border-radius:10px;
+  padding:10px;
+  margin-top:8px;
+}
+
+footer{
+  margin-top:30px;
+  padding:35px;
+  text-align:center;
+  color:#7f8898;
+  border-top:1px solid #222835;
+  padding-bottom:90px;
+}
+
+.bottom{
+  display:none;
+}
+
+@media(max-width:900px){
+
+  .menu{
+    display:none;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .games{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .rank{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:600px){
+
+  .nav{
+    padding:10px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .search{
+    width:150px;
+  }
+
+  .hero{
+    padding:30px 20px;
+  }
+
+  .grid,
+  .games{
+    grid-template-columns:1fr;
+  }
+
+  .rank{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .bottom{
+    position:fixed;
+    display:flex;
+    bottom:0;
+    left:0;
+    right:0;
+    height:65px;
+    background:#11161f;
+    border-top:1px solid #292f3b;
+    z-index:100;
+    justify-content:space-around;
+  }
+
+  .bottom a{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-size:11px;
+    color:#aeb5c4;
+  }
+
+  .comment-box{
+    flex-direction:column;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="logo">🎮 <span>گیم</span>‌پلاس</div>
-<nav>
-<a href="#">خانه</a>
-<a href="#">اخبار</a>
-<a href="#">بررسی بازی</a>
-<a href="#">ترندها</a>
-<a href="#">استریم</a>
-</nav>
+
+<div class="nav">
+
+<a class="logo" href="#">
+GAME<span>PLUS</span>
+</a>
+
+<div class="menu">
+<a href="#home">🏠 خانه</a>
+<a href="#live">🔴 لایو</a>
+<a href="#games">🎮 بازی‌ها</a>
+<a href="#news">📰 اخبار</a>
+<a href="#poll">🗳️ نظرسنجی</a>
+</div>
+
+<input
+class="search"
+id="search"
+placeholder="🔎 جستجوی بازی..."
+oninput="searchGames()"
+>
+
+</div>
+
 </header>
 
+
+<main class="container" id="home">
+
 <section class="hero">
-<h1>به گیم‌پلاس خوش اومدی 🎮</h1>
-<p>مرکز خبر، بررسی، ترند و دنیای گیمرها</p>
+
+<span class="badge">🎮 GAMEPLUS</span>
+
+<h1>
+دنیای بازی، همین‌جا شروع می‌شود
+</h1>
+
+<p>
+بازی‌ها، اخبار، لایو، آپدیت‌ها، نظرسنجی‌ها و رتبه‌بندی بازی‌ها را در یک جا دنبال کن.
+</p>
+
+<div class="buttons">
+
+<a class="btn primary" href="#games">
+🎮 کشف بازی‌ها
+</a>
+
+<a class="btn secondary" href="#poll">
+🗳️ رأی بده
+</a>
+
+</div>
+
 </section>
 
-<main class="container">
 
-<h2 class="title">🔥 مطالب پرطرفدار</h2>
-<div class="cards">
-<div class="card">
-<span class="badge">ترند</span>
-<h3>🔥 بازی‌های محبوب این هفته</h3>
-<p>ببینیم این هفته کدوم بازی‌ها بیشتر مورد توجه گیمرها بودن.</p>
-</div>
+<!-- LIVE -->
 
-<div class="card">
-<span class="badge">خبر</span>
-<h3>📰 آخرین اخبار گیم</h3>
-<p>خبرهای جدید دنیای بازی، کنسول و کامپیوتر.</p>
-</div>
+<section id="live">
 
-<div class="card">
-<span class="badge">بررسی</span>
-<h3>⭐ نقد و بررسی</h3>
-<p>بررسی بازی‌ها و امتیاز گیم‌پلاس.</p>
-</div>
+<div class="title">
+
+<h2>🔴 همین الان در حال پخش</h2>
+
+<span class="muted">
+نسخه اولیه
+</span>
+
 </div>
 
-<h2 class="title">🔴 استریم‌های آپارات</h2>
-<div class="cards">
-<div class="card live">
-<span class="badge">● LIVE</span>
-<h3>🎮 استریم زنده</h3>
-<p>اینجا استریمرهای در حال پخش در آپارات نمایش داده می‌شوند.</p>
-</div>
+<div class="grid">
 
 <div class="card">
-<span class="badge">ویدیو</span>
-<h3>🎬 ویدیوهای گیمینگ</h3>
-<p>ویدیوهای جذاب گیمرها و تولیدکنندگان محتوا.</p>
+
+<div class="image">
+⛏️
 </div>
+
+<div class="card-body">
+
+<div class="live">
+● LIVE
+</div>
+
+<h3>
+Minecraft
+</h3>
+
+<p class="muted">
+اطلاعات لایو پس از اتصال API واقعی نمایش داده می‌شود.
+</p>
+
+</div>
+
+</div>
+
 
 <div class="card">
-<span class="badge">محبوب</span>
-<h3>👑 گیمرهای محبوب</h3>
-<p>گیمرها و استریمرهای پرطرفدار گیم‌پلاس.</p>
-</div>
+
+<div class="image">
+🚗
 </div>
 
-<h2 class="title">🏆 جدول محبوب‌ترین بازی‌ها</h2>
-<div class="cards">
-<div class="card"><h3>🥇 Minecraft</h3><p>امتیاز کاربران: 9.5/10</p></div>
-<div class="card"><h3>🥈 GTA V</h3><p>امتیاز کاربران: 9.3/10</p></div>
-<div class="card"><h3>🥉 Call of Duty</h3><p>امتیاز کاربران: 9.1/10</p></div>
+<div class="card-body">
+
+<div class="live">
+● LIVE
 </div>
+
+<h3>
+GTA V
+</h3>
+
+<p class="muted">
+اطلاعات لایو واقعی در مرحله بعد اضافه می‌شود.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="image">
+🔫
+</div>
+
+<div class="card-body">
+
+<div class="live">
+● LIVE
+</div>
+
+<h3>
+Call of Duty
+</h3>
+
+<p class="muted">
+آماده اتصال به سرویس پخش زنده.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GAMES -->
+
+<section id="games">
+
+<div class="title">
+
+<h2>🎮 بازی‌های محبوب</h2>
+
+</div>
+
+<div class="grid games" id="gameList"></div>
+
+</section>
+
+
+<!-- POLLS -->
+
+<section id="poll">
+
+<div class="title">
+
+<h2>🗳️ نظرسنجی‌های داغ</h2>
+
+</div>
+
+<div class="grid">
+
+<div class="card poll">
+
+<h3>
+کدام بازی بهتر است؟
+</h3>
+
+<button onclick="vote('Minecraft')">
+⛏️ Minecraft
+</button>
+
+<button onclick="vote('Roblox')">
+🧱 Roblox
+</button>
+
+<p id="voteResult" class="muted">
+هنوز رأی نداده‌ای.
+</p>
+
+</div>
+
+
+<div class="card poll">
+
+<h3>
+کدام بازی را انتخاب می‌کنی؟
+</h3>
+
+<button onclick="vote2('GTA V')">
+🚗 GTA V
+</button>
+
+<button onclick="vote2('RDR2')">
+🤠 Red Dead Redemption 2
+</button>
+
+<p id="voteResult2" class="muted">
+هنوز رأی نداده‌ای.
+</p>
+
+</div>
+
+
+<div class="card poll">
+
+<h3>
+بهترین شوتر؟
+</h3>
+
+<button onclick="vote3('Call of Duty')">
+🔫 Call of Duty
+</button>
+
+<button onclick="vote3('Fortnite')">
+🪂 Fortnite
+</button>
+
+<p id="voteResult3" class="muted">
+هنوز رأی نداده‌ای.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NEWS -->
+
+<section id="news">
+
+<div class="title">
+
+<h2>📰 آخرین اخبار گیمینگ</h2>
+
+<span class="muted">
+بخش اخبار
+</span>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="image">
+⛏️
+</div>
+
+<div class="card-body">
+
+<h3>
+Minecraft
+</h3>
+
+<p class="muted">
+اخبار و آپدیت‌های Minecraft در این قسمت قرار می‌گیرند.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="image">
+🚗
+</div>
+
+<div class="card-body">
+
+<h3>
+GTA
+</h3>
+
+<p class="muted">
+اخبار جدید مجموعه GTA.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="image">
+🎮
+</div>
+
+<div class="card-body">
+
+<h3>
+دنیای گیم
+</h3>
+
+<p class="muted">
+اخبار جدید بازی‌ها.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RANK -->
+
+<section>
+
+<div class="title">
+
+<h2>🏆 رتبه‌بندی بازی‌ها</h2>
+
+</div>
+
+<div class="rank">
+
+<div class="rank-item">
+<div class="number">#1</div>
+<b>Minecraft</b>
+<div class="muted">⭐ 9.5</div>
+</div>
+
+<div class="rank-item">
+<div class="number">#2</div>
+<b>GTA V</b>
+<div class="muted">⭐ 9.4</div>
+</div>
+
+<div class="rank-item">
+<div class="number">#3</div>
+<b>RDR2</b>
+<div class="muted">⭐ 9.3</div>
+</div>
+
+<div class="rank-item">
+<div class="number">#4</div>
+<b>Fortnite</b>
+<div class="muted">⭐ 9.0</div>
+</div>
+
+<div class="rank-item">
+<div class="number">#5</div>
+<b>COD</b>
+<div class="muted">⭐ 8.9</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- COMMENTS -->
+
+<section>
+
+<div class="title">
+
+<h2>💬 نظرات کاربران</h2>
+
+</div>
+
+<div class="comments">
+
+<p class="muted">
+نظر خودت را درباره GamePlus بنویس:
+</p>
+
+<div class="comment-box">
+
+<input
+id="comment"
+placeholder="مثلاً: سایت خیلی خفنه!"
+>
+
+<button
+class="btn primary"
+onclick="addComment()"
+>
+ارسال
+</button>
+
+</div>
+
+<div
+class="comment-list"
+id="comments"
+></div>
+
+</div>
+
+</section>
 
 </main>
 
+
 <footer>
-🎮 گیم‌پلاس — دنیای گیمرها
+
+GAMEPLUS 🎮
+
+<br>
+
+مرکز گیمینگ شما
+
 </footer>
+
+
+<div class="bottom">
+
+<a href="#home">
+🏠
+<span>خانه</span>
+</a>
+
+<a href="#live">
+🔴
+<span>لایو</span>
+</a>
+
+<a href="#games">
+🎮
+<span>بازی‌ها</span>
+</a>
+
+<a href="#news">
+📰
+<span>اخبار</span>
+</a>
+
+<a href="#poll">
+🗳️
+<span>نظرسنجی</span>
+</a>
+
+</div>
+
+
+<script>
+
+const games = [
+
+["Minecraft","⛏️","Sandbox / Survival"],
+
+["GTA V","🚗","Open World"],
+
+["Call of Duty","🔫","Shooter"],
+
+["Fortnite","🪂","Battle Royale"],
+
+["Roblox","🧱","Platform"],
+
+["EA FC","⚽","Sports"],
+
+["PUBG","🎯","Battle Royale"],
+
+["Valorant","💥","Tactical Shooter"]
+
+];
+
+
+function showGames(list){
+
+const box =
+document.getElementById("gameList");
+
+box.innerHTML="";
+
+list.forEach(game=>{
+
+box.innerHTML += `
+
+<div class="card game">
+
+<div class="image">
+${game[1]}
+</div>
+
+<div class="card-body">
+
+<h3>
+${game[0]}
+</h3>
+
+<p class="muted">
+${game[2]}
+</p>
+
+<div class="stats">
+⭐ محبوب
+🎮 GamePlus
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+function searchGames(){
+
+const value =
+document
+.getElementById("search")
+.value
+.toLowerCase();
+
+const result =
+games.filter(game =>
+game[0]
+.toLowerCase()
+.includes(value)
+);
+
+showGames(result);
+
+}
+
+
+function vote(name){
+
+localStorage.setItem(
+"gameplus_vote",
+name
+);
+
+document.getElementById(
+"voteResult"
+).textContent =
+"رأی شما ثبت شد: "+name+" ✅";
+
+}
+
+
+function vote2(name){
+
+localStorage.setItem(
+"gameplus_vote2",
+name
+);
+
+document.getElementById(
+"voteResult2"
+).textContent =
+"رأی شما ثبت شد: "+name+" ✅";
+
+}
+
+
+function vote3(name){
+
+localStorage.setItem(
+"gameplus_vote3",
+name
+);
+
+document.getElementById(
+"voteResult3"
+).textContent =
+"رأی شما ثبت شد: "+name+" ✅";
+
+}
+
+
+function addComment(){
+
+const input =
+document.getElementById("comment");
+
+const text =
+input.value.trim();
+
+if(!text) return;
+
+const comments =
+document.getElementById("comments");
+
+const div =
+document.createElement("div");
+
+div.className="comment";
+
+div.textContent =
+"💬 "+text;
+
+comments.prepend(div);
+
+input.value="";
+
+}
+
+
+showGames(games);
+
+</script>
 
 </body>
 </html>
