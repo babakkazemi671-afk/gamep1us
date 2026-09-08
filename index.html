@@ -2,229 +2,271 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GamePlus | گیم‌پلاس</title>
 
 <style>
 *{box-sizing:border-box}
 body{
  margin:0;
- font-family:Tahoma,Arial,sans-serif;
- background:#080b12;
+ background:#070a11;
  color:#fff;
+ font-family:Tahoma,Arial,sans-serif;
 }
-button,input,select{font-family:inherit}
+button,input{font-family:inherit}
 button{cursor:pointer}
 .header{
- background:linear-gradient(135deg,#10182c,#151025);
- padding:22px 15px;
- text-align:center;
- border-bottom:1px solid #252d42;
  position:sticky;
  top:0;
- z-index:20;
+ z-index:50;
+ background:#0c111d;
+ border-bottom:1px solid #202a3d;
+ padding:16px;
+ text-align:center
 }
 .logo{
  font-size:30px;
  font-weight:900;
- color:#00e5ff;
+ color:#00d9ff
 }
-.logo span{color:#ff2bd6}
-.subtitle{color:#aeb8ca;margin-top:7px}
+.logo b{color:#ff31d7}
+.sub{color:#8995aa;font-size:13px;margin-top:5px}
 
-.container{
- max-width:1200px;
+main{
+ max-width:1250px;
  margin:auto;
- padding:20px 14px 100px;
+ padding:18px 14px 100px
 }
+
+.page{display:none}
+.page.active{display:block}
 
 .hero{
- background:linear-gradient(135deg,#111b35,#21102d);
- border-radius:25px;
- padding:28px;
- margin-bottom:22px;
+ padding:30px 20px;
+ border-radius:24px;
+ background:linear-gradient(135deg,#101b36,#25102e);
  text-align:center;
+ margin-bottom:18px;
+ border:1px solid #28334b
 }
-.hero h1{font-size:30px;margin:0 0 10px}
-.hero p{color:#c0c9d9}
+.hero h1{margin:0 0 10px;font-size:29px}
+.hero p{color:#b6c1d3;line-height:1.8}
+
+.menu{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+ gap:14px
+}
+.menuCard{
+ background:#101622;
+ border:1px solid #232e43;
+ border-radius:20px;
+ padding:25px 15px;
+ text-align:center;
+ transition:.2s
+}
+.menuCard:hover{
+ transform:translateY(-4px);
+ border-color:#00cfff
+}
+.menuCard .ico{font-size:43px}
+.menuCard h3{margin:10px 0 6px}
+.menuCard p{
+ color:#8f9caf;
+ font-size:13px;
+ line-height:1.7
+}
+
+.toolbar{
+ display:flex;
+ gap:9px;
+ flex-wrap:wrap;
+ margin-bottom:15px
+}
+.toolbar button{
+ border:0;
+ background:#182238;
+ color:#fff;
+ border-radius:11px;
+ padding:11px 15px
+}
+.toolbar button.active{
+ background:#00bce9;
+ color:#001018;
+ font-weight:bold
+}
 
 .search{
  width:100%;
  padding:15px;
- border:1px solid #29344d;
- background:#111725;
+ border-radius:13px;
+ border:1px solid #29364e;
+ background:#0d131f;
  color:#fff;
- border-radius:14px;
  outline:none;
- margin:15px 0;
- font-size:16px;
-}
-
-.platforms,.filters{
- display:flex;
- gap:10px;
- flex-wrap:wrap;
- margin-bottom:20px;
-}
-.platforms button,.filters button{
- border:0;
- padding:12px 17px;
- border-radius:12px;
- background:#192238;
- color:#fff;
-}
-.platforms button.active,.filters button.active{
- background:#00aee8;
- color:#001018;
- font-weight:bold;
+ margin-bottom:15px;
+ font-size:15px
 }
 
 .grid{
  display:grid;
- grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
- gap:16px;
+ grid-template-columns:repeat(auto-fill,minmax(185px,1fr));
+ gap:15px
 }
-
 .card{
- background:#111725;
- border:1px solid #222c42;
- border-radius:18px;
+ background:#101621;
+ border:1px solid #222d42;
+ border-radius:17px;
  overflow:hidden;
- transition:.2s;
+ transition:.2s
 }
 .card:hover{
  transform:translateY(-4px);
- border-color:#00cfff;
+ border-color:#00cfff
 }
 .card img{
  width:100%;
  height:220px;
  object-fit:cover;
- background:#151b29;
+ display:block;
+ background:#151b28
 }
-.card-body{padding:13px}
+.cardBody{padding:12px}
 .card h3{
- font-size:16px;
- margin:0 0 8px;
- min-height:42px;
+ font-size:15px;
+ line-height:1.6;
+ margin:0 0 7px;
+ min-height:48px
 }
 .meta{
- color:#9eabc0;
- font-size:12px;
- line-height:1.8;
+ color:#8e9bb0;
+ font-size:11px;
+ line-height:1.9
 }
-.card button,.main-btn{
+.primary{
  width:100%;
- margin-top:10px;
- padding:11px;
  border:0;
- border-radius:11px;
- background:#00b9ed;
- color:#001018;
- font-weight:bold;
-}
-
-.section{
- display:none;
-}
-.section.active{display:block}
-
-.home-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
- gap:15px;
-}
-.menu-card{
- background:#111725;
- border:1px solid #263047;
- border-radius:18px;
- padding:25px 15px;
- text-align:center;
- cursor:pointer;
-}
-.menu-card .icon{font-size:40px}
-.menu-card h3{margin:12px 0 5px}
-.menu-card p{color:#9eabc0;font-size:13px}
-
-.news-card{
- background:#111725;
- border:1px solid #252e42;
- border-radius:17px;
- padding:17px;
- margin-bottom:12px;
-}
-.news-card h3{margin-top:0}
-.news-card p{color:#bbc5d5;line-height:1.8}
-.news-card a{color:#00d5ff}
-
-.cheat-card{
- background:#111725;
- border:1px solid #252e42;
- border-radius:16px;
- padding:16px;
- margin-bottom:12px;
-}
-.cheat-code{
- background:#070a10;
- padding:12px;
  border-radius:10px;
- margin-top:10px;
+ padding:11px;
+ margin-top:9px;
+ background:#00bce9;
+ color:#001018;
+ font-weight:bold
+}
+
+.loading{
+ text-align:center;
+ padding:45px;
+ color:#9ba7ba
+}
+.error{
+ background:#32151c;
+ border:1px solid #7d2b39;
+ padding:15px;
+ border-radius:14px;
+ color:#ffb8c1;
+ line-height:1.8
+}
+
+.news{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:14px
+}
+.newsCard{
+ background:#101621;
+ border:1px solid #242f44;
+ border-radius:17px;
+ padding:17px
+}
+.newsCard h3{margin-top:0;line-height:1.7}
+.newsCard p{color:#b9c3d2;line-height:1.9;font-size:13px}
+.newsCard a{
+ color:#00d5ff;
+ text-decoration:none
+}
+
+.cheats{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:12px
+}
+.cheat{
+ background:#101621;
+ border:1px solid #242f44;
+ border-radius:15px;
+ padding:15px
+}
+.cheat h3{margin-top:0}
+.code{
  direction:ltr;
  text-align:left;
- color:#00ffbf;
+ background:#06090e;
+ color:#00ffae;
+ padding:12px;
+ border-radius:9px;
  overflow:auto;
-}
-
-.music-card{
- background:#111725;
- border:1px solid #252e42;
- border-radius:16px;
- padding:17px;
- margin-bottom:12px;
+ margin-top:8px
 }
 
 .detail{
- background:#111725;
+ background:#101621;
+ border:1px solid #263148;
  border-radius:20px;
- padding:20px;
+ padding:18px
 }
 .detail img{
  width:100%;
- max-height:450px;
+ max-height:500px;
  object-fit:cover;
- border-radius:16px;
+ border-radius:15px
 }
 .detail h2{font-size:27px}
-.detail p{line-height:2;color:#c4ccda}
+.detail p{
+ color:#c0c9d8;
+ line-height:2
+}
 .back{
- background:#202a3e;
- color:#fff;
  border:0;
- padding:12px 18px;
- border-radius:12px;
- margin-bottom:15px;
+ background:#202b40;
+ color:#fff;
+ padding:11px 17px;
+ border-radius:11px;
+ margin-bottom:13px
+}
+.store{
+ display:inline-block;
+ text-decoration:none;
+ background:#00bce9;
+ color:#001018;
+ padding:11px 14px;
+ border-radius:10px;
+ margin:4px;
+ font-weight:bold
 }
 
-.comment-box{
- margin-top:25px;
- padding-top:20px;
- border-top:1px solid #273147;
+.comment{
+ border-top:1px solid #293449;
+ margin-top:20px;
+ padding-top:18px
 }
-.comment-box textarea{
+textarea{
  width:100%;
- min-height:100px;
+ min-height:90px;
  resize:vertical;
  background:#080c14;
- border:1px solid #2a354c;
- color:white;
+ color:#fff;
+ border:1px solid #29364e;
  border-radius:12px;
- padding:12px;
+ padding:12px
 }
-.comment{
- background:#0b101a;
+.commentItem{
+ background:#080d15;
  padding:12px;
- border-radius:12px;
- margin-top:10px;
+ border-radius:10px;
+ margin-top:9px;
+ color:#c7d0dd;
+ line-height:1.8
 }
 
 .bottom{
@@ -232,53 +274,32 @@ button{cursor:pointer}
  bottom:0;
  left:0;
  right:0;
- height:72px;
- background:#0d121e;
- border-top:1px solid #29334a;
+ height:70px;
+ z-index:100;
  display:flex;
  justify-content:space-around;
  align-items:center;
- z-index:50;
+ background:#0b101a;
+ border-top:1px solid #253047
 }
 .bottom button{
  background:none;
  border:0;
- color:#9da8ba;
- font-size:12px;
+ color:#8e9aaf;
+ font-size:11px
 }
-.bottom button.active{color:#00d7ff}
+.bottom button.active{color:#00d9ff}
 .bottom span{
  display:block;
  font-size:22px;
- margin-bottom:3px;
-}
-
-.loading{
- text-align:center;
- padding:40px;
- color:#aab5c8;
-}
-
-.error{
- background:#32151c;
- border:1px solid #7e2635;
- padding:16px;
- border-radius:14px;
- color:#ffb5bf;
- margin-bottom:15px;
-}
-
-.count{
- color:#8e9bb0;
- margin-bottom:15px;
+ margin-bottom:3px
 }
 
 @media(max-width:600px){
- .hero h1{font-size:24px}
- .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+ .grid{grid-template-columns:repeat(2,1fr);gap:9px}
  .card img{height:170px}
- .card h3{font-size:14px}
- .container{padding-bottom:95px}
+ .card h3{font-size:13px}
+ .hero h1{font-size:23px}
 }
 </style>
 </head>
@@ -286,172 +307,150 @@ button{cursor:pointer}
 <body>
 
 <header class="header">
- <div class="logo">GAME<span>PLUS</span> 🎮</div>
- <div class="subtitle">دنیای بازی‌ها، اخبار و کدهای مخفی</div>
+ <div class="logo">GAME<b>PLUS</b> 🎮</div>
+ <div class="sub">دنیای بازی‌های گیم‌پلاس</div>
 </header>
 
-<main class="container">
+<main>
 
-<!-- خانه -->
-<section id="home" class="section active">
+<!-- HOME -->
+<section id="home" class="page active">
 
  <div class="hero">
   <h1>🎮 به گیم‌پلاس خوش آمدی</h1>
-  <p>بازی پیدا کن، اخبار گیم بخون و کدهای مخفی بازی‌ها رو ببین.</p>
+  <p>بازی پیدا کن، اخبار گیم ببین، دانلود کن و کدهای مخفی بازی‌ها را پیدا کن.</p>
  </div>
 
- <div class="home-grid">
+ <div class="menu">
 
-  <div class="menu-card" onclick="showSection('games')">
-   <div class="icon">🎮</div>
+  <div class="menuCard" onclick="openPage('games')">
+   <div class="ico">🎮</div>
    <h3>بازی‌ها</h3>
-   <p>بازی‌های کامپیوتر، موبایل و کنسول</p>
+   <p>بازی‌های PC، موبایل و کنسول</p>
   </div>
 
-  <div class="menu-card" onclick="showSection('news')">
-   <div class="icon">📰</div>
+  <div class="menuCard" onclick="openPage('news')">
+   <div class="ico">📰</div>
    <h3>اخبار</h3>
-   <p>آخرین اخبار دنیای گیم</p>
+   <p>اخبار دنیای بازی</p>
   </div>
 
-  <div class="menu-card" onclick="showSection('downloads')">
-   <div class="icon">⬇️</div>
-   <h3>دانلود بازی</h3>
-   <p>پیدا کردن منبع رسمی بازی</p>
+  <div class="menuCard" onclick="openPage('downloads')">
+   <div class="ico">⬇️</div>
+   <h3>دانلود</h3>
+   <p>رفتن به منابع رسمی بازی‌ها</p>
   </div>
 
-  <div class="menu-card" onclick="showSection('cheats')">
-   <div class="icon">🕹️</div>
+  <div class="menuCard" onclick="openPage('cheats')">
+   <div class="ico">🕹️</div>
    <h3>کدهای مخفی</h3>
-   <p>کدهای تقلب بازی‌های معروف</p>
+   <p>کدهای بازی‌های معروف</p>
   </div>
 
-  <div class="menu-card" onclick="showSection('music')">
-   <div class="icon">🎵</div>
-   <h3>موسیقی گیمینگ</h3>
-   <p>موسیقی و پلی‌لیست‌های گیمینگ</p>
-  </div>
-
-  <div class="menu-card" onclick="showSection('profile')">
-   <div class="icon">👤</div>
+  <div class="menuCard" onclick="openPage('profile')">
+   <div class="ico">👤</div>
    <h3>پروفایل</h3>
-   <p>پروفایل و نظرات ذخیره‌شده</p>
+   <p>نظرات و اطلاعات کاربر</p>
   </div>
 
  </div>
 </section>
 
 
-<!-- بازی ها -->
-<section id="games" class="section">
+<!-- GAMES -->
+<section id="games" class="page">
 
  <div class="hero">
   <h1>🎮 بازی‌ها</h1>
-  <p>بازی مورد علاقه‌ات رو پیدا کن</p>
+  <p>بازی مورد علاقه‌ات را پیدا کن</p>
  </div>
 
- <div class="platforms">
+ <div class="toolbar">
   <button class="active" onclick="loadGames('all',this)">🔥 همه</button>
-  <button onclick="loadGames('pc',this)">💻 کامپیوتر</button>
+  <button onclick="loadGames('pc',this)">💻 PC</button>
   <button onclick="loadGames('mobile',this)">📱 موبایل</button>
-  <button onclick="loadGames('playstation',this)">🎮 پلی‌استیشن</button>
+  <button onclick="loadGames('playstation',this)">🎮 PlayStation</button>
   <button onclick="loadGames('xbox',this)">🟢 Xbox</button>
   <button onclick="loadGames('nintendo',this)">🔴 Nintendo</button>
  </div>
 
- <input
-  id="gameSearch"
-  class="search"
-  placeholder="🔎 اسم بازی را جستجو کن..."
-  oninput="filterGames()"
- >
+ <input id="gameSearch"
+ class="search"
+ placeholder="🔎 جستجوی بازی..."
+ oninput="searchGames()">
 
- <div id="gamesCount" class="count"></div>
+ <div id="gameCount" class="meta"></div>
+ <br>
  <div id="gamesGrid" class="grid"></div>
 
 </section>
 
 
-<!-- جزئیات بازی -->
-<section id="gameDetail" class="section">
- <button class="back" onclick="showSection('games')">↩ برگشت به بازی‌ها</button>
- <div id="gameDetailContent"></div>
+<!-- GAME DETAIL -->
+<section id="detailPage" class="page">
+ <button class="back" onclick="openPage('games')">↩ برگشت</button>
+ <div id="detail"></div>
 </section>
 
 
-<!-- اخبار -->
-<section id="news" class="section">
+<!-- NEWS -->
+<section id="news" class="page">
 
  <div class="hero">
   <h1>📰 اخبار گیم</h1>
-  <p>اخبار دسته‌بندی‌شده دنیای بازی</p>
+  <p>اخبار دسته‌بندی‌شده بازی‌ها</p>
  </div>
 
- <div class="filters">
-  <button class="active" onclick="filterNews('all',this)">همه</button>
-  <button onclick="filterNews('pc',this)">💻 PC</button>
-  <button onclick="filterNews('mobile',this)">📱 موبایل</button>
-  <button onclick="filterNews('console',this)">🎮 کنسول</button>
+ <div class="toolbar">
+  <button class="active" onclick="showNews('all',this)">همه</button>
+  <button onclick="showNews('pc',this)">💻 PC</button>
+  <button onclick="showNews('mobile',this)">📱 موبایل</button>
+  <button onclick="showNews('console',this)">🎮 کنسول</button>
  </div>
 
- <div id="newsList"></div>
+ <div id="newsList" class="news"></div>
 
 </section>
 
 
-<!-- دانلود -->
-<section id="downloads" class="section">
+<!-- DOWNLOAD -->
+<section id="downloads" class="page">
 
  <div class="hero">
   <h1>⬇️ دانلود بازی</h1>
-  <p>بازی را انتخاب کن و به منبع رسمی آن برو</p>
+  <p>منبع رسمی بازی را باز کن</p>
  </div>
 
- <div class="platforms">
-  <button class="active" onclick="downloadPlatform('pc',this)">💻 بازی کامپیوتر</button>
-  <button onclick="downloadPlatform('mobile',this)">📱 بازی موبایل</button>
+ <div class="toolbar">
+  <button class="active" onclick="downloadList('pc',this)">💻 کامپیوتر</button>
+  <button onclick="downloadList('mobile',this)">📱 موبایل</button>
  </div>
 
- <div id="downloadList" class="grid"></div>
+ <div id="downloadGrid" class="grid"></div>
 
 </section>
 
 
-<!-- کدهای مخفی -->
-<section id="cheats" class="section">
+<!-- CHEATS -->
+<section id="cheats" class="page">
 
  <div class="hero">
   <h1>🕹️ کدهای مخفی</h1>
   <p>کدهای بازی‌های معروف</p>
  </div>
 
- <input
-  id="cheatSearch"
-  class="search"
-  placeholder="🔎 جستجوی بازی یا کد..."
-  oninput="filterCheats()"
- >
+ <input id="cheatSearch"
+ class="search"
+ placeholder="🔎 جستجوی کد یا نام بازی..."
+ oninput="searchCheats()">
 
- <div id="cheatList"></div>
+ <div id="cheatList" class="cheats"></div>
 
 </section>
 
 
-<!-- موسیقی -->
-<section id="music" class="section">
-
- <div class="hero">
-  <h1>🎵 موسیقی گیمینگ</h1>
-  <p>موسیقی برای بازی و گیم‌پلی</p>
- </div>
-
- <div id="musicList"></div>
-
-</section>
-
-
-<!-- پروفایل -->
-<section id="profile" class="section">
+<!-- PROFILE -->
+<section id="profile" class="page">
 
  <div class="hero">
   <h1>👤 پروفایل</h1>
@@ -460,11 +459,9 @@ button{cursor:pointer}
 
  <div class="detail">
   <h2>🎮 بازیکن گیم‌پلاس</h2>
+  <p>تعداد نظرات ثبت‌شده: <b id="commentNumber">0</b></p>
   <p>
-   نظراتی که در این مرورگر ثبت می‌کنی اینجا ذخیره می‌شوند.
-  </p>
-  <p>
-   ⭐ تعداد نظرات: <b id="commentCount">0</b>
+   نظرات در همین مرورگر ذخیره می‌شوند.
   </p>
  </div>
 
@@ -475,23 +472,23 @@ button{cursor:pointer}
 
 <nav class="bottom">
 
- <button class="active" onclick="showSection('home')">
+ <button class="active" onclick="openPage('home')">
   <span>🏠</span>خانه
  </button>
 
- <button onclick="showSection('games')">
+ <button onclick="openPage('games')">
   <span>🎮</span>بازی‌ها
  </button>
 
- <button onclick="showSection('news')">
+ <button onclick="openPage('news')">
   <span>📰</span>اخبار
  </button>
 
- <button onclick="showSection('downloads')">
+ <button onclick="openPage('downloads')">
   <span>⬇️</span>دانلود
  </button>
 
- <button onclick="showSection('profile')">
+ <button onclick="openPage('profile')">
   <span>👤</span>پروفایل
  </button>
 
@@ -500,60 +497,13 @@ button{cursor:pointer}
 
 <script>
 
-/* =========================================================
-   تنظیمات اصلی
-========================================================= */
+/* =====================================================
+   RAWG API
+   ===================================================== */
 
-/*
-  اینجا API KEY خودت را قرار بده
-*/
-const RAWG_API_KEY = "YOUR_RAWG_API_KEY";
+const RAWG_API_KEY="YOUR_RAWG_API_KEY";
 
-
-/* =========================================================
-   وضعیت سایت
-========================================================= */
-
-let allGames = [];
-let currentPlatform = "all";
-let currentNewsFilter = "all";
-
-
-/* =========================================================
-   تغییر بخش
-========================================================= */
-
-function showSection(id){
-
- document.querySelectorAll(".section")
- .forEach(s=>s.classList.remove("active"));
-
- const section=document.getElementById(id);
-
- if(section){
-  section.classList.add("active");
- }
-
- document.querySelectorAll(".bottom button")
- .forEach(b=>b.classList.remove("active"));
-
- window.scrollTo({
-  top:0,
-  behavior:"smooth"
- });
-
- if(id==="news") renderNews();
- if(id==="downloads") downloadPlatform("pc");
- if(id==="cheats") renderCheats();
- if(id==="music") renderMusic();
-}
-
-
-/* =========================================================
-   RAWG
-========================================================= */
-
-const platformIDs={
+const platforms={
  pc:4,
  playstation:187,
  xbox:1,
@@ -561,30 +511,77 @@ const platformIDs={
  mobile:3
 };
 
+let games=[];
+let currentPlatform="all";
 
-async function loadGames(platform="all",button=null){
+
+/* =====================================================
+   PAGE SYSTEM
+   ===================================================== */
+
+function openPage(id){
+
+ document.querySelectorAll(".page")
+ .forEach(x=>x.classList.remove("active"));
+
+ document.getElementById(id).classList.add("active");
+
+ document.querySelectorAll(".bottom button")
+ .forEach(x=>x.classList.remove("active"));
+
+ const map={
+  home:0,
+  games:1,
+  news:2,
+  downloads:3,
+  profile:4
+ };
+
+ if(map[id]!==undefined){
+  document.querySelectorAll(".bottom button")[map[id]]
+  .classList.add("active");
+ }
+
+ window.scrollTo(0,0);
+
+ if(id==="games" && games.length===0){
+  loadGames("all");
+ }
+
+ if(id==="news") renderNews();
+ if(id==="downloads") downloadList("pc");
+ if(id==="cheats") renderCheats();
+}
+
+
+/* =====================================================
+   200 REAL GAMES
+   ===================================================== */
+
+async function loadGames(platform="all",btn=null){
 
  currentPlatform=platform;
 
- if(button){
-
-  document.querySelectorAll(".platforms button")
-  .forEach(b=>b.classList.remove("active"));
-
-  button.classList.add("active");
+ if(btn){
+  document.querySelectorAll("#games .toolbar button")
+  .forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
  }
 
  const grid=document.getElementById("gamesGrid");
 
  grid.innerHTML=
- `<div class="loading">⏳ در حال دریافت بازی‌ها...</div>`;
+ `<div class="loading">⏳ در حال آوردن بازی‌های واقعی...</div>`;
 
- if(!RAWG_API_KEY || RAWG_API_KEY==="YOUR_RAWG_API_KEY"){
+ if(RAWG_API_KEY==="YOUR_RAWG_API_KEY"){
 
   grid.innerHTML=`
    <div class="error">
-    ⚠️ هنوز API Key وارد نشده.<br><br>
-    مقدار <b>YOUR_RAWG_API_KEY</b> را در کد با کلید RAWG خودت عوض کن.
+    ⚠️ برای نمایش ۲۰۰ بازی واقعی باید RAWG API Key را وارد کنی.
+    <br><br>
+    در کد دنبال:
+    <b>YOUR_RAWG_API_KEY</b>
+    بگرد و کلید خودت را جایگزینش کن.
    </div>
   `;
 
@@ -593,403 +590,356 @@ async function loadGames(platform="all",button=null){
 
  try{
 
-  let games=[];
+  let result=[];
 
   /*
-    5 صفحه × 40 بازی = حداکثر 200 بازی
+   5 صفحه × 40 بازی = حداکثر 200 بازی
   */
 
   for(let page=1;page<=5;page++){
 
    let url=
-    `https://api.rawg.io/api/games?key=${RAWG_API_KEY}`+
-    `&page=${page}`+
-    `&page_size=40`+
-    `&ordering=-rating`;
+   "https://api.rawg.io/api/games"+
+   "?key="+RAWG_API_KEY+
+   "&page="+page+
+   "&page_size=40"+
+   "&ordering=-rating";
 
    if(platform!=="all"){
-    url+=`&platforms=${platformIDs[platform]}`;
+    url+="&platforms="+platforms[platform];
    }
 
    const response=await fetch(url);
 
    if(!response.ok){
-    throw new Error("RAWG API error");
+    throw new Error("API ERROR");
    }
 
    const data=await response.json();
 
-   games=games.concat(data.results || []);
+   result=result.concat(data.results||[]);
 
-   /*
-     اگر کمتر از 40 بازی برگشت،
-     دیگر صفحه بعدی لازم نیست.
-   */
-
-   if(!data.results || data.results.length<40){
+   if(!data.results || data.results.length<40)
     break;
-   }
   }
 
-  allGames=games.slice(0,200);
+  games=result.slice(0,200);
 
-  renderGames(allGames);
+  drawGames(games);
 
- }catch(error){
-
-  console.error(error);
+ }catch(e){
 
   grid.innerHTML=`
    <div class="error">
-    ❌ دریافت بازی‌ها انجام نشد.<br>
-    API Key یا اتصال اینترنت را بررسی کن.
+    ❌ بازی‌ها دریافت نشدند.
+    <br>
+    اتصال اینترنت و API Key را بررسی کن.
    </div>
   `;
  }
 }
 
 
-/* =========================================================
-   نمایش بازی ها
-========================================================= */
+/* =====================================================
+   DRAW GAMES
+   ===================================================== */
 
-function renderGames(games){
+function drawGames(list){
 
  const grid=document.getElementById("gamesGrid");
 
- document.getElementById("gamesCount").innerText=
- `🎮 ${games.length} بازی پیدا شد`;
+ document.getElementById("gameCount").innerText=
+ "🎮 "+list.length+" بازی";
 
- if(!games.length){
-
-  grid.innerHTML=
-  `<div class="loading">بازی پیدا نشد 😕</div>`;
-
+ if(!list.length){
+  grid.innerHTML="<div class='loading'>بازی پیدا نشد.</div>";
   return;
  }
 
- grid.innerHTML=games.map(game=>{
+ grid.innerHTML=list.map(g=>{
 
-  const image=
-   game.background_image ||
-   "https://via.placeholder.com/500x700?text=GAME";
+  const img=
+  g.background_image ||
+  "https://via.placeholder.com/600x800?text=GAME";
 
-  const platforms=(game.platforms||[])
-   .slice(0,4)
-   .map(p=>p.platform.name)
-   .join("، ");
+  const p=(g.platforms||[])
+  .slice(0,3)
+  .map(x=>x.platform.name)
+  .join("، ");
 
   return`
+  <article class="card">
 
-   <article class="card">
+   <img
+    src="${img}"
+    alt="${safe(g.name)}"
+    loading="lazy">
 
-    <img
-     src="${image}"
-     alt="${escapeHTML(game.name)}"
-     loading="lazy"
-    >
+   <div class="cardBody">
 
-    <div class="card-body">
+    <h3>${safe(g.name)}</h3>
 
-     <h3>${escapeHTML(game.name)}</h3>
-
-     <div class="meta">
-      ⭐ امتیاز: ${game.rating || "—"}<br>
-      📅 ${game.released || "تاریخ نامشخص"}<br>
-      🎮 ${escapeHTML(platforms || "نامشخص")}
-     </div>
-
-     <button onclick="openGame(${game.id})">
-      مشاهده اطلاعات
-     </button>
-
+    <div class="meta">
+     ⭐ ${g.rating||"—"}<br>
+     📅 ${g.released||"نامشخص"}<br>
+     🎮 ${safe(p)}
     </div>
 
-   </article>
+    <button
+     class="primary"
+     onclick="gameDetail(${g.id})">
+     مشاهده اطلاعات
+    </button>
 
+   </div>
+
+  </article>
   `;
-
  }).join("");
 }
 
 
-/* =========================================================
-   جستجوی بازی
-========================================================= */
+/* =====================================================
+   GAME SEARCH
+   ===================================================== */
 
-function filterGames(){
+function searchGames(){
 
- const text=
-  document.getElementById("gameSearch")
-  .value
-  .trim()
-  .toLowerCase();
+ const q=
+ document.getElementById("gameSearch")
+ .value
+ .toLowerCase()
+ .trim();
 
- if(!text){
-
-  renderGames(allGames);
+ if(!q){
+  drawGames(games);
   return;
-
  }
 
- const filtered=allGames.filter(game=>
-  game.name.toLowerCase().includes(text)
+ drawGames(
+  games.filter(g=>
+   g.name.toLowerCase().includes(q)
+  )
  );
-
- renderGames(filtered);
 }
 
 
-/* =========================================================
-   جزئیات بازی
-========================================================= */
+/* =====================================================
+   GAME DETAIL
+   ===================================================== */
 
-async function openGame(id){
+async function gameDetail(id){
 
- showSection("gameDetail");
+ openPage("detailPage");
 
- const box=document.getElementById("gameDetailContent");
+ const box=document.getElementById("detail");
 
  box.innerHTML=
  `<div class="loading">⏳ اطلاعات بازی...</div>`;
 
  try{
 
-  const response=await fetch(
-   `https://api.rawg.io/api/games/${id}?key=${RAWG_API_KEY}`
+  const r=await fetch(
+   "https://api.rawg.io/api/games/"+
+   id+
+   "?key="+RAWG_API_KEY
   );
 
-  const game=await response.json();
+  const g=await r.json();
 
-  const image=
-   game.background_image ||
-   "https://via.placeholder.com/900x500?text=GAME";
+  let stores="";
 
-  const stores=(game.stores||[]);
+  (g.stores||[]).forEach(x=>{
 
-  let storeHTML="";
+   if(x.store && x.store.domain){
 
-  if(stores.length){
-
-   storeHTML=stores.map(item=>{
-
-    const store=item.store;
-
-    return `
-     <a
-      href="https://${store.domain}"
-      target="_blank"
-      rel="noopener"
-      style="
-       display:inline-block;
-       background:#00b9ed;
-       color:#001018;
-       padding:12px;
-       margin:5px;
-       border-radius:10px;
-       text-decoration:none;
-       font-weight:bold
-      "
-     >
-      ${escapeHTML(store.name)}
-     </a>
-    `;
-
-   }).join("");
-
-  }else{
-
-   storeHTML=
-   `<p>لینک فروشگاه برای این بازی پیدا نشد.</p>`;
-
-  }
+    stores+=`
+    <a class="store"
+     target="_blank"
+     href="https://${x.store.domain}">
+     ${safe(x.store.name)}
+    </a>`;
+   }
+  });
 
   box.innerHTML=`
 
    <div class="detail">
 
-    <img src="${image}" alt="${escapeHTML(game.name)}">
+    <img
+     src="${g.background_image||""}"
+     alt="${safe(g.name)}">
 
-    <h2>${escapeHTML(game.name)}</h2>
+    <h2>🎮 ${safe(g.name)}</h2>
 
     <p>
-     📅 تاریخ انتشار:
-     ${game.released || "نامشخص"}
+     ⭐ امتیاز: ${g.rating||"—"}
     </p>
 
     <p>
-     ⭐ امتیاز:
-     ${game.rating || "نامشخص"}
+     📅 انتشار: ${g.released||"نامشخص"}
     </p>
 
     <p>
-     🎮 ژانر:
-     ${(game.genres||[])
-      .map(x=>escapeHTML(x.name))
-      .join("، ") || "نامشخص"}
+     🎯 ژانر:
+     ${(g.genres||[])
+      .map(x=>safe(x.name))
+      .join("، ")}
     </p>
 
     <p>
      🏢 سازنده:
-     ${(game.developers||[])
-      .map(x=>escapeHTML(x.name))
-      .join("، ") || "نامشخص"}
+     ${(g.developers||[])
+      .map(x=>safe(x.name))
+      .join("، ")}
     </p>
 
     <p>
-     ${cleanDescription(game.description_raw)}
+     ${safe(g.description_raw||"اطلاعات بیشتری ثبت نشده است.")}
     </p>
 
     <h3>⬇️ منابع بازی</h3>
 
-    ${storeHTML}
+    ${stores||"<p>منبع فروشگاه برای این بازی پیدا نشد.</p>"}
 
-    <div class="comment-box">
+    <div class="comment">
 
      <h3>💬 نظرات</h3>
 
      <textarea
       id="commentText"
-      placeholder="نظرت درباره این بازی را بنویس..."
-     ></textarea>
+      placeholder="نظر خودت درباره بازی را بنویس...">
+     </textarea>
 
      <button
-      class="main-btn"
-      onclick="addComment(${game.id},'${escapeHTML(game.name).replace(/'/g,"&#39;")}')"
-     >
+      class="primary"
+      onclick="addComment(${g.id})">
       ثبت نظر
      </button>
 
-     <div id="comments-${game.id}"></div>
+     <div id="comments"></div>
 
     </div>
 
    </div>
   `;
 
-  loadComments(game.id);
+  showComments(g.id);
 
- }catch(error){
+ }catch(e){
 
   box.innerHTML=
   `<div class="error">❌ اطلاعات بازی دریافت نشد.</div>`;
-
  }
 }
 
 
-/* =========================================================
-   اخبار
-========================================================= */
+/* =====================================================
+   NEWS
+   ===================================================== */
 
-const newsData=[
+const news=[
 
  {
-  title:"Minecraft 26.3 Pre-Release",
-  type:"pc",
-  date:"2026-09-08",
-  text:"نسخه آزمایشی جدید Minecraft منتشر شد.",
-  url:"https://www.minecraft.net/en-us"
+  t:"Minecraft 26.3 Pre-Release",
+  c:"pc",
+  d:"2026-09-08",
+  p:"نسخه آزمایشی جدید Minecraft منتشر شد.",
+  u:"https://www.minecraft.net/en-us"
  },
 
  {
-  title:"Call of Duty: Black Ops 7 و Warzone",
-  type:"pc",
-  date:"2026-09-08",
-  text:"اطلاعات جدید فصل ششم منتشر شده است.",
-  url:"https://www.callofduty.com/"
+  t:"Minecraft Wilderness Bound",
+  c:"pc",
+  d:"2026-09-05",
+  p:"اطلاعات جدید Minecraft منتشر شد.",
+  u:"https://www.minecraft.net/en-us"
  },
 
  {
-  title:"Call of Duty Mobile Season 8",
-  type:"mobile",
-  date:"2026-09-02",
-  text:"فصل هشتم Call of Duty Mobile معرفی شد.",
-  url:"https://www.callofduty.com/mobile"
+  t:"Call of Duty Black Ops 7 و Warzone",
+  c:"pc",
+  d:"2026-09-08",
+  p:"اطلاعات فصل ششم منتشر شده است.",
+  u:"https://www.callofduty.com/"
  },
 
  {
-  title:"Fortnite Creator Roadmap",
-  type:"console",
-  date:"2026-09-04",
-  text:"Epic Games نقشه راه عمومی سازندگان Fortnite را منتشر کرد.",
-  url:"https://www.fortnite.com/"
+  t:"Call of Duty Mobile Season 8",
+  c:"mobile",
+  d:"2026-09-02",
+  p:"فصل هشتم Call of Duty Mobile معرفی شد.",
+  u:"https://www.callofduty.com/mobile"
  },
 
  {
-  title:"GTA Online Business Rivalries",
-  type:"console",
-  date:"2026-09-03",
-  text:"رویداد جدید GTA Online معرفی شد.",
-  url:"https://www.rockstargames.com/gta-online"
+  t:"Fortnite Creator Roadmap",
+  c:"console",
+  d:"2026-09-04",
+  p:"نقشه راه سازندگان Fortnite منتشر شد.",
+  u:"https://www.fortnite.com/"
  },
 
  {
-  title:"Minecraft Wilderness Bound",
-  type:"pc",
-  date:"2026-09-05",
-  text:"اطلاعات جدید درباره Minecraft منتشر شد.",
-  url:"https://www.minecraft.net/en-us"
+  t:"GTA Online Business Rivalries",
+  c:"console",
+  d:"2026-09-03",
+  p:"رویداد جدید GTA Online معرفی شد.",
+  u:"https://www.rockstargames.com/gta-online"
  }
 
 ];
 
 
-function renderNews(){
+function renderNews(filter="all"){
 
  const list=document.getElementById("newsList");
 
- let data=newsData;
+ let data=
+ filter==="all"
+ ?news
+ :news.filter(x=>x.c===filter);
 
- if(currentNewsFilter!=="all"){
-  data=data.filter(n=>n.type===currentNewsFilter);
- }
+ list.innerHTML=data.map(x=>`
 
- list.innerHTML=data.map(n=>`
+  <article class="newsCard">
 
-  <article class="news-card">
-
-   <h3>📰 ${escapeHTML(n.title)}</h3>
+   <h3>📰 ${safe(x.t)}</h3>
 
    <div class="meta">
-    ${n.date}
+    📅 ${x.d}
    </div>
 
-   <p>${escapeHTML(n.text)}</p>
+   <p>${safe(x.p)}</p>
 
    <a
-    href="${n.url}"
-    target="_blank"
-    rel="noopener"
-   >
-    مشاهده منبع خبر ↗
+    href="${x.u}"
+    target="_blank">
+    مشاهده منبع ↗
    </a>
 
   </article>
 
  `).join("");
-
 }
 
 
-function filterNews(type,button){
+function showNews(type,btn){
 
- currentNewsFilter=type;
+ document.querySelectorAll("#news .toolbar button")
+ .forEach(x=>x.classList.remove("active"));
 
- document.querySelectorAll("#news .filters button")
- .forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");
 
- button.classList.add("active");
-
- renderNews();
+ renderNews(type);
 }
 
 
-/* =========================================================
-   دانلود
-========================================================= */
+/* =====================================================
+   DOWNLOADS
+   ===================================================== */
 
-const downloadGames={
+const downloads={
 
  pc:[
   ["Minecraft","https://www.minecraft.net/en-us/download"],
@@ -1004,44 +954,42 @@ const downloadGames={
   ["PUBG Mobile","https://www.pubgmobile.com/"],
   ["Roblox","https://www.roblox.com/download"]
  ]
-
 };
 
 
-function downloadPlatform(type,button=null){
+function downloadList(type,btn=null){
 
- if(button){
+ if(btn){
 
-  document.querySelectorAll("#downloads .platforms button")
-  .forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll("#downloads .toolbar button")
+  .forEach(x=>x.classList.remove("active"));
 
-  button.classList.add("active");
+  btn.classList.add("active");
  }
 
- const list=document.getElementById("downloadList");
+ const box=document.getElementById("downloadGrid");
 
- list.innerHTML=downloadGames[type].map(g=>`
+ box.innerHTML=downloads[type].map(x=>`
 
   <article class="card">
 
-   <div
-    style="
-     height:170px;
-     display:flex;
-     align-items:center;
-     justify-content:center;
-     font-size:65px;
-     background:#151c2b
-    "
-   >
+   <div style="
+    height:170px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
+    background:#151c2a">
     🎮
    </div>
 
-   <div class="card-body">
+   <div class="cardBody">
 
-    <h3>${escapeHTML(g[0])}</h3>
+    <h3>${safe(x[0])}</h3>
 
-    <button onclick="window.open('${g[1]}','_blank')">
+    <button
+     class="primary"
+     onclick="window.open('${x[1]}','_blank')">
      رفتن به منبع رسمی
     </button>
 
@@ -1053,27 +1001,25 @@ function downloadPlatform(type,button=null){
 }
 
 
-/* =========================================================
-   کدهای مخفی
-========================================================= */
+/* =====================================================
+   CHEATS
+   ===================================================== */
 
 const cheats=[
 
- ["GTA V","PC","PAINKILLER","ضد ضربه شدن"],
- ["GTA V","PC","TURTLE","پر شدن سلامتی و زره"],
- ["GTA V","PC","TOOLUP","تمام اسلحه‌ها و مهمات"],
- ["GTA V","PC","LAWYERUP","کم شدن سطح تعقیب"],
- ["GTA V","PC","FUGITIVE","زیاد شدن سطح تعقیب"],
- ["GTA V","PC","POWERUP","شارژ شدن توانایی ویژه"],
- ["GTA V","PC","SKYFALL","افتادن از آسمان"],
- ["GTA V","PC","BUZZOFF","هلیکوپتر Buzzard"],
+ ["GTA V","PC","PAINKILLER","ضد ضربه"],
+ ["GTA V","PC","TURTLE","سلامتی و زره"],
+ ["GTA V","PC","TOOLUP","اسلحه و مهمات"],
+ ["GTA V","PC","LAWYERUP","کاهش تعقیب پلیس"],
+ ["GTA V","PC","FUGITIVE","افزایش تعقیب پلیس"],
+ ["GTA V","PC","POWERUP","شارژ توانایی"],
+ ["GTA V","PC","SKYFALL","سقوط از آسمان"],
+ ["GTA V","PC","BUZZOFF","هلیکوپتر"],
  ["GTA V","PC","COMET","ماشین Comet"],
  ["GTA V","PC","RAPIDGT","ماشین Rapid GT"],
  ["GTA V","PC","BANDIT","دوچرخه BMX"],
- ["GTA V","PC","ROCKET","موتورسیکلت Sanchez"],
- ["GTA V","PC","OFFROAD","موتور Sanchez"],
+ ["GTA V","PC","ROCKET","موتور Sanchez"],
  ["GTA V","PC","HOPTOIT","پرش بلند"],
- ["GTA V","PC","FLOATER","جاذبه ماه"],
  ["GTA V","PC","CATCHME","دویدن سریع"],
  ["GTA V","PC","GOTGILLS","شنا سریع"],
  ["GTA V","PC","HOTHANDS","مشت انفجاری"],
@@ -1082,78 +1028,79 @@ const cheats=[
 
  ["GTA San Andreas","PC","HESOYAM","سلامتی، زره و پول"],
  ["GTA San Andreas","PC","BAGUVIX","سلامتی زیاد"],
- ["GTA San Andreas","PC","FULLCLIP","مهمات بی‌نهایت"],
+ ["GTA San Andreas","PC","FULLCLIP","مهمات"],
  ["GTA San Andreas","PC","AEZAKMI","عدم تعقیب پلیس"],
- ["GTA San Andreas","PC","ROCKETMAN","جت‌پک"],
+ ["GTA San Andreas","PC","ROCKETMAN","جت پک"],
  ["GTA San Andreas","PC","AIWPRTON","تانک"],
  ["GTA San Andreas","PC","JUMPJET","جت جنگنده"],
  ["GTA San Andreas","PC","OHDUDE","هلیکوپتر Hunter"],
  ["GTA San Andreas","PC","KANGAROO","پرش بلند"],
- ["GTA San Andreas","PC","SPEEDFREAK","نیترو برای ماشین‌ها"],
+ ["GTA San Andreas","PC","SPEEDFREAK","نیترو"],
 
  ["GTA Vice City","PC","ASPIRINE","سلامتی کامل"],
  ["GTA Vice City","PC","PRECIOUSPROTECTION","زره کامل"],
- ["GTA Vice City","PC","THUGSTOOLS","اسلحه‌ها"],
- ["GTA Vice City","PC","PROFESSIONALTOOLS","اسلحه‌های قوی"],
+ ["GTA Vice City","PC","THUGSTOOLS","اسلحه"],
+ ["GTA Vice City","PC","PROFESSIONALTOOLS","اسلحه قوی"],
  ["GTA Vice City","PC","PANZER","تانک"],
- ["GTA Vice City","PC","COMEFLYWITHME","ماشین‌های پرنده"],
- ["GTA Vice City","PC","SEAWAYS","ماشین‌ها روی آب"],
+ ["GTA Vice City","PC","COMEFLYWITHME","ماشین پرنده"],
+ ["GTA Vice City","PC","SEAWAYS","حرکت خودرو روی آب"],
  ["GTA Vice City","PC","BIGBANG","انفجار خودروها"],
 
- ["GTA III","PC","GESUNDHEIT","سلامتی کامل"],
- ["GTA III","PC","GUNSGUNSGUNS","اسلحه‌ها"],
+ ["GTA III","PC","GESUNDHEIT","سلامتی"],
+ ["GTA III","PC","GUNSGUNSGUNS","اسلحه"],
  ["GTA III","PC","IFIWEREARICHMAN","پول"],
  ["GTA III","PC","MOREPOLICEPLEASE","افزایش تعقیب"],
  ["GTA III","PC","NOPOLICEPLEASE","کاهش تعقیب"],
  ["GTA III","PC","GIVEUSATANK","تانک"],
 
- ["The Sims 4","PC","motherlode","۵۰۰۰۰ سیمولئون"],
- ["The Sims 4","PC","kaching","۱۰۰۰ سیمولئون"],
- ["The Sims 4","PC","rosebud","۱۰۰۰ سیمولئون"],
- ["The Sims 4","PC","testingcheats true","فعال کردن تقلب‌ها"],
+ ["The Sims 4","PC","motherlode","پول"],
+ ["The Sims 4","PC","kaching","پول"],
+ ["The Sims 4","PC","rosebud","پول"],
+ ["The Sims 4","PC","testingcheats true","فعال‌کردن تقلب"],
 
- ["Age of Empires II","PC","ROCK ON","۱۰۰۰ سنگ"],
- ["Age of Empires II","PC","LUMBERJACK","۱۰۰۰ چوب"],
- ["Age of Empires II","PC","ROBIN HOOD","۱۰۰۰ طلا"],
- ["Age of Empires II","PC","CHEESE STEAK JIMMY'S","۱۰۰۰ غذا"],
-
- ["Red Dead Redemption 2","PC","Abundance is the dullest desire","مهمات نامحدود"],
- ["Red Dead Redemption 2","PC","Greed is now a virtue","پول"],
- ["Red Dead Redemption 2","PC","You flourish before you die","سلامتی، Dead Eye و Stamina"],
-
- ["Saints Row 3","PC","cheese","پول"],
- ["Saints Row 3","PC","pissoffpigs","افزایش شهرت پلیس"],
- ["Saints Row 3","PC","goodygoody","کاهش شهرت پلیس"],
+ ["Age of Empires II","PC","ROCK ON","سنگ"],
+ ["Age of Empires II","PC","LUMBERJACK","چوب"],
+ ["Age of Empires II","PC","ROBIN HOOD","طلا"],
+ ["Age of Empires II","PC","CHEESE STEAK JIMMY'S","غذا"],
 
  ["Doom","PC","iddqd","God Mode"],
- ["Doom","PC","idkfa","تمام اسلحه و مهمات"],
- ["Doom","PC","idclip","عبور از دیوار"]
+ ["Doom","PC","idkfa","اسلحه و مهمات"],
+ ["Doom","PC","idclip","عبور از دیوار"],
+
+ ["Saints Row 3","PC","cheese","پول"],
+ ["Saints Row 3","PC","pissoffpigs","افزایش پلیس"],
+ ["Saints Row 3","PC","goodygoody","کاهش پلیس"],
+
+ ["Red Dead Redemption 2","PC",
+  "Abundance is the dullest desire",
+  "مهمات"],
+ ["Red Dead Redemption 2","PC",
+  "Greed is now a virtue",
+  "پول"],
+ ["Red Dead Redemption 2","PC",
+  "You flourish before you die",
+  "سلامتی و توانایی"]
 ];
 
-
-/*
-  برای اینکه بخش کدها شلوغ نشود،
-  همین دیتابیس قابلیت جستجو دارد.
-*/
 
 function renderCheats(){
 
- const list=document.getElementById("cheatList");
+ const box=document.getElementById("cheatList");
 
- list.innerHTML=cheats.map(c=>`
+ box.innerHTML=cheats.map(c=>`
 
-  <article class="cheat-card">
+  <article class="cheat">
 
-   <h3>🎮 ${escapeHTML(c[0])}</h3>
+   <h3>🎮 ${safe(c[0])}</h3>
 
    <div class="meta">
-    پلتفرم: ${escapeHTML(c[1])}
+    پلتفرم: ${safe(c[1])}
    </div>
 
-   <p>${escapeHTML(c[3])}</p>
+   <p>${safe(c[3])}</p>
 
-   <div class="cheat-code">
-    ${escapeHTML(c[2])}
+   <div class="code">
+    ${safe(c[2])}
    </div>
 
   </article>
@@ -1162,32 +1109,30 @@ function renderCheats(){
 }
 
 
-function filterCheats(){
+function searchCheats(){
 
- const text=
-  document.getElementById("cheatSearch")
-  .value
-  .toLowerCase();
+ const q=
+ document.getElementById("cheatSearch")
+ .value.toLowerCase();
 
- const filtered=cheats.filter(c=>
-  c.join(" ").toLowerCase().includes(text)
+ const result=
+ cheats.filter(x=>
+  x.join(" ").toLowerCase().includes(q)
  );
 
- const list=document.getElementById("cheatList");
+ const box=document.getElementById("cheatList");
 
- list.innerHTML=filtered.map(c=>`
+ box.innerHTML=result.map(c=>`
 
-  <article class="cheat-card">
+  <article class="cheat">
 
-   <h3>🎮 ${escapeHTML(c[0])}</h3>
+   <h3>🎮 ${safe(c[0])}</h3>
 
-   <div class="meta">${escapeHTML(c[1])}</div>
+   <div class="meta">${safe(c[1])}</div>
 
-   <p>${escapeHTML(c[3])}</p>
+   <p>${safe(c[3])}</p>
 
-   <div class="cheat-code">
-    ${escapeHTML(c[2])}
-   </div>
+   <div class="code">${safe(c[2])}</div>
 
   </article>
 
@@ -1195,183 +1140,120 @@ function filterCheats(){
 }
 
 
-/* =========================================================
-   موسیقی
-========================================================= */
+/* =====================================================
+   COMMENTS
+   ===================================================== */
 
-const music=[
+function addComment(id){
 
- ["🎵 Gaming Music Mix","https://www.youtube.com/results?search_query=gaming+music+mix"],
- ["🎵 Epic Gaming Music","https://www.youtube.com/results?search_query=epic+gaming+music"],
- ["🎵 Minecraft Music","https://www.youtube.com/results?search_query=minecraft+music"],
- ["🎵 GTA Music","https://www.youtube.com/results?search_query=GTA+music"],
- ["🎵 Call of Duty Music","https://www.youtube.com/results?search_query=Call+of+Duty+music"],
- ["🎵 Fortnite Music","https://www.youtube.com/results?search_query=Fortnite+music"]
-];
+ const input=document.getElementById("commentText");
 
-
-function renderMusic(){
-
- const list=document.getElementById("musicList");
-
- list.innerHTML=music.map(m=>`
-
-  <article class="music-card">
-
-   <h3>${escapeHTML(m[0])}</h3>
-
-   <button
-    class="main-btn"
-    onclick="window.open('${m[1]}','_blank')"
-   >
-    ▶️ مشاهده موسیقی
-   </button>
-
-  </article>
-
- `).join("");
-}
-
-
-/* =========================================================
-   کامنت‌ها
-========================================================= */
-
-function addComment(gameId,gameName){
-
- const textarea=document.getElementById("commentText");
-
- const text=textarea.value.trim();
+ const text=input.value.trim();
 
  if(!text){
-  alert("اول نظرت رو بنویس 😄");
+  alert("اول نظرت را بنویس 😄");
   return;
  }
 
- const key="game_comments_"+gameId;
+ const key="comments_"+id;
 
- const comments=
-  JSON.parse(localStorage.getItem(key)||"[]");
+ let arr=
+ JSON.parse(localStorage.getItem(key)||"[]");
 
- comments.push({
+ arr.push({
   text:text,
   date:new Date().toLocaleDateString("fa-IR")
  });
 
- localStorage.setItem(key,JSON.stringify(comments));
+ localStorage.setItem(key,JSON.stringify(arr));
 
- textarea.value="";
+ input.value="";
 
- loadComments(gameId);
+ showComments(id);
 
- updateCommentCount();
+ updateCommentNumber();
 }
 
 
-function loadComments(gameId){
+function showComments(id){
 
- const box=document.getElementById("comments-"+gameId);
+ const box=document.getElementById("comments");
 
  if(!box)return;
 
- const comments=
-  JSON.parse(
-   localStorage.getItem("game_comments_"+gameId)||"[]"
-  );
+ const arr=
+ JSON.parse(
+  localStorage.getItem("comments_"+id)||"[]"
+ );
 
- if(!comments.length){
+ if(!arr.length){
 
   box.innerHTML=
-  `<p style="color:#8996aa">هنوز نظری ثبت نشده.</p>`;
+  `<p class="meta">هنوز نظری ثبت نشده.</p>`;
 
   return;
  }
 
- box.innerHTML=comments.map(c=>`
+ box.innerHTML=arr.map(x=>`
 
-  <div class="comment">
-
-   💬 ${escapeHTML(c.text)}
-
-   <div class="meta">
-    ${escapeHTML(c.date)}
-   </div>
-
+  <div class="commentItem">
+   💬 ${safe(x.text)}
+   <div class="meta">${safe(x.date)}</div>
   </div>
 
  `).join("");
 }
 
 
-function updateCommentCount(){
+function updateCommentNumber(){
 
- let total=0;
+ let count=0;
 
  for(let i=0;i<localStorage.length;i++){
 
   const key=localStorage.key(i);
 
-  if(key && key.startsWith("game_comments_")){
+  if(key && key.startsWith("comments_")){
 
-   total+=
-    JSON.parse(localStorage.getItem(key)||"[]").length;
+   count+=JSON.parse(
+    localStorage.getItem(key)||"[]"
+   ).length;
   }
  }
 
- const element=document.getElementById("commentCount");
-
- if(element){
-  element.innerText=total;
- }
+ document.getElementById("commentNumber").innerText=count;
 }
 
 
-/* =========================================================
-   ابزارهای امنیتی
-========================================================= */
+/* =====================================================
+   SECURITY
+   ===================================================== */
 
-function escapeHTML(value){
+function safe(x){
 
- return String(value ?? "")
-  .replaceAll("&","&amp;")
-  .replaceAll("<","&lt;")
-  .replaceAll(">","&gt;")
-  .replaceAll('"',"&quot;")
-  .replaceAll("'","&#039;");
+ return String(x??"")
+ .replaceAll("&","&amp;")
+ .replaceAll("<","&lt;")
+ .replaceAll(">","&gt;")
+ .replaceAll('"',"&quot;")
+ .replaceAll("'","&#039;");
 }
 
 
-function cleanDescription(text){
-
- if(!text)return "توضیحی برای این بازی ثبت نشده.";
-
- return text
-  .replace(/<[^>]*>/g,"")
-  .slice(0,2500);
-}
-
-
-/* =========================================================
-   شروع سایت
-========================================================= */
+/* =====================================================
+   START
+   ===================================================== */
 
 document.addEventListener("DOMContentLoaded",()=>{
 
  renderNews();
  renderCheats();
- renderMusic();
- downloadPlatform("pc");
-
- updateCommentCount();
-
- /*
-   بازی‌ها در شروع صفحه خانه لود نمی‌شوند
-   تا API بی‌دلیل درخواست ندهد.
- */
+ downloadList("pc");
+ updateCommentNumber();
 
 });
 
 </script>
 
 </body>
-  </html>
+ </html>
