@@ -2,186 +2,174 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GamePlus | دنیای گیمرها</title>
 
-<meta name="description" content="GamePlus؛ اخبار بازی، بازی‌های محبوب، Minecraft، GTA، Call of Duty، Fortnite و دنیای گیم">
-
 <style>
-
 *{
-margin:0;
-padding:0;
 box-sizing:border-box;
+margin:0;
+padding:0
 }
 
 html{
-scroll-behavior:smooth;
+scroll-behavior:smooth
 }
 
 body{
 font-family:Tahoma,Arial,sans-serif;
-background:#080b12;
+background:#080a10;
 color:#fff;
-line-height:1.8;
+line-height:1.8
 }
 
 a{
 text-decoration:none;
-color:inherit;
+color:inherit
 }
 
 button,input,select{
-font-family:inherit;
+font-family:inherit
 }
 
 header{
 position:sticky;
 top:0;
 z-index:999;
-background:rgba(8,11,18,.94);
-backdrop-filter:blur(15px);
-border-bottom:1px solid #252b38;
+background:rgba(8,10,16,.96);
+border-bottom:1px solid #242936;
+backdrop-filter:blur(15px)
 }
 
 .nav{
 width:min(1200px,94%);
 margin:auto;
-min-height:70px;
+height:70px;
 display:flex;
 align-items:center;
-gap:20px;
+gap:20px
 }
 
 .logo{
 font-size:25px;
 font-weight:900;
-white-space:nowrap;
+white-space:nowrap
 }
 
 .logo span{
-color:#7c5cff;
+color:#7657ff
 }
 
 .menu{
 display:flex;
-gap:18px;
-margin-right:auto;
+gap:20px;
+margin-right:auto
 }
 
 .menu a{
-color:#aeb5c4;
-font-size:14px;
+color:#aab1c0;
+font-size:14px
 }
 
 .menu a:hover{
-color:#fff;
+color:#fff
 }
 
 .search{
 width:220px;
-background:#151a24;
-border:1px solid #2b3240;
+background:#151a23;
+border:1px solid #2c3341;
 border-radius:12px;
 padding:10px;
 color:#fff;
-outline:none;
+outline:none
 }
 
 .container{
 width:min(1200px,94%);
-margin:auto;
+margin:auto
 }
 
+/* HOME */
+
 .hero{
-margin-top:30px;
+margin-top:28px;
 padding:55px 35px;
 border-radius:25px;
 background:
-radial-gradient(circle at 80% 20%,#30206b55,transparent 35%),
-linear-gradient(135deg,#17122c,#101827,#0e121a);
-border:1px solid #332b4d;
-}
-
-.badge{
-display:inline-block;
-padding:5px 11px;
-border-radius:30px;
-background:#251e43;
-color:#b9aaff;
-font-size:11px;
-font-weight:bold;
-margin-bottom:12px;
+linear-gradient(135deg,#1c1535,#111827,#0d1119);
+border:1px solid #332a4c
 }
 
 .hero h1{
 font-size:clamp(32px,6vw,60px);
 line-height:1.2;
-margin-bottom:15px;
+margin-bottom:15px
 }
 
 .hero p{
-max-width:700px;
-color:#aeb6c5;
+color:#aab2c1;
+max-width:700px
+}
+
+.btn{
+display:inline-block;
+padding:11px 18px;
+border-radius:11px;
+border:0;
+cursor:pointer;
+font-weight:bold
+}
+
+.primary{
+background:#7657ff;
+color:#fff
+}
+
+.secondary{
+background:#1a202b;
+border:1px solid #303746
 }
 
 .buttons{
 display:flex;
 gap:10px;
-margin-top:25px;
-flex-wrap:wrap;
+margin-top:25px
 }
 
-.btn{
-display:inline-block;
-border:0;
-border-radius:12px;
-padding:11px 18px;
-cursor:pointer;
-font-weight:bold;
-}
-
-.primary{
-background:#7659ff;
-color:#fff;
-}
-
-.secondary{
-background:#1a202b;
-border:1px solid #303746;
-color:#fff;
-}
+/* SECTIONS */
 
 section{
-padding:35px 0;
+padding:35px 0
 }
 
 .title{
 display:flex;
-justify-content:space-between;
 align-items:center;
-margin-bottom:18px;
-gap:10px;
+justify-content:space-between;
+margin-bottom:18px
 }
 
 .title h2{
-font-size:23px;
+font-size:23px
 }
 
 .muted{
 color:#8993a4;
-font-size:13px;
+font-size:13px
 }
+
+/* CARDS */
 
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:17px;
+gap:18px
 }
 
 .games-grid{
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(4,1fr)
 }
 
 .card{
@@ -189,76 +177,81 @@ background:#121720;
 border:1px solid #252c39;
 border-radius:17px;
 overflow:hidden;
-transition:.2s;
+transition:.2s
 }
 
 .card:hover{
 transform:translateY(-4px);
-border-color:#4c5365;
+border-color:#4e5668
 }
 
-.cover{
-height:160px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:58px;
-background:
-linear-gradient(135deg,#272d3a,#151a24);
+.card-image{
+width:100%;
+height:180px;
+object-fit:cover;
+display:block
 }
 
-.game-cover{
-height:135px;
+.game-image{
+height:230px
 }
 
 .card-body{
-padding:16px;
+padding:16px
 }
 
 .card h3{
 font-size:16px;
-margin-bottom:7px;
+margin-bottom:7px
 }
 
 .card p{
-color:#9ba4b4;
 font-size:13px;
+color:#9ca5b5
 }
 
-.stats{
+.info{
 display:flex;
 gap:10px;
 flex-wrap:wrap;
 margin-top:10px;
-color:#8d96a7;
-font-size:11px;
+color:#8993a4;
+font-size:11px
 }
 
-.live-text{
-color:#ff526c;
-font-weight:bold;
-font-size:12px;
+.tag{
+display:inline-block;
+background:#251e43;
+color:#b9aaff;
+padding:4px 9px;
+border-radius:20px;
+font-size:10px;
+margin-bottom:9px
 }
+
+/* FILTER */
 
 .filters{
 display:flex;
 gap:10px;
 flex-wrap:wrap;
-margin-bottom:18px;
+margin-bottom:18px
 }
 
 .filters input,
 .filters select{
-background:#151a24;
-border:1px solid #2b3240;
+background:#151a23;
+border:1px solid #2c3341;
 color:#fff;
-border-radius:10px;
 padding:10px;
-outline:none;
+border-radius:10px;
+outline:none
 }
 
+/* POLLS */
+
 .poll{
-padding:18px;
+padding:18px
 }
 
 .poll button{
@@ -267,54 +260,58 @@ width:100%;
 margin-top:10px;
 padding:11px;
 border-radius:10px;
-border:1px solid #2d3441;
+border:1px solid #2c3442;
 background:#191f29;
 color:#fff;
 cursor:pointer;
-text-align:right;
+text-align:right
 }
 
 .poll button:hover{
-border-color:#7659ff;
+border-color:#7657ff
 }
 
 .result{
 margin-top:12px;
-color:#9da6b5;
 font-size:12px;
+color:#9ba4b3
 }
+
+/* RANK */
 
 .rank-grid{
 display:grid;
 grid-template-columns:repeat(5,1fr);
-gap:12px;
+gap:12px
 }
 
 .rank{
 background:#121720;
 border:1px solid #252c39;
 border-radius:15px;
-padding:15px;
-text-align:center;
+padding:16px;
+text-align:center
 }
 
 .rank-number{
-font-size:26px;
+font-size:28px;
 font-weight:900;
-color:#856dff;
+color:#8065ff
 }
+
+/* COMMENTS */
 
 .comments{
 background:#11161f;
 border:1px solid #252c39;
 border-radius:17px;
-padding:18px;
+padding:18px
 }
 
 .comment-box{
 display:flex;
 gap:10px;
-margin-top:12px;
+margin-top:12px
 }
 
 .comment-box input{
@@ -324,54 +321,81 @@ border:1px solid #2b3240;
 border-radius:10px;
 padding:11px;
 color:#fff;
-outline:none;
+outline:none
 }
 
 .comment{
 background:#171d27;
-padding:10px;
 border-radius:10px;
+padding:10px;
 margin-top:8px;
-font-size:13px;
+font-size:13px
 }
 
 .empty{
 grid-column:1/-1;
+padding:40px;
 text-align:center;
-padding:35px;
-color:#858e9e;
 background:#121720;
 border-radius:15px;
+color:#8b94a4
 }
+
+/* PROFILE */
+
+.profile{
+display:flex;
+align-items:center;
+gap:18px;
+background:#121720;
+border:1px solid #252c39;
+padding:22px;
+border-radius:18px
+}
+
+.avatar{
+width:75px;
+height:75px;
+border-radius:50%;
+background:#7657ff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px
+}
+
+/* FOOTER */
 
 footer{
 margin-top:30px;
 padding:40px 20px 100px;
 text-align:center;
 border-top:1px solid #222936;
-color:#7f8999;
+color:#7f8999
 }
 
-.bottom-nav{
-display:none;
+/* MOBILE */
+
+.bottom{
+display:none
 }
 
 @media(max-width:900px){
 
 .menu{
-display:none;
+display:none
 }
 
 .grid{
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(2,1fr)
 }
 
 .games-grid{
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(3,1fr)
 }
 
 .rank-grid{
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(3,1fr)
 }
 
 }
@@ -379,58 +403,61 @@ grid-template-columns:repeat(3,1fr);
 @media(max-width:600px){
 
 .nav{
-gap:10px;
+gap:10px
 }
 
 .logo{
-font-size:20px;
+font-size:20px
 }
 
 .search{
-width:145px;
+width:145px
 }
 
 .hero{
-padding:32px 20px;
+padding:35px 20px
 }
 
 .grid,
 .games-grid{
-grid-template-columns:1fr;
+grid-template-columns:1fr
 }
 
 .rank-grid{
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(2,1fr)
 }
 
-.bottom-nav{
+.card-image{
+height:210px
+}
+
+.bottom{
 position:fixed;
 display:flex;
-bottom:0;
 left:0;
 right:0;
+bottom:0;
 height:65px;
 background:#11161f;
 border-top:1px solid #29303c;
 z-index:999;
-justify-content:space-around;
+justify-content:space-around
 }
 
-.bottom-nav a{
+.bottom a{
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 font-size:11px;
-color:#aab2c0;
+color:#aab2c0
 }
 
 .comment-box{
-flex-direction:column;
+flex-direction:column
 }
 
 }
-
 </style>
 </head>
 
@@ -445,20 +472,18 @@ GAME<span>PLUS</span>
 </a>
 
 <nav class="menu">
-
-<a href="#home">🏠 خانه</a>
-<a href="#live">🔴 لایو</a>
-<a href="#games">🎮 بازی‌ها</a>
-<a href="#news">📰 اخبار</a>
-<a href="#polls">🗳️ نظرسنجی</a>
-
+<a href="#home">خانه</a>
+<a href="#games">بازی‌ها</a>
+<a href="#news">اخبار</a>
+<a href="#polls">نظرسنجی</a>
+<a href="#profile">پروفایل</a>
 </nav>
 
 <input
-id="mainSearch"
+id="topSearch"
 class="search"
-placeholder="🔎 جستجوی بازی..."
-oninput="searchGames()"
+placeholder="جستجوی بازی..."
+oninput="topSearch()"
 >
 
 </div>
@@ -469,127 +494,29 @@ oninput="searchGames()"
 <main class="container">
 
 
+<!-- HOME -->
+
 <section id="home">
 
 <div class="hero">
 
-<span class="badge">
-🎮 GAMEPLUS
-</span>
-
 <h1>
-دنیای بازی، همین‌جا
+GamePlus
 </h1>
 
 <p>
-اخبار بازی، بازی‌های محبوب، Minecraft، GTA، Call of Duty،
-Fortnite و کلی محتوای گیمینگ.
+مرجع بازی‌ها، اخبار گیمینگ، نظرسنجی و اطلاعات بازی‌های محبوب.
 </p>
 
 <div class="buttons">
 
 <a href="#games" class="btn primary">
-🎮 بازی‌ها
+مشاهده بازی‌ها
 </a>
 
 <a href="#news" class="btn secondary">
-📰 اخبار
+مشاهده اخبار
 </a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- LIVE -->
-
-<section id="live">
-
-<div class="title">
-
-<h2>🔴 LIVE NOW</h2>
-
-<span class="muted">
-اطلاعات زنده پس از اتصال API
-</span>
-
-</div>
-
-<div class="grid">
-
-<div class="card">
-
-<div class="cover">
-⛏️
-</div>
-
-<div class="card-body">
-
-<span class="live-text">
-● LIVE
-</span>
-
-<h3>
-Minecraft
-</h3>
-
-<p>
-بخش لایو آماده اتصال به سرویس‌های پخش زنده است.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<div class="cover">
-🚗
-</div>
-
-<div class="card-body">
-
-<span class="live-text">
-● LIVE
-</span>
-
-<h3>
-GTA V
-</h3>
-
-<p>
-نام استریمر و تعداد بیننده پس از اتصال API نمایش داده می‌شود.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<div class="cover">
-🔫
-</div>
-
-<div class="card-body">
-
-<span class="live-text">
-● LIVE
-</span>
-
-<h3>
-Call of Duty
-</h3>
-
-<p>
-این قسمت برای لایوهای واقعی طراحی شده است.
-</p>
-
-</div>
 
 </div>
 
@@ -604,9 +531,11 @@ Call of Duty
 
 <div class="title">
 
-<h2>🎮 بازی‌ها</h2>
+<h2>
+بازی‌ها
+</h2>
 
-<span id="gameCount" class="muted"></span>
+<span id="count" class="muted"></span>
 
 </div>
 
@@ -614,38 +543,37 @@ Call of Duty
 
 <input
 id="gameSearch"
-placeholder="جستجوی بازی..."
+placeholder="نام بازی..."
 oninput="filterGames()"
 >
 
-<select id="platformFilter" onchange="filterGames()">
+<select id="platform" onchange="filterGames()">
 
 <option value="">همه پلتفرم‌ها</option>
-<option value="PC">PC</option>
-<option value="PlayStation">PlayStation</option>
-<option value="Xbox">Xbox</option>
-<option value="Android">Android</option>
-<option value="iOS">iOS</option>
-<option value="Nintendo">Nintendo</option>
+<option>PC</option>
+<option>PlayStation</option>
+<option>Xbox</option>
+<option>Android</option>
+<option>iOS</option>
+<option>Nintendo</option>
 
 </select>
 
-
-<select id="genreFilter" onchange="filterGames()">
+<select id="genre" onchange="filterGames()">
 
 <option value="">همه ژانرها</option>
-<option value="Action">اکشن</option>
-<option value="Adventure">ماجراجویی</option>
-<option value="Shooter">شوتر</option>
-<option value="Sports">ورزشی</option>
-<option value="Sandbox">Sandbox</option>
-<option value="RPG">RPG</option>
+<option>Action</option>
+<option>Shooter</option>
+<option>Adventure</option>
+<option>Sandbox</option>
+<option>Sports</option>
+<option>RPG</option>
 
 </select>
 
 </div>
 
-<div id="gameList" class="grid games-grid"></div>
+<div id="gamesList" class="grid games-grid"></div>
 
 </section>
 
@@ -656,10 +584,12 @@ oninput="filterGames()"
 
 <div class="title">
 
-<h2>📰 اخبار بازی</h2>
+<h2>
+آخرین اخبار
+</h2>
 
 <span class="muted">
-آخرین بروزرسانی: ۸ سپتامبر ۲۰۲۶
+بروزرسانی دوره‌ای
 </span>
 
 </div>
@@ -669,13 +599,15 @@ oninput="filterGames()"
 
 <article class="card">
 
-<div class="cover">
-🔫
-</div>
+<img
+class="card-image"
+src="https://i.3djuegos.com/juegos/20446/call_of_duty_black_ops_7/fotos/ficha/call_of_duty_black_ops_7-5967256.jpg"
+alt="Call of Duty Black Ops 7"
+>
 
 <div class="card-body">
 
-<span class="badge">
+<span class="tag">
 CALL OF DUTY
 </span>
 
@@ -684,21 +616,21 @@ CALL OF DUTY
 </h3>
 
 <p>
-فصل ششم با محتوای جدید برای Black Ops 7 و Warzone معرفی شده است.
+محتوای جدید فصل ششم برای Black Ops 7 و Warzone معرفی شده است.
 </p>
 
-<div class="stats">
-📅 ۸ سپتامبر ۲۰۲۶
+<div class="info">
+۸ سپتامبر ۲۰۲۶
 </div>
 
 <br>
 
 <a
 class="btn primary"
-target="_blank"
 href="https://www.callofduty.com/blog/2026/09/call-of-duty-black-ops-7-warzone-season-6-the-haunting-announcement"
+target="_blank"
 >
-منبع رسمی ↗
+منبع رسمی
 </a>
 
 </div>
@@ -708,36 +640,38 @@ href="https://www.callofduty.com/blog/2026/09/call-of-duty-black-ops-7-warzone-s
 
 <article class="card">
 
-<div class="cover">
-⛏️
-</div>
+<img
+class="card-image"
+src="https://ethlan.fr/img/jeux/121.jpg"
+alt="Minecraft"
+>
 
 <div class="card-body">
 
-<span class="badge">
+<span class="tag">
 MINECRAFT
 </span>
 
 <h3>
-Minecraft: Wilderness Bound معرفی شد
+خبرهای جدید Minecraft
 </h3>
 
 <p>
-Minecraft نام Drop بعدی خود را با عنوان Wilderness Bound معرفی کرده است.
+Minecraft همچنان محتوای جدید و به‌روزرسانی‌های تازه دریافت می‌کند.
 </p>
 
-<div class="stats">
-📅 ۵ سپتامبر ۲۰۲۶
+<div class="info">
+سپتامبر ۲۰۲۶
 </div>
 
 <br>
 
 <a
 class="btn primary"
+href="https://www.minecraft.net/en-us"
 target="_blank"
-href="https://www.minecraft.net/en-us/article/drop-3-2026-name-announce"
 >
-منبع رسمی ↗
+سایت رسمی
 </a>
 
 </div>
@@ -747,75 +681,39 @@ href="https://www.minecraft.net/en-us/article/drop-3-2026-name-announce"
 
 <article class="card">
 
-<div class="cover">
-🚗
-</div>
+<img
+class="card-image"
+src="https://www.gtabase.com/images/gta-5/cover-art/gta-5-cover-art.jpg"
+alt="GTA V"
+onerror="this.src='https://www.gtabase.com/grand-theft-auto-v/cover-art/'"
+>
 
 <div class="card-body">
 
-<span class="badge">
+<span class="tag">
 GTA ONLINE
 </span>
 
 <h3>
-رویداد Business Rivalries در GTA Online
+اخبار جدید GTA Online
 </h3>
 
 <p>
-Rockstar رویداد جدید Business Rivalries را برای GTA Online معرفی کرده است.
+خبرها و رویدادهای جدید GTA Online را در این بخش دنبال کن.
 </p>
 
-<div class="stats">
-📅 ۳ سپتامبر ۲۰۲۶
+<div class="info">
+سپتامبر ۲۰۲۶
 </div>
 
 <br>
 
 <a
 class="btn primary"
-target="_blank"
 href="https://www.rockstargames.com/newswire"
->
-منبع رسمی ↗
-</a>
-
-</div>
-
-</article>
-
-
-<article class="card">
-
-<div class="cover">
-🎃
-</div>
-
-<div class="card-body">
-
-<span class="badge">
-COD MOBILE
-</span>
-
-<h3>
-فصل ۸ Call of Duty: Mobile
-</h3>
-
-<p>
-فصل جدید با محتوای جدید Multiplayer و Battle Royale معرفی شده است.
-</p>
-
-<div class="stats">
-📅 ۲ سپتامبر ۲۰۲۶
-</div>
-
-<br>
-
-<a
-class="btn primary"
 target="_blank"
-href="https://www.callofduty.com/blog/2026/09/call-of-duty-mobile-season-8-against-all-fate"
 >
-منبع رسمی ↗
+Rockstar Newswire
 </a>
 
 </div>
@@ -825,36 +723,38 @@ href="https://www.callofduty.com/blog/2026/09/call-of-duty-mobile-season-8-again
 
 <article class="card">
 
-<div class="cover">
-🪂
-</div>
+<img
+class="card-image"
+src="https://images-cdn.ubuy.com.es/68d7823f4df3d7b9b70b7cfd-fortnite-save-the-world-standard.jpg"
+alt="Fortnite"
+>
 
 <div class="card-body">
 
-<span class="badge">
+<span class="tag">
 FORTNITE
 </span>
 
 <h3>
-نقشه راه جدید Fortnite برای سازندگان
+آخرین اخبار Fortnite
 </h3>
 
 <p>
-Fortnite یک نقشه راه عمومی برای سازندگان محتوای Fortnite منتشر کرده است.
+خبرها و اطلاعیه‌های Fortnite در این بخش قرار می‌گیرند.
 </p>
 
-<div class="stats">
-📅 ۴ سپتامبر ۲۰۲۶
+<div class="info">
+سپتامبر ۲۰۲۶
 </div>
 
 <br>
 
 <a
 class="btn primary"
-target="_blank"
 href="https://www.fortnite.com/news/tag/all-news"
+target="_blank"
 >
-منبع رسمی ↗
+اخبار رسمی
 </a>
 
 </div>
@@ -864,36 +764,80 @@ href="https://www.fortnite.com/news/tag/all-news"
 
 <article class="card">
 
-<div class="cover">
-🚓
-</div>
+<img
+class="card-image"
+src="https://digiseller.mycdn.ink/imgwebp.ashx?dc=798243963&idp=8228771&w=576"
+alt="Roblox"
+>
 
 <div class="card-body">
 
-<span class="badge">
-GTA V
+<span class="tag">
+ROBLOX
 </span>
 
 <h3>
-معرفی nopixel V
+آخرین اخبار Roblox
 </h3>
 
 <p>
-Rockstar درباره تجربه Roleplay جدید nopixel V اطلاعاتی منتشر کرده است.
+اینجا می‌توانیم اخبار و آپدیت‌های جدید Roblox را قرار دهیم.
 </p>
 
-<div class="stats">
-📅 سپتامبر ۲۰۲۶
+<div class="info">
+بروزرسانی دوره‌ای
 </div>
 
 <br>
 
 <a
 class="btn primary"
+href="https://www.roblox.com/"
 target="_blank"
-href="https://www.rockstargames.com/newswire"
 >
-منبع رسمی ↗
+سایت رسمی
+</a>
+
+</div>
+
+</article>
+
+
+<article class="card">
+
+<img
+class="card-image"
+src="https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/2026/09/CODM-S8-ANNOUNCE-TOUT.jpg"
+alt="Call of Duty Mobile"
+onerror="this.style.display='none'"
+>
+
+<div class="card-body">
+
+<span class="tag">
+COD MOBILE
+</span>
+
+<h3>
+اخبار Call of Duty Mobile
+</h3>
+
+<p>
+خبرها و فصل‌های جدید نسخه موبایل در این بخش قرار می‌گیرند.
+</p>
+
+<div class="info">
+سپتامبر ۲۰۲۶
+</div>
+
+<br>
+
+<a
+class="btn primary"
+href="https://www.callofduty.com/mobile"
+target="_blank"
+>
+سایت رسمی
 </a>
 
 </div>
@@ -911,7 +855,9 @@ href="https://www.rockstargames.com/newswire"
 
 <div class="title">
 
-<h2>🗳️ نظرسنجی‌های داغ</h2>
+<h2>
+نظرسنجی
+</h2>
 
 </div>
 
@@ -924,16 +870,16 @@ href="https://www.rockstargames.com/newswire"
 Minecraft یا Roblox؟
 </h3>
 
-<button onclick="vote('Minecraft')">
-⛏️ Minecraft
+<button onclick="vote1('Minecraft')">
+Minecraft
 </button>
 
-<button onclick="vote('Roblox')">
-🧱 Roblox
+<button onclick="vote1('Roblox')">
+Roblox
 </button>
 
-<p id="poll1" class="result">
-رأی خودت را انتخاب کن.
+<p id="result1" class="result">
+رأی بده.
 </p>
 
 </div>
@@ -946,15 +892,15 @@ GTA V یا RDR2؟
 </h3>
 
 <button onclick="vote2('GTA V')">
-🚗 GTA V
+GTA V
 </button>
 
 <button onclick="vote2('RDR2')">
-🤠 RDR2
+RDR2
 </button>
 
-<p id="poll2" class="result">
-رأی خودت را انتخاب کن.
+<p id="result2" class="result">
+رأی بده.
 </p>
 
 </div>
@@ -963,19 +909,19 @@ GTA V یا RDR2؟
 <div class="card poll">
 
 <h3>
-COD یا Fortnite؟
+Call of Duty یا Fortnite؟
 </h3>
 
-<button onclick="vote3('COD')">
-🔫 Call of Duty
+<button onclick="vote3('Call of Duty')">
+Call of Duty
 </button>
 
 <button onclick="vote3('Fortnite')">
-🪂 Fortnite
+Fortnite
 </button>
 
-<p id="poll3" class="result">
-رأی خودت را انتخاب کن.
+<p id="result3" class="result">
+رأی بده.
 </p>
 
 </div>
@@ -985,50 +931,34 @@ COD یا Fortnite؟
 </section>
 
 
-<!-- RANKING -->
+<!-- PROFILE -->
 
-<section>
+<section id="profile">
 
 <div class="title">
 
-<h2>🏆 برترین بازی‌ها</h2>
-
-<span class="muted">
-رتبه‌بندی نمونه سایت
-</span>
+<h2>
+پروفایل
+</h2>
 
 </div>
 
-<div class="rank-grid">
+<div class="profile">
 
-<div class="rank">
-<div class="rank-number">#1</div>
-<b>Minecraft</b>
-<div class="muted">⭐ 9.5</div>
+<div class="avatar">
+G
 </div>
 
-<div class="rank">
-<div class="rank-number">#2</div>
-<b>GTA V</b>
-<div class="muted">⭐ 9.4</div>
-</div>
+<div>
 
-<div class="rank">
-<div class="rank-number">#3</div>
-<b>RDR2</b>
-<div class="muted">⭐ 9.3</div>
-</div>
+<h3>
+گیمر GamePlus
+</h3>
 
-<div class="rank">
-<div class="rank-number">#4</div>
-<b>Fortnite</b>
-<div class="muted">⭐ 9.0</div>
-</div>
+<p class="muted">
+پروفایل محلی سایت
+</p>
 
-<div class="rank">
-<div class="rank-number">#5</div>
-<b>Call of Duty</b>
-<div class="muted">⭐ 8.9</div>
 </div>
 
 </div>
@@ -1042,21 +972,23 @@ COD یا Fortnite؟
 
 <div class="title">
 
-<h2>💬 نظرات کاربران</h2>
+<h2>
+نظرات کاربران
+</h2>
 
 </div>
 
 <div class="comments">
 
 <p class="muted">
-نظر خودت را درباره GamePlus بنویس:
+نظرت درباره GamePlus چیست؟
 </p>
 
 <div class="comment-box">
 
 <input
-id="commentInput"
-placeholder="مثلاً سایت خیلی خفنه!"
+id="comment"
+placeholder="نظر خودت را بنویس..."
 >
 
 <button
@@ -1074,51 +1006,88 @@ onclick="addComment()"
 
 </section>
 
+
+<!-- RANK -->
+
+<section>
+
+<div class="title">
+
+<h2>
+برترین بازی‌ها
+</h2>
+
+</div>
+
+<div class="rank-grid">
+
+<div class="rank">
+<div class="rank-number">#1</div>
+Minecraft
+</div>
+
+<div class="rank">
+<div class="rank-number">#2</div>
+GTA V
+</div>
+
+<div class="rank">
+<div class="rank-number">#3</div>
+RDR2
+</div>
+
+<div class="rank">
+<div class="rank-number">#4</div>
+Fortnite
+</div>
+
+<div class="rank">
+<div class="rank-number">#5</div>
+Call of Duty
+</div>
+
+</div>
+
+</section>
+
 </main>
 
 
 <footer>
 
-<strong>GAMEPLUS 🎮</strong>
+<strong>
+GAMEPLUS
+</strong>
 
 <br>
 
 دنیای گیمرها
 
-<br><br>
-
-<span>
-این سایت در حال توسعه است.
-</span>
-
 </footer>
 
 
-<div class="bottom-nav">
+<!-- MOBILE NAV -->
+
+<div class="bottom">
 
 <a href="#home">
-🏠
-<span>خانه</span>
-</a>
-
-<a href="#live">
-🔴
-<span>لایو</span>
+خانه
 </a>
 
 <a href="#games">
-🎮
-<span>بازی‌ها</span>
+بازی‌ها
 </a>
 
 <a href="#news">
-📰
-<span>اخبار</span>
+اخبار
 </a>
 
 <a href="#polls">
-🗳️
-<span>رأی</span>
+نظرسنجی
+</a>
+
+<a href="#profile">
+پروفایل
 </a>
 
 </div>
@@ -1126,200 +1095,108 @@ onclick="addComment()"
 
 <script>
 
+/* DATABASE */
 
-/* =========================
-   DATABASE بازی‌ها
-========================= */
-
-const games = [
+const games=[
 
 {
 name:"Minecraft",
-icon:"⛏️",
-genre:"Sandbox",
+image:"https://ethlan.fr/img/jeux/121.jpg",
 platform:"PC",
+genre:"Sandbox",
 year:"2011"
 },
 
 {
 name:"GTA V",
-icon:"🚗",
-genre:"Action",
+image:"https://www.gtabase.com/images/gta-5/cover-art/gta-5-cover-art.jpg",
 platform:"PC",
+genre:"Action",
 year:"2013"
 },
 
 {
-name:"Red Dead Redemption 2",
-icon:"🤠",
-genre:"Adventure",
+name:"Call of Duty Black Ops 7",
+image:"https://i.3djuegos.com/juegos/20446/call_of_duty_black_ops_7/fotos/ficha/call_of_duty_black_ops_7-5967256.jpg",
 platform:"PC",
-year:"2018"
-},
-
-{
-name:"Call of Duty",
-icon:"🔫",
 genre:"Shooter",
-platform:"PC",
-year:"2003"
+year:"2025"
 },
 
 {
 name:"Fortnite",
-icon:"🪂",
-genre:"Shooter",
+image:"https://images-cdn.ubuy.com.es/68d7823f4df3d7b9b70b7cfd-fortnite-save-the-world-standard.jpg",
 platform:"PC",
+genre:"Shooter",
 year:"2017"
 },
 
 {
 name:"Roblox",
-icon:"🧱",
-genre:"Sandbox",
+image:"https://digiseller.mycdn.ink/imgwebp.ashx?dc=798243963&idp=8228771&w=576",
 platform:"PC",
+genre:"Sandbox",
 year:"2006"
 },
 
 {
-name:"EA Sports FC",
-icon:"⚽",
-genre:"Sports",
-platform:"PC",
-year:"2023"
-},
-
-{
-name:"PUBG",
-icon:"🎯",
-genre:"Shooter",
-platform:"PC",
-year:"2017"
-},
-
-{
-name:"Valorant",
-icon:"💥",
-genre:"Shooter",
-platform:"PC",
-year:"2020"
-},
-
-{
-name:"The Witcher 3",
-icon:"⚔️",
-genre:"RPG",
-platform:"PC",
-year:"2015"
+name:"Red Dead Redemption 2",
+image:"https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg",
+platform:"PlayStation",
+genre:"Adventure",
+year:"2018"
 },
 
 {
 name:"God of War",
-icon:"⚔️",
+image:"https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_4_cover.jpg",
+platform:"PlayStation",
 genre:"Action",
-platform:"PlayStation",
 year:"2018"
-},
-
-{
-name:"The Last of Us",
-icon:"🍄",
-genre:"Adventure",
-platform:"PlayStation",
-year:"2013"
 },
 
 {
 name:"Forza Horizon 5",
-icon:"🏎️",
-genre:"Action",
+image:"https://upload.wikimedia.org/wikipedia/en/8/87/Forza_Horizon_5_cover_art.jpg",
 platform:"Xbox",
+genre:"Action",
 year:"2021"
 },
 
 {
-name:"Halo Infinite",
-icon:"🪖",
-genre:"Shooter",
-platform:"Xbox",
-year:"2021"
-},
-
-{
-name:"Pokémon",
-icon:"⚡",
-genre:"RPG",
-platform:"Nintendo",
-year:"1996"
-},
-
-{
-name:"Super Mario",
-icon:"🍄",
-genre:"Adventure",
-platform:"Nintendo",
-year:"1985"
-},
-
-{
-name:"Clash of Clans",
-icon:"🏰",
-genre:"Strategy",
-platform:"Android",
-year:"2012"
-},
-
-{
-name:"Brawl Stars",
-icon:"⭐",
-genre:"Action",
-platform:"Android",
-year:"2018"
-},
-
-{
-name:"Call of Duty Mobile",
-icon:"📱",
-genre:"Shooter",
-platform:"Android",
-year:"2019"
+name:"EA Sports FC",
+image:"https://upload.wikimedia.org/wikipedia/en/7/7b/EA_Sports_FC_24_cover.jpg",
+platform:"PC",
+genre:"Sports",
+year:"2023"
 },
 
 {
 name:"PUBG Mobile",
-icon:"🎯",
-genre:"Shooter",
+image:"https://upload.wikimedia.org/wikipedia/en/0/0f/PUBG_Mobile_cover.jpg",
 platform:"Android",
+genre:"Shooter",
 year:"2018"
 }
 
 ];
 
 
-/* =========================
-   نمایش بازی‌ها
-========================= */
+/* SHOW GAMES */
 
 function showGames(list){
 
-const box =
-document.getElementById("gameList");
+const box=document.getElementById("gamesList");
 
-const count =
-document.getElementById("gameCount");
+document.getElementById("count").textContent=
+list.length+" بازی";
 
 box.innerHTML="";
 
-count.textContent =
-list.length+" بازی نمایش داده شد";
-
 if(list.length===0){
 
-box.innerHTML=`
-<div class="empty">
-😕 بازی پیدا نشد.
-</div>
-`;
+box.innerHTML=
+`<div class="empty">بازی پیدا نشد.</div>`;
 
 return;
 
@@ -1327,17 +1204,19 @@ return;
 
 list.forEach(game=>{
 
-box.innerHTML += `
+box.innerHTML+=`
 
-<div class="card">
+<article class="card">
 
-<div class="cover game-cover">
-${game.icon}
-</div>
+<img
+class="card-image game-image"
+src="${game.image}"
+alt="${game.name}"
+>
 
 <div class="card-body">
 
-<span class="badge">
+<span class="tag">
 ${game.platform}
 </span>
 
@@ -1349,14 +1228,22 @@ ${game.name}
 ژانر: ${game.genre}
 </p>
 
-<div class="stats">
-📅 ${game.year}
-🎮 ${game.platform}
+<div class="info">
+سال انتشار: ${game.year}
 </div>
+
+<br>
+
+<a
+class="btn primary"
+href="#news"
+>
+مشاهده اطلاعات
+</a>
 
 </div>
 
-</div>
+</article>
 
 `;
 
@@ -1365,34 +1252,24 @@ ${game.name}
 }
 
 
-/* =========================
-   جستجوی بازی
-========================= */
+/* FILTER */
 
 function filterGames(){
 
-const search =
-document
-.getElementById("gameSearch")
+const search=
+document.getElementById("gameSearch")
 .value
 .toLowerCase();
 
-const platform =
-document
-.getElementById("platformFilter")
-.value;
+const platform=
+document.getElementById("platform").value;
 
-const genre =
-document
-.getElementById("genreFilter")
-.value;
+const genre=
+document.getElementById("genre").value;
 
-const result =
-games.filter(game=>{
+const result=games.filter(game=>{
 
-return (
-
-game.name
+return game.name
 .toLowerCase()
 .includes(search)
 
@@ -1404,9 +1281,7 @@ game.platform===platform)
 &&
 
 (genre==="" ||
-game.genre===genre)
-
-);
+game.genre===genre);
 
 });
 
@@ -1415,107 +1290,78 @@ showGames(result);
 }
 
 
-function searchGames(){
+/* TOP SEARCH */
 
-const value =
-document
-.getElementById("mainSearch")
-.value
-.toLowerCase();
+function topSearch(){
 
-document
-.getElementById("gameSearch")
+const value=
+document.getElementById("topSearch")
+.value;
+
+document.getElementById("gameSearch")
 .value=value;
 
 filterGames();
 
-document
-.getElementById("games")
+document.getElementById("games")
 .scrollIntoView();
 
 }
 
 
-/* =========================
-   نظرسنجی
-========================= */
+/* POLLS */
 
-function vote(name){
+function vote1(name){
 
-localStorage.setItem(
-"gameplus_poll1",
-name
-);
+localStorage.setItem("poll1",name);
 
-document.getElementById(
-"poll1"
-).textContent =
-"رأی شما ثبت شد: "+name+" ✅";
+document.getElementById("result1")
+.textContent=
+"رأی شما ثبت شد: "+name+" ✓";
 
 }
-
 
 function vote2(name){
 
-localStorage.setItem(
-"gameplus_poll2",
-name
-);
+localStorage.setItem("poll2",name);
 
-document.getElementById(
-"poll2"
-).textContent =
-"رأی شما ثبت شد: "+name+" ✅";
+document.getElementById("result2")
+.textContent=
+"رأی شما ثبت شد: "+name+" ✓";
 
 }
-
 
 function vote3(name){
 
-localStorage.setItem(
-"gameplus_poll3",
-name
-);
+localStorage.setItem("poll3",name);
 
-document.getElementById(
-"poll3"
-).textContent =
-"رأی شما ثبت شد: "+name+" ✅";
+document.getElementById("result3")
+.textContent=
+"رأی شما ثبت شد: "+name+" ✓";
 
 }
 
 
-/* =========================
-   کامنت
-========================= */
+/* COMMENTS */
 
 function addComment(){
 
-const input =
-document.getElementById(
-"commentInput"
-);
+const input=
+document.getElementById("comment");
 
-const text =
-input.value.trim();
+const text=input.value.trim();
 
-if(!text){
+if(!text)return;
 
-return;
-
-}
-
-let comments =
+let comments=
 JSON.parse(
-localStorage.getItem(
-"gameplus_comments"
-) || "[]"
+localStorage.getItem("comments")||"[]"
 );
 
 comments.unshift(text);
 
 localStorage.setItem(
-"gameplus_comments",
+"comments",
 JSON.stringify(comments)
 );
 
@@ -1525,32 +1371,26 @@ showComments();
 
 }
 
-
 function showComments(){
 
-const box =
-document.getElementById(
-"commentList"
-);
+const box=
+document.getElementById("commentList");
 
-let comments =
+let comments=
 JSON.parse(
-localStorage.getItem(
-"gameplus_comments"
-) || "[]"
+localStorage.getItem("comments")||"[]"
 );
 
 box.innerHTML="";
 
 comments.forEach(text=>{
 
-const div =
+const div=
 document.createElement("div");
 
 div.className="comment";
 
-div.textContent =
-"💬 "+text;
+div.textContent="💬 "+text;
 
 box.appendChild(div);
 
@@ -1559,9 +1399,7 @@ box.appendChild(div);
 }
 
 
-/* =========================
-   شروع سایت
-========================= */
+/* START */
 
 showGames(games);
 
@@ -1570,4 +1408,4 @@ showComments();
 </script>
 
 </body>
-  </html>
+   </html>
