@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>گیم پلاس | بازی سکه‌ای</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+  background:#080b16;
+  color:#fff;
+  min-height:100vh;
+}
+
+header{
+  background:linear-gradient(135deg,#111936,#17265c);
+  padding:18px;
+  text-align:center;
+  border-bottom:1px solid #29386f;
+}
+
+header h1{
+  color:#54a8ff;
+  font-size:28px;
+}
+
+header p{
+  color:#aeb9d8;
+  margin-top:6px;
+}
+
+.container{
+  max-width:650px;
+  margin:auto;
+  padding:18px;
+}
+
+.balance{
+  background:linear-gradient(135deg,#151d38,#202c55);
+  border:1px solid #334579;
+  border-radius:22px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 10px 35px rgba(0,0,0,.25);
+}
+
+.balance-title{
+  color:#aeb9d8;
+  font-size:14px;
+}
+
+.coins{
+  color:#ffd84d;
+  font-size:40px;
+  font-weight:bold;
+  margin-top:7px;
+}
+
+.level{
+  margin-top:8px;
+  color:#72d4ff;
+}
+
+.progress{
+  height:10px;
+  background:#0b1022;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:14px;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#4d9cff,#7b5cff);
+  transition:.3s;
+}
+
+.coin-area{
+  text-align:center;
+  padding:25px 0;
+}
+
+.coin-button{
+  width:210px;
+  height:210px;
+  border-radius:50%;
+  border:8px solid #f0b900;
+  background:radial-gradient(circle at 35% 30%,#fff08a,#ffd52e 45%,#e49b00);
+  color:#704600;
+  font-size:70px;
+  cursor:pointer;
+  box-shadow:0 0 35px rgba(255,205,35,.35);
+  transition:.08s;
+  user-select:none;
+}
+
+.coin-button:active{
+  transform:scale(.91);
+}
+
+.click-info{
+  margin-top:15px;
+  color:#b8c2dc;
+}
+
+.section-title{
+  font-size:22px;
+  margin:18px 0 12px;
+  color:#fff;
+}
+
+.shop{
+  display:grid;
+  gap:12px;
+}
+
+.card{
+  background:#12182d;
+  border:1px solid #29365f;
+  border-radius:17px;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.card h3{
+  margin-bottom:5px;
+}
+
+.card p{
+  color:#9ba8c9;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.buy{
+  border:0;
+  background:#2878ff;
+  color:white;
+  padding:11px 15px;
+  border-radius:12px;
+  cursor:pointer;
+  white-space:nowrap;
+  font-weight:bold;
+}
+
+.buy:disabled{
+  background:#343b51;
+  color:#777f96;
+  cursor:not-allowed;
+}
+
+.missions{
+  display:grid;
+  gap:10px;
+}
+
+.mission{
+  background:#12182d;
+  border:1px solid #29365f;
+  border-radius:15px;
+  padding:15px;
+}
+
+.mission-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.mission small{
+  color:#9ba8c9;
+  display:block;
+  margin-top:7px;
+}
+
+.claim{
+  margin-top:10px;
+  width:100%;
+  padding:10px;
+  border:0;
+  border-radius:10px;
+  background:#18a96b;
+  color:white;
+  cursor:pointer;
+}
+
+.claim:disabled{
+  background:#30384d;
+  color:#7d879d;
+  cursor:not-allowed;
+}
+
+.daily{
+  background:linear-gradient(135deg,#33245c,#172b58);
+  border:1px solid #604a91;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+}
+
+.daily button{
+  margin-top:12px;
+  padding:12px 22px;
+  border:0;
+  border-radius:12px;
+  background:#ffd33d;
+  color:#4b3900;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.daily button:disabled{
+  background:#55586b;
+  color:#bbb;
+}
+
+.reset{
+  margin:30px 0 15px;
+  width:100%;
+  padding:12px;
+  background:transparent;
+  border:1px solid #4a526b;
+  color:#929bb1;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#65708d;
+  font-size:12px;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(80px);
+  background:#17213b;
+  border:1px solid #3c4d7b;
+  padding:13px 20px;
+  border-radius:14px;
+  opacity:0;
+  transition:.3s;
+  z-index:100;
+}
+
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎮 گیم پلاس</h1>
+  <p>بازی سکه‌ای گیم پلاس</p>
+</header>
+
+<main class="container">
+
+  <section class="balance">
+    <div class="balance-title">موجودی سکه</div>
+    <div class="coins" id="coins">0 🪙</div>
+    <div class="level" id="level">سطح 1</div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progress"></div>
+    </div>
+  </section>
+
+  <section class="coin-area">
+    <button class="coin-button" id="coinButton">🪙</button>
+    <div class="click-info">
+      هر ضربه: <b id="perClick">1</b> سکه
+    </div>
+  </section>
+
+  <h2 class="section-title">🏪 فروشگاه</h2>
+
+  <section class="shop">
+
+    <div class="card">
+      <div>
+        <h3>⚡ تقویت کلیک</h3>
+        <p>هر کلیک سکه بیشتری می‌دهد.</p>
+        <p>سطح فعلی: <b id="clickLevel">1</b></p>
+      </div>
+      <button class="buy" id="clickUpgrade">خرید</button>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>💰 درآمد خودکار</h3>
+        <p>هر چند ثانیه بدون کلیک سکه بگیر.</p>
+        <p>سطح فعلی: <b id="autoLevel">0</b></p>
+      </div>
+      <button class="buy" id="autoUpgrade">خرید</button>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>🚀 ضریب درآمد</h3>
+        <p>مقدار درآمدت را افزایش می‌دهد.</p>
+        <p>ضریب: <b id="multiplier">1x</b></p>
+      </div>
+      <button class="buy" id="multiUpgrade">خرید</button>
+    </div>
+
+  </section>
+
+  <h2 class="section-title">🎁 جایزه روزانه</h2>
+
+  <section class="daily">
+    <h3>جایزه امروز</h3>
+    <p style="margin-top:8px;color:#c3cae0">
+      هر روز یک جایزه رایگان دریافت کن.
+    </p>
+    <button id="dailyButton">دریافت 500 🪙</button>
+  </section>
+
+  <h2 class="section-title">🎯 مأموریت‌ها</h2>
+
+  <section class="missions">
+
+    <div class="mission">
+      <div class="mission-top">
+        <b>100 کلیک</b>
+        <span>+250 🪙</span>
+      </div>
+      <small id="clickMissionText">0 / 100</small>
+      <button class="claim" id="clickMission">دریافت جایزه</button>
+    </div>
+
+    <div class="mission">
+      <div class="mission-top">
+        <b>1000 سکه جمع کن</b>
+        <span>+500 🪙</span>
+      </div>
+      <small id="coinMissionText">0 / 1000</small>
+      <button class="claim" id="coinMission">دریافت جایزه</button>
+    </div>
+
+  </section>
+
+  <button class="reset" id="reset">شروع دوباره بازی</button>
+
+</main>
+
+<footer>
+  Game Plus © 2026
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+let game = JSON.parse(localStorage.getItem("gamePlusCoinGame")) || {
+  coins: 0,
+  clicks: 0,
+  totalCoins: 0,
+  clickLevel: 1,
+  autoLevel: 0,
+  multiplier: 1,
+  dailyClaimed: false,
+  clickMissionClaimed: false,
+  coinMissionClaimed: false,
+  lastDaily: ""
+};
+
+function save(){
+  localStorage.setItem(
+    "gamePlusCoinGame",
+    JSON.stringify(game)
+  );
+}
+
+function today(){
+  return new Date().toISOString().slice(0,10);
+}
+
+function clickPower(){
+  return game.clickLevel * game.multiplier;
+}
+
+function clickPrice(){
+  return Math.floor(100 * Math.pow(1.65, game.clickLevel - 1));
+}
+
+function autoPrice(){
+  return Math.floor(300 * Math.pow(1.8, game.autoLevel));
+}
+
+function multiPrice(){
+  return Math.floor(1000 * Math.pow(2, game.multiplier - 1));
+}
+
+function level(){
+  return Math.floor(game.totalCoins / 1000) + 1;
+}
+
+function update(){
+
+  document.getElementById("coins").textContent =
+    Math.floor(game.coins) + " 🪙";
+
+  document.getElementById("level").textContent =
+    "سطح " + level();
+
+  document.getElementById("perClick").textContent =
+    clickPower();
+
+  document.getElementById("clickLevel").textContent =
+    game.clickLevel;
+
+  document.getElementById("autoLevel").textContent =
+    game.autoLevel;
+
+  document.getElementById("multiplier").textContent =
+    game.multiplier + "x";
+
+  let current = game.totalCoins % 1000;
+  document.getElementById("progress").style.width =
+    (current / 10) + "%";
+
+  document.getElementById("clickUpgrade").textContent =
+    "🪙 " + clickPrice();
+
+  document.getElementById("autoUpgrade").textContent =
+    "🪙 " + autoPrice();
+
+  document.getElementById("multiUpgrade").textContent =
+    "🪙 " + multiPrice();
+
+  document.getElementById("clickUpgrade").disabled =
+    game.coins < clickPrice();
+
+  document.getElementById("autoUpgrade").disabled =
+    game.coins < autoPrice();
+
+  document.getElementById("multiUpgrade").disabled =
+    game.coins < multiPrice();
+
+  document.getElementById("clickMissionText").textContent =
+    Math.min(game.clicks,100) + " / 100";
+
+  document.getElementById("coinMissionText").textContent =
+    Math.min(Math.floor(game.totalCoins),1000) + " / 1000";
+
+  document.getElementById("clickMission").disabled =
+    game.clicks < 100 || game.clickMissionClaimed;
+
+  document.getElementById("coinMission").disabled =
+    game.totalCoins < 1000 || game.coinMissionClaimed;
+
+  if(game.clickMissionClaimed){
+    document.getElementById("clickMission").textContent = "دریافت شد ✓";
+  }
+
+  if(game.coinMissionClaimed){
+    document.getElementById("coinMission").textContent = "دریافت شد ✓";
+  }
+
+  if(game.lastDaily === today()){
+    document.getElementById("dailyButton").disabled = true;
+    document.getElementById("dailyButton").textContent =
+      "امروز دریافت شد ✓";
+  }else{
+    document.getElementById("dailyButton").disabled = false;
+    document.getElementById("dailyButton").textContent =
+      "دریافت 500 🪙";
+  }
+}
+
+function addCoins(amount){
+
+  game.coins += amount;
+  game.totalCoins += amount;
+
+  save();
+  update();
+}
+
+function toast(text){
+
+  const t = document.getElementById("toast");
+
+  t.textContent = text;
+  t.classList.add("show");
+
+  setTimeout(()=>{
+    t.classList.remove("show");
+  },1800);
+}
+
+document.getElementById("coinButton").addEventListener("click",()=>{
+
+  let amount = clickPower();
+
+  game.clicks++;
+
+  addCoins(amount);
+
+  if(navigator.vibrate){
+    navigator.vibrate(25);
+  }
+});
+
+document.getElementById("clickUpgrade").addEventListener("click",()=>{
+
+  let price = clickPrice();
+
+  if(game.coins >= price){
+
+    game.coins -= price;
+    game.clickLevel++;
+
+    save();
+    update();
+
+    toast("⚡ قدرت کلیک افزایش یافت!");
+  }
+});
+
+document.getElementById("autoUpgrade").addEventListener("click",()=>{
+
+  let price = autoPrice();
+
+  if(game.coins >= price){
+
+    game.coins -= price;
+    game.autoLevel++;
+
+    save();
+    update();
+
+    toast("💰 درآمد خودکار فعال شد!");
+  }
+});
+
+document.getElementById("multiUpgrade").addEventListener("click",()=>{
+
+  let price = multiPrice();
+
+  if(game.coins >= price){
+
+    game.coins -= price;
+    game.multiplier++;
+
+    save();
+    update();
+
+    toast("🚀 ضریب درآمد افزایش یافت!");
+  }
+});
+
+document.getElementById("dailyButton").addEventListener("click",()=>{
+
+  if(game.lastDaily !== today()){
+
+    addCoins(500);
+
+    game.lastDaily = today();
+
+    save();
+    update();
+
+    toast("🎁 500 سکه گرفتی!");
+  }
+});
+
+document.getElementById("clickMission").addEventListener("click",()=>{
+
+  if(game.clicks >= 100 && !game.clickMissionClaimed){
+
+    game.clickMissionClaimed = true;
+
+    addCoins(250);
+
+    toast("🎯 جایزه مأموریت گرفتی!");
+  }
+});
+
+document.getElementById("coinMission").addEventListener("click",()=>{
+
+  if(game.totalCoins >= 1000 && !game.coinMissionClaimed){
+
+    game.coinMissionClaimed = true;
+
+    addCoins(500);
+
+    toast("🎯 500 سکه جایزه گرفتی!");
+  }
+});
+
+document.getElementById("reset").addEventListener("click",()=>{
+
+  let ok = confirm(
+    "مطمئنی می‌خواهی تمام پیشرفت بازی پاک شود؟"
+  );
+
+  if(ok){
+
+    localStorage.removeItem("gamePlusCoinGame");
+
+    location.reload();
+  }
+});
+
+setInterval(()=>{
+
+  if(game.autoLevel > 0){
+
+    let amount =
+      game.autoLevel *
+      game.multiplier;
+
+    addCoins(amount);
+  }
+
+},5000);
+
+update();
+
+</script>
+
+</body>
+</html>
+
+
+
