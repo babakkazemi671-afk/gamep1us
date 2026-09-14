@@ -2,208 +2,609 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Game Plus</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#080b18">
+<title>گیم پلاس | Game Plus</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 font-family:Tahoma,Arial,sans-serif;
-background:#070b12;
+background:
+radial-gradient(circle at top,#17264b 0,#080b18 45%,#05070d 100%);
 color:#fff;
+min-height:100vh;
 }
+
+button{
+font-family:inherit;
+}
+
 header{
-padding:22px;
+position:relative;
+overflow:hidden;
+padding:28px 15px;
 text-align:center;
-background:linear-gradient(135deg,#101827,#17243a);
-border-bottom:1px solid #30415b;
+background:linear-gradient(135deg,#101936,#10101f,#092538);
+border-bottom:1px solid #31456e;
 }
-header h1{margin:0;color:#00e5ff}
-header p{color:#aeb9c9}
-.wrap{width:94%;max-width:1100px;margin:18px auto}
+
+header:before,
+header:after{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+border-radius:50%;
+filter:blur(45px);
+opacity:.25;
+animation:float 5s infinite alternate;
+}
+
+header:before{
+background:#00e5ff;
+right:-60px;
+top:-70px;
+}
+
+header:after{
+background:#9b5cff;
+left:-60px;
+bottom:-80px;
+animation-delay:1s;
+}
+
+@keyframes float{
+from{transform:translateY(0)}
+to{transform:translateY(25px)}
+}
+
+.logo{
+position:relative;
+z-index:2;
+font-size:35px;
+font-weight:900;
+text-shadow:0 0 20px rgba(0,229,255,.4);
+}
+
+.logo span{
+color:#00e5ff;
+}
+
+header p{
+position:relative;
+z-index:2;
+color:#b8c5dc;
+margin:10px 0 0;
+}
+
+.container{
+width:94%;
+max-width:1150px;
+margin:18px auto 40px;
+}
+
 .balance{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:10px;
 margin-bottom:15px;
 }
-.money{
-background:#111a29;
-border:1px solid #2c3d55;
-border-radius:14px;
-padding:15px;
+
+.balanceBox{
+background:rgba(16,24,42,.9);
+border:1px solid #2d4062;
+border-radius:18px;
+padding:14px;
 text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
-.money b{display:block;font-size:21px;margin-top:7px}
-.coin b{color:#ffd43b}
-.scoin b{color:#00e5ff}
-.diamond b{color:#b9a7ff}
+
+.balanceBox .icon{
+font-size:25px;
+}
+
+.balanceBox strong{
+display:block;
+font-size:21px;
+margin-top:5px;
+}
+
+.c1 strong{color:#ffd83d}
+.c2 strong{color:#00e5ff}
+.c3 strong{color:#c4a7ff}
 
 nav{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:9px;
 margin-bottom:18px;
+position:sticky;
+top:5px;
+z-index:20;
 }
-nav button,.btn{
-border:0;
-border-radius:11px;
-padding:13px;
-background:#172236;
-color:#fff;
-cursor:pointer;
-font-family:inherit;
-font-weight:bold;
-}
-nav button:hover,.btn:hover{background:#21334e}
 
-.page{display:none}
-.page.active{display:block}
+nav button{
+border:1px solid #2d4163;
+background:rgba(13,20,35,.96);
+color:#fff;
+padding:13px 6px;
+border-radius:13px;
+cursor:pointer;
+font-weight:bold;
+transition:.18s;
+}
+
+nav button:hover,
+nav button.active{
+background:#172a49;
+border-color:#00e5ff;
+transform:translateY(-2px);
+box-shadow:0 5px 20px rgba(0,229,255,.12);
+}
+
+.page{
+display:none;
+animation:pageIn .25s ease;
+}
+
+.page.active{
+display:block;
+}
+
+@keyframes pageIn{
+from{opacity:0;transform:translateY(8px)}
+to{opacity:1;transform:translateY(0)}
+}
 
 .card{
-background:#101724;
-border:1px solid #293a52;
-border-radius:18px;
+background:rgba(13,20,34,.94);
+border:1px solid #293b5a;
+border-radius:20px;
 padding:20px;
-margin-bottom:15px;
+margin-bottom:16px;
+box-shadow:0 12px 35px rgba(0,0,0,.22);
 }
-h2{color:#00e5ff;margin-top:0}
-p{line-height:1.9;color:#c4ccda}
 
-.bigcoin{
-width:180px;
-height:180px;
-border-radius:50%;
+.card h2{
+margin:0 0 12px;
+color:#00e5ff;
+}
+
+.card p{
+line-height:2;
+color:#c3cede;
+}
+
+.hero{
+text-align:center;
+padding:35px 20px;
+background:
+linear-gradient(135deg,rgba(0,229,255,.08),rgba(155,92,255,.1));
+}
+
+.hero h2{
+font-size:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:13px;
+}
+
+.smallCard{
+background:#0b1220;
+border:1px solid #2b3d5c;
+border-radius:17px;
+padding:18px;
+transition:.18s;
+}
+
+.smallCard:hover{
+transform:translateY(-4px);
+border-color:#00e5ff;
+}
+
+.smallCard h3{
+margin-top:0;
+}
+
+.btn{
+border:0;
+border-radius:11px;
+padding:12px 17px;
+background:#00e5ff;
+color:#001017;
+font-weight:bold;
+cursor:pointer;
+margin-top:8px;
+}
+
+.btn.gold{
+background:#ffd83d;
+}
+
+.btn.purple{
+background:#b995ff;
+}
+
+.btn.dark{
+background:#1d2c45;
+color:#fff;
+}
+
+.btn:active{
+transform:scale(.96);
+}
+
+.notice{
+background:#131f35;
+border-right:4px solid #00e5ff;
+padding:12px;
+border-radius:10px;
+margin-top:12px;
+color:#cbd6e7;
+}
+
+.coinArea{
+text-align:center;
+}
+
+.bigCoin{
+width:190px;
+height:190px;
 margin:25px auto;
+border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:85px;
-background:radial-gradient(circle,#ffe778,#c89100);
-box-shadow:0 0 35px #c89100;
 cursor:pointer;
 user-select:none;
+background:
+radial-gradient(circle at 35% 30%,#fff5a3,#ffd52f 45%,#b87b00);
+box-shadow:
+0 0 0 8px rgba(255,213,47,.08),
+0 0 45px rgba(255,196,0,.5);
 transition:.08s;
 }
-.bigcoin:active{transform:scale(.91)}
 
-.center{text-align:center}
+.bigCoin:active{
+transform:scale(.88);
+}
 
-.games{
+.status{
+min-height:28px;
+color:#9fb0c8;
+margin:10px;
+}
+
+.gamesGrid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:12px;
+gap:13px;
 }
+
 .game{
-background:#0d1420;
-border:1px solid #2a3c55;
-border-radius:15px;
+background:linear-gradient(145deg,#111d31,#0b111d);
+border:1px solid #304361;
+border-radius:17px;
 padding:18px;
 }
-.game h3{margin-top:0}
-.game button{
-background:#00e5ff;
-color:#001016;
-border:0;
-padding:10px 15px;
-border-radius:9px;
-font-weight:bold;
-cursor:pointer;
+
+.gameIcon{
+font-size:38px;
+}
+
+.game h3{
+margin:8px 0;
+}
+
+.game p{
+font-size:14px;
+}
+
+.wheelWrap{
+text-align:center;
 }
 
 .wheel{
-width:310px;
-height:310px;
+width:330px;
+height:330px;
+margin:22px auto;
 border-radius:50%;
-margin:20px auto;
-border:8px solid #263851;
+padding:8px;
+background:
+conic-gradient(
+#263f67 0deg 36deg,
+#172b4b 36deg 72deg,
+#345071 72deg 108deg,
+#172b4b 108deg 144deg,
+#263f67 144deg 180deg,
+#172b4b 180deg 216deg,
+#345071 216deg 252deg,
+#172b4b 252deg 288deg,
+#263f67 288deg 324deg,
+#6948a8 324deg 360deg
+);
+position:relative;
+box-shadow:0 0 35px rgba(0,229,255,.12);
+transition:transform 3s cubic-bezier(.15,.75,.15,1);
+}
+
+.wheelInner{
+position:absolute;
+inset:8px;
+border-radius:50%;
 display:grid;
 grid-template-columns:repeat(2,1fr);
 grid-template-rows:repeat(5,1fr);
 overflow:hidden;
-background:#111c2d;
+background:#0e1728;
 }
-.slot{
+
+.wheelSlot{
+display:flex;
+justify-content:center;
+align-items:center;
+border:1px solid #405472;
+font-size:13px;
+font-weight:bold;
+}
+
+.wheelSlot.special{
+background:#38275f;
+color:#e0cfff;
+}
+
+.pointer{
+width:0;
+height:0;
+border-left:14px solid transparent;
+border-right:14px solid transparent;
+border-top:30px solid #ff4e7a;
+margin:-5px auto 0;
+filter:drop-shadow(0 3px 5px #000);
+}
+
+.shopGrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:13px;
+}
+
+.shopItem{
+background:#0b1220;
+border:1px solid #2c3e5d;
+border-radius:17px;
+padding:18px;
+}
+
+.price{
+color:#ffd83d;
+font-weight:bold;
+font-size:17px;
+}
+
+.cardsGrid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.playerCard{
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(160deg,#172e52,#0a1322);
+border:1px solid #55739c;
+border-radius:18px;
+padding:17px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.playerCard:before{
+content:"";
+position:absolute;
+width:100px;
+height:100px;
+background:#00e5ff;
+opacity:.08;
+filter:blur(30px);
+top:-40px;
+right:-30px;
+}
+
+.rating{
+font-size:38px;
+font-weight:900;
+color:#ffd83d;
+}
+
+.playerName{
+font-size:17px;
+font-weight:bold;
+margin:6px 0;
+}
+
+.news{
+background:#0b1220;
+border:1px solid #293d5d;
+border-radius:16px;
+padding:17px;
+margin-top:12px;
+}
+
+.newsTag{
+display:inline-block;
+font-size:12px;
+color:#00e5ff;
+margin-bottom:8px;
+}
+
+.news h3{
+margin:3px 0 8px;
+}
+
+.news p{
+font-size:14px;
+}
+
+.question{
+background:#0b1220;
+border:1px solid #2c405e;
+padding:18px;
+border-radius:16px;
+}
+
+.answers{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:9px;
+margin-top:14px;
+}
+
+.answer{
+border:1px solid #334968;
+background:#152136;
+color:#fff;
+padding:13px;
+border-radius:10px;
+cursor:pointer;
+font-family:inherit;
+}
+
+.answer:hover{
+border-color:#00e5ff;
+}
+
+.media{
+background:#0b1220;
+border:1px solid #2d405e;
+border-radius:17px;
+padding:18px;
+}
+
+.poster{
+height:150px;
+border-radius:13px;
 display:flex;
 align-items:center;
 justify-content:center;
-border:1px solid #465872;
-font-weight:bold;
-font-size:14px;
-text-align:center;
-padding:4px;
-}
-.slot.special{
-background:#392d70;
-color:#e7ddff;
-}
-#wheelResult{
-text-align:center;
-font-size:18px;
-min-height:30px;
+font-size:50px;
+background:linear-gradient(135deg,#172e54,#34204f);
+margin-bottom:12px;
 }
 
-.shop{
+.profileStats{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-.item{
-background:#0d1420;
-border:1px solid #293c56;
-border-radius:14px;
-padding:17px;
-}
-.item button{
-background:#ffd43b;
-border:0;
-padding:10px 15px;
-border-radius:9px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
 gap:10px;
 }
-.player{
-background:linear-gradient(160deg,#172642,#0c1320);
-border:1px solid #526784;
-border-radius:14px;
+
+.stat{
+background:#0b1220;
+border:1px solid #2b3d5a;
 padding:15px;
+border-radius:13px;
 text-align:center;
 }
-.player .number{
-font-size:30px;
-color:#ffd43b;
-font-weight:bold;
+
+footer{
+text-align:center;
+padding:30px 15px;
+color:#697a92;
+}
+
+.toast{
+position:fixed;
+left:50%;
+bottom:20px;
+transform:translateX(-50%) translateY(100px);
+background:#15243a;
+border:1px solid #00e5ff;
+padding:13px 20px;
+border-radius:13px;
+z-index:100;
+opacity:0;
+transition:.25s;
+box-shadow:0 10px 35px rgba(0,0,0,.4);
+}
+
+.toast.show{
+transform:translateX(-50%) translateY(0);
+opacity:1;
 }
 
 input{
 width:100%;
 padding:13px;
-border-radius:10px;
-border:1px solid #344963;
-background:#0a111c;
-color:white;
+background:#080e19;
+border:1px solid #334967;
+border-radius:11px;
+color:#fff;
+font-family:inherit;
 margin:6px 0 12px;
 }
 
-footer{
-text-align:center;
-padding:30px;
-color:#69788e;
+@media(max-width:700px){
+
+.balance{
+grid-template-columns:1fr;
 }
 
-@media(max-width:650px){
-.balance{grid-template-columns:1fr}
-nav{grid-template-columns:repeat(2,1fr)}
-.games,.shop{grid-template-columns:1fr}
-.cards{grid-template-columns:1fr}
-.wheel{width:280px;height:280px}
+nav{
+grid-template-columns:repeat(2,1fr);
+}
+
+.grid,
+.gamesGrid,
+.shopGrid{
+grid-template-columns:1fr;
+}
+
+.cardsGrid{
+grid-template-columns:1fr 1fr;
+}
+
+.wheel{
+width:290px;
+height:290px;
+}
+
+.hero h2{
+font-size:24px;
+}
+
+}
+
+@media(max-width:420px){
+
+.cardsGrid{
+grid-template-columns:1fr;
+}
+
+.answers{
+grid-template-columns:1fr;
+}
+
+.bigCoin{
+width:165px;
+height:165px;
+font-size:70px;
+}
+
 }
 </style>
 </head>
@@ -211,253 +612,574 @@ nav{grid-template-columns:repeat(2,1fr)}
 <body>
 
 <header>
-<h1>🎮 گیم پلاس</h1>
-<p>بازی کن، کوین بگیر، سکه جمع کن و جایزه ببر</p>
+<div class="logo">🎮 <span>گیم</span> پلاس</div>
+<p>بازی کن • سکه جمع کن • کارت بگیر • برنده شو</p>
 </header>
 
-<div class="wrap">
+<div class="container">
 
+<!-- BALANCE -->
 <div class="balance">
-<div class="money coin">
-کوین 🪙
-<b id="coins">0</b>
+
+<div class="balanceBox c1">
+<div class="icon">🪙</div>
+کوین
+<strong id="coins">0</strong>
 </div>
 
-<div class="money scoin">
-سکه 💰
-<b id="coins2">0</b>
+<div class="balanceBox c2">
+<div class="icon">💰</div>
+سکه
+<strong id="money">0</strong>
 </div>
 
-<div class="money diamond">
-الماس 💎
-<b id="diamonds">0</b>
-</div>
+<div class="balanceBox c3">
+<div class="icon">💎</div>
+الماس
+<strong id="diamonds">0</strong>
 </div>
 
-<nav>
-<button onclick="page('home')">🏠 خانه</button>
-<button onclick="page('clicker')">🪙 کلیک</button>
-<button onclick="page('games')">🎮 بازی‌ها</button>
-<button onclick="page('wheel')">🎡 گردونه</button>
-<button onclick="page('shop')">🏪 فروشگاه</button>
-<button onclick="page('cards')">🃏 کارت‌ها</button>
-<button onclick="page('football')">⚽ فوتبال</button>
-<button onclick="page('profile')">👤 پروفایل</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+
+<button data-page="home" onclick="showPage('home',this)">🏠 خانه</button>
+<button data-page="clicker" onclick="showPage('clicker',this)">🪙 سکه</button>
+<button data-page="games" onclick="showPage('games',this)">🎮 بازی‌ها</button>
+<button data-page="wheel" onclick="showPage('wheel',this)">🎡 گردونه</button>
+<button data-page="shop" onclick="showPage('shop',this)">🏪 فروشگاه</button>
+<button data-page="cards" onclick="showPage('cards',this)">🃏 کارت‌ها</button>
+<button data-page="football" onclick="showPage('football',this)">⚽ فوتبال</button>
+<button data-page="news" onclick="showPage('news',this)">📰 اخبار</button>
+<button data-page="quiz" onclick="showPage('quiz',this)">❓ سوال</button>
+<button data-page="media" onclick="showPage('media',this)">🎬 انیمه</button>
+<button data-page="profile" onclick="showPage('profile',this)">👤 پروفایل</button>
+<button data-page="telegram" onclick="showPage('telegram',this)">📢 تلگرام</button>
+
 </nav>
 
 <!-- HOME -->
 <section id="home" class="page active">
-<div class="card">
-<h2>🔥 گیم پلاس</h2>
+
+<div class="card hero">
+
+<h2>🔥 به گیم پلاس خوش آمدی!</h2>
+
 <p>
-اینجا می‌تونی کوین جمع کنی، کوین‌ها رو به سکه تبدیل کنی،
-پک فوتبال بخری، کارت جمع کنی، فوتبال بازی کنی و گردونه شانس رو بچرخونی.
+اینجا می‌تونی بازی کنی، کوین جمع کنی،
+کوین‌ها رو به سکه تبدیل کنی،
+پک فوتبال بخری و با کارت‌هات با هوش مصنوعی مسابقه بدی.
 </p>
+
+<button class="btn" onclick="showPage('clicker')">
+🪙 برو سکه جمع کن
+</button>
+
+<button class="btn gold" onclick="showPage('shop')">
+🏪 فروشگاه
+</button>
+
 </div>
 
 <div class="card">
-<h2>📌 قوانین اصلی</h2>
-<p>
-۱۰ کوین = ۱ سکه<br>
-💎 الماس کمیاب است.<br>
-🎟️ بلیت گردونه برای چرخش فوری استفاده می‌شود.<br>
-🃏 هر پک معمولی فوتبال ۳ کارت دارد.
-</p>
+
+<h2>⭐ سیستم گیم پلاس</h2>
+
+<div class="grid">
+
+<div class="smallCard">
+<h3>🪙 کوین</h3>
+<p>۱۰ کوین را به ۱ سکه تبدیل کن.</p>
 </div>
+
+<div class="smallCard">
+<h3>💰 سکه</h3>
+<p>پول اصلی گیم پلاس برای خریدها.</p>
+</div>
+
+<div class="smallCard">
+<h3>💎 الماس</h3>
+<p>خیلی کمیاب است و شانس پایه آن ۱٪ است.</p>
+</div>
+
+<div class="smallCard">
+<h3>🎟️ بلیت</h3>
+<p>با بلیت می‌توانی بدون انتظار گردونه را بچرخانی.</p>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- CLICKER -->
 <section id="clicker" class="page">
-<div class="card center">
-<h2>🪙 سکه را بزن!</h2>
-<p>با هر کلیک کوین می‌گیری. شانس بسیار کمی برای پیدا کردن الماس داری!</p>
 
-<div class="bigcoin" onclick="clickCoin()">🪙</div>
+<div class="card coinArea">
 
-<p id="clickMessage">روی سکه بزن</p>
+<h2>🪙 سکه کلیکی</h2>
 
-<button class="btn" onclick="convertCoins()">
-تبدیل ۱۰ کوین → ۱ سکه
-</button>
+<p>
+روی سکه بزن تا کوین بگیری.
+شانس پیدا کردن الماس در هر کلیک فقط ۱٪ است.
+</p>
+
+<div class="bigCoin" onclick="clickCoin()">🪙</div>
+
+<div class="status" id="clickStatus">
+آماده‌ای؟ روی سکه بزن!
 </div>
+
+<button class="btn gold" onclick="convertCoins()">
+۱۰ کوین → ۱ سکه
+</button>
+
+</div>
+
 </section>
 
 <!-- GAMES -->
 <section id="games" class="page">
+
 <div class="card">
-<h2>🎮 ۶ بازی گیم پلاس</h2>
 
-<div class="games">
+<h2>🎮 بازی‌های گیم پلاس</h2>
 
-<div class="game">
-<h3>🎯 هدف‌گیری</h3>
-<p>دکمه را بزن و امتیاز بگیر.</p>
-<button onclick="gameReward('هدف‌گیری')">بازی</button>
-</div>
+<div class="gamesGrid">
 
 <div class="game">
-<h3>⚡ واکنش سریع</h3>
-<p>ببین چقدر سریع می‌تونی جایزه بگیری.</p>
-<button onclick="gameReward('واکنش سریع')">بازی</button>
+<div class="gameIcon">🎯</div>
+<h3>هدف‌گیری</h3>
+<p>یک بازی سریع برای گرفتن کوین.</p>
+<button class="btn" onclick="rewardGame('هدف‌گیری',4,10)">
+شروع بازی
+</button>
 </div>
 
 <div class="game">
-<h3>🎲 حدس عدد</h3>
-<p>یک عدد را حدس بزن.</p>
-<button onclick="guessGame()">بازی</button>
+<div class="gameIcon">⚡</div>
+<h3>واکنش سریع</h3>
+<p>شانس خودت را امتحان کن.</p>
+<button class="btn" onclick="rewardGame('واکنش سریع',3,9)">
+شروع بازی
+</button>
 </div>
 
 <div class="game">
-<h3>🧠 حافظه</h3>
-<p>یک چالش کوتاه ذهنی.</p>
-<button onclick="gameReward('حافظه')">بازی</button>
+<div class="gameIcon">🚗</div>
+<h3>مسابقه ماشین</h3>
+<p>برنده مسابقه شو و کوین بگیر.</p>
+<button class="btn" onclick="raceGame()">
+شروع مسابقه
+</button>
 </div>
 
 <div class="game">
-<h3>🚗 مسابقه</h3>
-<p>در مسابقه شانس خودت را امتحان کن.</p>
-<button onclick="gameReward('مسابقه')">بازی</button>
+<div class="gameIcon">🎯</div>
+<h3>حدس عدد</h3>
+<p>عدد مخفی را پیدا کن.</p>
+<button class="btn" onclick="guessGame()">
+شروع بازی
+</button>
 </div>
 
 <div class="game">
-<h3>⚽ پنالتی</h3>
-<p>پنالتی بزن و جایزه بگیر.</p>
-<button onclick="penalty()">بازی</button>
+<div class="gameIcon">🧠</div>
+<h3>حافظه</h3>
+<p>یک چالش ساده ذهنی.</p>
+<button class="btn" onclick="memoryGame()">
+شروع بازی
+</button>
+</div>
+
+<div class="game">
+<div class="gameIcon">⚽</div>
+<h3>پنالتی</h3>
+<p>گل بزن و کوین بگیر.</p>
+<button class="btn" onclick="penaltyGame()">
+شروع بازی
+</button>
 </div>
 
 </div>
 </div>
+
 </section>
 
 <!-- WHEEL -->
 <section id="wheel" class="page">
-<div class="card center">
+
+<div class="card wheelWrap">
+
 <h2>🎡 گردونه شانس</h2>
+
 <p>
-چرخش عادی هر ۲ ساعت یک‌بار است.
-با بلیت می‌توانی بدون انتظار بچرخانی.
+گردونه معمولی هر ۲ ساعت یک بار قابل استفاده است.
+بلیت، زمان انتظار را دور می‌زند.
 </p>
 
-<div class="wheel">
+<div class="pointer"></div>
 
-<div class="slot">۱۰ 💰</div>
-<div class="slot">۲۵ 💰</div>
-<div class="slot">۵۰ 💰</div>
-<div class="slot">۱۰۰ 💰</div>
-<div class="slot">۲۰۰ 💰</div>
-<div class="slot">۳۰۰ 💰</div>
-<div class="slot">۵۰۰ 💰</div>
-<div class="slot">۷۵۰ 💰</div>
-<div class="slot">۱۰۰۰ 💰</div>
-<div class="slot special">💎 ۱۰ الماس<br>۱۰٪</div>
+<div class="wheel" id="wheel">
+
+<div class="wheelInner">
+
+<div class="wheelSlot">۱۰ 💰</div>
+<div class="wheelSlot">۲۵ 💰</div>
+<div class="wheelSlot">۵۰ 💰</div>
+<div class="wheelSlot">۱۰۰ 💰</div>
+<div class="wheelSlot">۲۰۰ 💰</div>
+<div class="wheelSlot">۳۰۰ 💰</div>
+<div class="wheelSlot">۵۰۰ 💰</div>
+<div class="wheelSlot">۷۵۰ 💰</div>
+<div class="wheelSlot">۱۰۰۰ 💰</div>
+<div class="wheelSlot special">💎 ۱۰<br>الماس</div>
 
 </div>
+</div>
 
-<button class="btn" onclick="spin(false)">
-🎡 چرخاندن
+<p>
+🎟️ بلیت: <b id="tickets">0</b>
+</p>
+
+<button class="btn" onclick="spinWheel(false)">
+🎡 چرخش عادی
 </button>
 
-<br><br>
-
-<button class="btn" onclick="spin(true)">
+<button class="btn gold" onclick="spinWheel(true)">
 🎟️ استفاده از بلیت
 </button>
 
-<p>🎟️ بلیت‌ها: <b id="tickets">0</b></p>
-<div id="wheelResult"></div>
+<div class="notice" id="wheelStatus">
+گردونه آماده است.
 </div>
+
+</div>
+
 </section>
 
 <!-- SHOP -->
 <section id="shop" class="page">
+
 <div class="card">
-<h2>🏪 فروشگاه</h2>
 
-<div class="shop">
+<h2>🏪 فروشگاه گیم پلاس</h2>
 
-<div class="item">
+<div class="shopGrid">
+
+<div class="shopItem">
 <h3>🃏 پک فوتبال</h3>
-<p>۳ کارت تصادفی فوتبال</p>
-<b>۱۰ سکه</b><br><br>
-<button onclick="buyPack()">خرید پک</button>
+<p>۳ کارت فوتبال تصادفی دریافت می‌کنی.</p>
+<div class="price">۱۰ سکه 💰</div>
+<button class="btn gold" onclick="buyPack()">خرید</button>
 </div>
 
-<div class="item">
-<h3>🎟️ بلیت گردونه</h3>
-<p>یک چرخش فوری</p>
-<b>۵ سکه</b><br><br>
-<button onclick="buyTicket()">خرید بلیت</button>
+<div class="shopItem">
+<h3>🎟️ یک بلیت</h3>
+<p>یک بار گردونه را بدون انتظار بچرخان.</p>
+<div class="price">۵ سکه 💰</div>
+<button class="btn gold" onclick="buyTicket()">خرید</button>
 </div>
 
-<div class="item">
-<h3>💎 پک الماسی</h3>
-<p>۵ کارت قوی‌تر و کمیاب‌تر</p>
-<b>۵ الماس</b><br><br>
-<button onclick="buyDiamondPack()">خرید پک</button>
-</div>
-
-<div class="item">
+<div class="shopItem">
 <h3>🎟️ بسته ۳ بلیتی</h3>
-<p>۳ چرخش فوری</p>
-<b>۱۲ سکه</b><br><br>
-<button onclick="buyTickets3()">خرید بسته</button>
+<p>سه چرخش فوری گردونه.</p>
+<div class="price">۱۲ سکه 💰</div>
+<button class="btn gold" onclick="buyThreeTickets()">خرید</button>
+</div>
+
+<div class="shopItem">
+<h3>💎 پک الماسی</h3>
+<p>۵ کارت قوی‌تر و کمیاب‌تر.</p>
+<div class="price">۵ الماس 💎</div>
+<button class="btn purple" onclick="buyDiamondPack()">خرید</button>
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 <!-- CARDS -->
 <section id="cards" class="page">
+
 <div class="card">
-<h2>🃏 کارت‌های فوتبال من</h2>
-<div id="cardList" class="cards"></div>
+
+<h2>🃏 کارت‌های فوتبال</h2>
+
+<p id="cardCount">کارت‌ها: ۰</p>
+
+<div id="cardList" class="cardsGrid"></div>
+
 </div>
+
 </section>
 
 <!-- FOOTBALL -->
 <section id="football" class="page">
-<div class="card center">
-<h2>⚽ بازی فوتبال</h2>
-<p>با کارت‌هایت تیم بساز و با حریف کامپیوتری بازی کن.</p>
+
+<div class="card">
+
+<h2>⚽ مسابقه با هوش مصنوعی</h2>
 
 <p>
-قدرت تیم تو:
-<b id="myPower">0</b>
+حداقل ۳ کارت لازم داری.
+قدرت کارت‌ها روی قدرت تیم تو تأثیر می‌گذارد.
 </p>
 
-<p>
-قدرت حریف:
-<b id="aiPower">0</b>
-</p>
+<div class="profileStats">
 
-<button class="btn" onclick="footballGame()">
-شروع مسابقه
+<div class="stat">
+تیم تو
+<strong id="myPower">0</strong>
+</div>
+
+<div class="stat">
+حریف AI
+<strong id="aiPower">0</strong>
+</div>
+
+</div>
+
+<br>
+
+<button class="btn" onclick="footballMatch()">
+⚽ شروع مسابقه
 </button>
 
-<p id="footballResult"></p>
+<div class="notice" id="footballResult">
+آماده مسابقه‌ای؟
 </div>
+
+</div>
+
+</section>
+
+<!-- NEWS -->
+<section id="news" class="page">
+
+<div class="card">
+
+<h2>📰 اخبار دنیای بازی</h2>
+
+<div class="news">
+<span class="newsTag">PC / کنسول</span>
+<h3>🎮 اخبار جدید بازی‌های بزرگ</h3>
+<p>
+جدیدترین خبرها، معرفی‌ها، آپدیت‌ها و اتفاقات مهم دنیای بازی را در گیم پلاس دنبال کن.
+</p>
+</div>
+
+<div class="news">
+<span class="newsTag">موبایل</span>
+<h3>📱 بازی‌های موبایلی جدید</h3>
+<p>
+اخبار بازی‌های اندروید و iOS و بروزرسانی‌های مهم آن‌ها.
+</p>
+</div>
+
+<div class="news">
+<span class="newsTag">فوتبال</span>
+<h3>⚽ اخبار بازی‌های فوتبالی</h3>
+<p>
+اخبار مربوط به بازی‌های فوتبالی و اتفاقات جدید این سبک.
+</p>
+</div>
+
+<div class="news">
+<span class="newsTag">آپدیت</span>
+<h3>🔥 آپدیت‌های جدید</h3>
+<p>
+تغییرات و محتوای جدید بازی‌ها را در این بخش قرار می‌دهیم.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="page">
+
+<div class="card">
+
+<h2>❓ سوال گیمینگ</h2>
+
+<div class="question">
+
+<h3 id="questionText">
+کدام شرکت سازنده پلی‌استیشن است؟
+</h3>
+
+<div class="answers">
+
+<button class="answer" onclick="answerQuiz(0)">Sony</button>
+<button class="answer" onclick="answerQuiz(1)">Nintendo</button>
+<button class="answer" onclick="answerQuiz(2)">Valve</button>
+<button class="answer" onclick="answerQuiz(3)">Ubisoft</button>
+
+</div>
+
+</div>
+
+<div class="notice" id="quizResult">
+جواب درست را انتخاب کن.
+</div>
+
+</div>
+
+</section>
+
+<!-- MEDIA -->
+<section id="media" class="page">
+
+<div class="card">
+
+<h2>🎬 انیمه و فیلم</h2>
+
+<div class="grid">
+
+<div class="media">
+<div class="poster">🎬</div>
+<h3>فیلم‌های گیمینگ</h3>
+<p>
+معرفی فیلم‌ها و آثار مرتبط با دنیای بازی.
+</p>
+<button class="btn dark" onclick="toast('بخش فیلم به‌زودی کامل‌تر می‌شود.')">
+مشاهده
+</button>
+</div>
+
+<div class="media">
+<div class="poster">⚔️</div>
+<h3>انیمه‌های محبوب</h3>
+<p>
+معرفی انیمه‌های اکشن و گیمینگ.
+</p>
+<button class="btn dark" onclick="toast('بخش انیمه به‌زودی کامل‌تر می‌شود.')">
+مشاهده
+</button>
+</div>
+
+<div class="media">
+<div class="poster">👾</div>
+<h3>انیمه‌های بازی‌محور</h3>
+<p>
+آثار انیمه‌ای با فضای بازی و مبارزه.
+</p>
+<button class="btn dark" onclick="toast('این بخش در حال توسعه است.')">
+مشاهده
+</button>
+</div>
+
+<div class="media">
+<div class="poster">🎮</div>
+<h3>محتوای ویژه</h3>
+<p>
+لیست محتوای سرگرمی گیم پلاس.
+</p>
+<button class="btn dark" onclick="toast('محتوای ویژه به‌زودی.')">
+مشاهده
+</button>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- PROFILE -->
 <section id="profile" class="page">
+
 <div class="card">
+
 <h2>👤 پروفایل</h2>
-<p>پروفایل ساده گیم پلاس</p>
 
 <label>نام بازیکن</label>
 <input id="playerName" placeholder="نام خودت را بنویس">
 
-<button class="btn" onclick="saveName()">ذخیره نام</button>
+<button class="btn" onclick="saveName()">
+ذخیره نام
+</button>
 
-<p id="savedName"></p>
+<div class="notice" id="profileName">
+بازیکن مهمان
+</div>
+
 </div>
 
 <div class="card">
-<h2>🏪 فروشگاه</h2>
-<p>برای خرید پک و بلیت وارد فروشگاه شو.</p>
-<button class="btn" onclick="page('shop')">ورود به فروشگاه</button>
+
+<h2>📊 آمار من</h2>
+
+<div class="profileStats">
+
+<div class="stat">
+🪙 کوین
+<strong id="profileCoins">0</strong>
 </div>
+
+<div class="stat">
+💰 سکه
+<strong id="profileMoney">0</strong>
+</div>
+
+<div class="stat">
+💎 الماس
+<strong id="profileDiamonds">0</strong>
+</div>
+
+<div class="stat">
+🃏 کارت
+<strong id="profileCards">0</strong>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🏪 فروشگاه</h2>
+
+<p>پک‌ها و بلیت‌ها را از فروشگاه بخر.</p>
+
+<button class="btn gold" onclick="showPage('shop')">
+رفتن به فروشگاه
+</button>
+
+</div>
+
+</section>
+
+<!-- TELEGRAM -->
+<section id="telegram" class="page">
+
+<div class="card hero">
+
+<h2>📢 کانال تلگرام گیم پلاس</h2>
+
+<p>
+برای دریافت اخبار و مطالب جدید گیمینگ به کانال ما سر بزن.
+</p>
+
+<!-- لینک کانال واقعی را بعداً اینجا بگذار -->
+<a
+href="https://t.me/"
+target="_blank"
+rel="noopener"
+class="btn"
+style="display:inline-block;text-decoration:none"
+>
+عضویت در کانال
+</a>
+
+</div>
+
 </section>
 
 </div>
@@ -466,99 +1188,200 @@ nav{grid-template-columns:repeat(2,1fr)}
 © 2026 Game Plus
 </footer>
 
+<div class="toast" id="toast"></div>
+
 <script>
 
 /* =========================
-   DATA
+   GAME DATA
 ========================= */
 
-let coins = Number(localStorage.getItem("gp_coins")) || 0;
-let money = Number(localStorage.getItem("gp_money")) || 0;
-let diamonds = Number(localStorage.getItem("gp_diamonds")) || 0;
-let tickets = Number(localStorage.getItem("gp_tickets")) || 0;
+let coins =
+Number(localStorage.getItem("gp_coins")) || 0;
+
+let money =
+Number(localStorage.getItem("gp_money")) || 0;
+
+let diamonds =
+Number(localStorage.getItem("gp_diamonds")) || 0;
+
+let tickets =
+Number(localStorage.getItem("gp_tickets")) || 0;
+
+let lastSpin =
+Number(localStorage.getItem("gp_lastSpin")) || 0;
+
+let playerName =
+localStorage.getItem("gp_playerName") || "";
 
 let cards =
 JSON.parse(localStorage.getItem("gp_cards") || "[]");
 
-let lastSpin =
-Number(localStorage.getItem("gp_last_spin")) || 0;
+let quizIndex = 0;
 
-let playerName =
-localStorage.getItem("gp_name") || "";
+
+/* =========================
+   PLAYERS
+========================= */
+
+const players = [
+
+["رونالدو",94],
+["مسی",95],
+["امباپه",93],
+["هالند",94],
+["نیمار",91],
+["صلاح",90],
+["وینیسیوس",92],
+["بلینگام",91],
+["دی‌بروینه",91],
+["مودریچ",88],
+["رودری",90],
+["بنزما",89]
+
+];
+
 
 /* =========================
    SAVE
 ========================= */
 
 function save(){
+
 localStorage.setItem("gp_coins",coins);
 localStorage.setItem("gp_money",money);
 localStorage.setItem("gp_diamonds",diamonds);
 localStorage.setItem("gp_tickets",tickets);
+localStorage.setItem("gp_lastSpin",lastSpin);
+localStorage.setItem("gp_playerName",playerName);
 localStorage.setItem("gp_cards",JSON.stringify(cards));
-localStorage.setItem("gp_last_spin",lastSpin);
 
-update();
+updateUI();
+
 }
 
+
 /* =========================
-   UPDATE
+   UI
 ========================= */
 
-function update(){
+function updateUI(){
 
 document.getElementById("coins").textContent=coins;
-document.getElementById("coins2").textContent=money;
+document.getElementById("money").textContent=money;
 document.getElementById("diamonds").textContent=diamonds;
 document.getElementById("tickets").textContent=tickets;
+
+document.getElementById("profileCoins").textContent=coins;
+document.getElementById("profileMoney").textContent=money;
+document.getElementById("profileDiamonds").textContent=diamonds;
+document.getElementById("profileCards").textContent=cards.length;
+
+document.getElementById("cardCount").textContent=
+"کارت‌ها: "+cards.length;
 
 renderCards();
 
 }
 
+
 /* =========================
-   PAGE
+   NAVIGATION
 ========================= */
 
-function page(id){
+function showPage(id,button){
 
-document.querySelectorAll(".page")
-.forEach(x=>x.classList.remove("active"));
+const pages=document.querySelectorAll(".page");
 
-document.getElementById(id)
-.classList.add("active");
+pages.forEach(function(p){
+p.classList.remove("active");
+});
 
-window.scrollTo({top:0,behavior:"smooth"});
+const target=document.getElementById(id);
+
+if(!target){
+return;
+}
+
+target.classList.add("active");
+
+document.querySelectorAll("nav button").forEach(function(b){
+b.classList.remove("active");
+});
+
+if(button){
+button.classList.add("active");
+}else{
+
+const navButton=
+document.querySelector('nav button[data-page="'+id+'"]');
+
+if(navButton){
+navButton.classList.add("active");
+}
 
 }
 
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
 /* =========================
-   CLICK COIN
+   TOAST
+========================= */
+
+let toastTimer;
+
+function toast(text){
+
+const box=document.getElementById("toast");
+
+box.textContent=text;
+box.classList.add("show");
+
+clearTimeout(toastTimer);
+
+toastTimer=setTimeout(function(){
+box.classList.remove("show");
+},2200);
+
+}
+
+
+/* =========================
+   CLICKER
 ========================= */
 
 function clickCoin(){
 
 coins++;
 
-let rare=Math.random();
+const rare=Math.random();
 
 if(rare<0.01){
 
 diamonds++;
 
-document.getElementById("clickMessage")
-.textContent="💎 باورنکردنی! ۱ الماس پیدا کردی!";
+document.getElementById("clickStatus").textContent=
+"💎 فوق‌العاده! یک الماس کمیاب پیدا کردی!";
+
+toast("💎 +۱ الماس!");
 
 }else{
 
-document.getElementById("clickMessage")
-.textContent="+۱ کوین";
+document.getElementById("clickStatus").textContent=
+"+۱ کوین";
 
 }
 
 save();
 
 }
+
 
 /* =========================
    CONVERT
@@ -567,8 +1390,11 @@ save();
 function convertCoins(){
 
 if(coins<10){
-alert("حداقل ۱۰ کوین لازم داری.");
+
+toast("برای تبدیل حداقل ۱۰ کوین لازم داری.");
+
 return;
+
 }
 
 coins-=10;
@@ -576,25 +1402,53 @@ money++;
 
 save();
 
-alert("۱۰ کوین تبدیل به ۱ سکه شد! 💰");
+toast("💰 ۱۰ کوین تبدیل به ۱ سکه شد!");
 
 }
 
+
 /* =========================
-   GAME REWARD
+   GENERIC GAMES
 ========================= */
 
-function gameReward(name){
+function rewardGame(name,min,max){
 
-let amount=Math.floor(Math.random()*6)+2;
+const amount=
+Math.floor(Math.random()*(max-min+1))+min;
 
 coins+=amount;
 
 save();
 
-alert("🎉 در "+name+" برنده شدی!\n+"+amount+" کوین");
+toast("🎮 "+name+" : +"+amount+" کوین");
 
 }
+
+
+/* =========================
+   RACE
+========================= */
+
+function raceGame(){
+
+const win=Math.random()<0.55;
+
+if(win){
+
+coins+=12;
+
+save();
+
+toast("🏁 بردی! +۱۲ کوین");
+
+}else{
+
+toast("🏁 باختی! دوباره امتحان کن.");
+
+}
+
+}
+
 
 /* =========================
    GUESS
@@ -602,80 +1456,125 @@ alert("🎉 در "+name+" برنده شدی!\n+"+amount+" کوین");
 
 function guessGame(){
 
-let answer=Math.floor(Math.random()*5)+1;
+const answer=
+Math.floor(Math.random()*5)+1;
 
-let guess=prompt("یک عدد بین ۱ تا ۵ حدس بزن:");
+const value=prompt(
+"یک عدد از ۱ تا ۵ حدس بزن:"
+);
 
-if(guess===null)return;
+if(value===null)return;
 
-if(Number(guess)===answer){
+if(Number(value)===answer){
 
 coins+=15;
+
 save();
 
-alert("🎉 درست گفتی! +۱۵ کوین");
+toast("🎉 درست بود! +۱۵ کوین");
 
 }else{
 
-alert("اشتباه بود! عدد درست "+answer+" بود.");
+toast("❌ اشتباه! جواب "+answer+" بود.");
 
 }
 
 }
+
+
+/* =========================
+   MEMORY
+========================= */
+
+function memoryGame(){
+
+const answer=Math.floor(Math.random()*9)+1;
+
+const value=prompt(
+"عدد را به خاطر بسپار و دوباره وارد کن: "+answer
+);
+
+if(value===null)return;
+
+if(Number(value)===answer){
+
+coins+=10;
+
+save();
+
+toast("🧠 عالی! +۱۰ کوین");
+
+}else{
+
+toast("❌ اشتباه بود.");
+
+}
+
+}
+
 
 /* =========================
    PENALTY
 ========================= */
 
-function penalty(){
+function penaltyGame(){
 
-let result=Math.random();
+const win=Math.random()<0.48;
 
-if(result<0.45){
+if(win){
 
-coins+=12;
+coins+=14;
+
 save();
 
-alert("⚽ گل شد! +۱۲ کوین");
+toast("⚽ گل شد! +۱۴ کوین");
 
 }else{
 
-alert("🥅 توپ به بیرون رفت!");
+toast("🥅 دروازه‌بان گرفت!");
 
 }
 
 }
+
 
 /* =========================
    WHEEL
 ========================= */
 
-function spin(useTicket){
+function spinWheel(useTicket){
 
-let now=Date.now();
+const now=Date.now();
 
-let twoHours=2*60*60*1000;
+const wait=2*60*60*1000;
 
 if(useTicket){
 
 if(tickets<=0){
-alert("بلیت گردونه نداری.");
+
+toast("🎟️ بلیت نداری.");
+
 return;
+
 }
 
 tickets--;
 
 }else{
 
-if(now-lastSpin<twoHours){
+if(now-lastSpin<wait){
 
-let remain=twoHours-(now-lastSpin);
-let hours=Math.floor(remain/3600000);
-let mins=Math.floor((remain%3600000)/60000);
+const remain=wait-(now-lastSpin);
 
-alert(
-"گردونه هنوز آماده نیست.\n"+
-hours+" ساعت و "+mins+" دقیقه دیگر."
+const hours=Math.floor(remain/3600000);
+
+const mins=Math.floor(
+(remain%3600000)/60000
+);
+
+toast(
+"⏱️ هنوز آماده نیست: "+
+hours+" ساعت و "+mins+" دقیقه"
 );
 
 return;
@@ -685,38 +1584,54 @@ lastSpin=now;
 
 }
 
+const wheel=document.getElementById("wheel");
+
+wheel.style.transform=
+"rotate("+
+(1080+Math.floor(Math.random()*1080))+
+"deg)";
+
+setTimeout(function(){
+
 /*
-10 درصد برای خانه الماس
-90 درصد بین 9 جایزه دیگر
+۱۰٪ الماس
+۹۰٪ سکه
 */
 
-let r=Math.random();
-
-if(r<0.10){
+if(Math.random()<0.10){
 
 diamonds+=10;
 
-document.getElementById("wheelResult")
-.textContent="💎 فوق‌العاده! ۱۰ الماس بردی!";
+document.getElementById("wheelStatus").textContent=
+"💎 جایزه ویژه! ۱۰ الماس گرفتی!";
+
+toast("💎 ۱۰ الماس!");
 
 }else{
 
-let prizes=[10,25,50,100,200,300,500,750,1000];
+const prizes=[
+10,25,50,100,200,
+300,500,750,1000
+];
 
-let prize=
+const prize=
 prizes[Math.floor(Math.random()*prizes.length)];
 
 money+=prize;
 
-document.getElementById("wheelResult")
-.textContent=
-"🎉 برنده شدی: "+prize+" سکه 💰";
+document.getElementById("wheelStatus").textContent=
+"🎉 "+prize+" سکه بردی!";
+
+toast("💰 +"+prize+" سکه!");
 
 }
 
 save();
 
+},3000);
+
 }
+
 
 /* =========================
    TICKETS
@@ -725,8 +1640,11 @@ save();
 function buyTicket(){
 
 if(money<5){
-alert("۵ سکه لازم داری.");
+
+toast("۵ سکه لازم داری.");
+
 return;
+
 }
 
 money-=5;
@@ -734,15 +1652,19 @@ tickets++;
 
 save();
 
-alert("🎟️ یک بلیت گرفتی!");
+toast("🎟️ یک بلیت گرفتی!");
 
 }
 
-function buyTickets3(){
+
+function buyThreeTickets(){
 
 if(money<12){
-alert("۱۲ سکه لازم داری.");
+
+toast("۱۲ سکه لازم داری.");
+
 return;
+
 }
 
 money-=12;
@@ -750,66 +1672,54 @@ tickets+=3;
 
 save();
 
-alert("🎟️ ۳ بلیت گرفتی!");
+toast("🎟️ سه بلیت گرفتی!");
 
 }
 
+
 /* =========================
-   FOOTBALL PACK
+   PACK
 ========================= */
-
-const players=[
-
-["رونالدو",94],
-["مسی",95],
-["امباپه",93],
-["هالند",94],
-["نیمار",91],
-["بنزما",89],
-["صلاح",90],
-["وینیسیوس",92],
-["بلینگام",91],
-["دی‌بروینه",91],
-["مودریچ",88],
-["رودری",90]
-
-];
 
 function randomPlayer(){
 
-return players[
-Math.floor(Math.random()*players.length)
-];
+const p=
+players[Math.floor(Math.random()*players.length)];
+
+return {
+name:p[0],
+power:p[1]
+};
 
 }
+
 
 function buyPack(){
 
 if(money<10){
-alert("برای خرید پک ۱۰ سکه لازم داری.");
+
+toast("۱۰ سکه لازم داری.");
+
 return;
+
 }
 
 money-=10;
 
 for(let i=0;i<3;i++){
 
-let p=randomPlayer();
-
-cards.push({
-name:p[0],
-power:p[1]
-});
+cards.push(randomPlayer());
 
 }
 
 save();
 
-alert("🃏 پک باز شد! ۳ کارت گرفتی.");
+toast("🃏 پک باز شد؛ ۳ کارت گرفتی!");
 
-page("cards");
+showPage("cards");
 
 }
+
 
 /* =========================
    DIAMOND PACK
@@ -818,8 +1728,11 @@ page("cards");
 function buyDiamondPack(){
 
 if(diamonds<5){
-alert("برای این پک ۵ الماس لازم داری.");
+
+toast("۵ الماس لازم داری.");
+
 return;
+
 }
 
 diamonds-=5;
@@ -829,19 +1742,24 @@ for(let i=0;i<5;i++){
 let p=randomPlayer();
 
 cards.push({
-name:p[0]+" ⭐",
-power:Math.min(99,p[1]+Math.floor(Math.random()*5)+1)
+name:p.name+" 💎",
+power:Math.min(
+99,
+p.power+
+Math.floor(Math.random()*5)+2
+)
 });
 
 }
 
 save();
 
-alert("💎 پک الماسی باز شد! ۵ کارت قوی گرفتی.");
+toast("💎 پک الماسی باز شد!");
 
-page("cards");
+showPage("cards");
 
 }
+
 
 /* =========================
    CARDS
@@ -849,80 +1767,97 @@ page("cards");
 
 function renderCards(){
 
-let box=document.getElementById("cardList");
+const list=document.getElementById("cardList");
 
-if(!box)return;
+if(!list)return;
+
+list.innerHTML="";
 
 if(cards.length===0){
 
-box.innerHTML="<p>هنوز کارت نداری. از فروشگاه پک بخر.</p>";
+list.innerHTML=
+'<div class="smallCard"><h3>🃏 هنوز کارت نداری</h3><p>از فروشگاه یک پک بخر.</p></div>';
 
 return;
 
 }
 
-box.innerHTML="";
-
 cards.forEach(function(card){
 
-let div=document.createElement("div");
+const div=document.createElement("div");
 
-div.className="player";
+div.className="playerCard";
 
 div.innerHTML=
-"<div class='number'>"+card.power+"</div>"+
-"<h3>"+card.name+"</h3>"+
-"<p>کارت فوتبال</p>";
+'<div class="rating">'+
+card.power+
+'</div>'+
+'<div class="playerName">'+
+escapeHTML(card.name)+
+'</div>'+
+'<div>⚽ کارت فوتبال</div>';
 
-box.appendChild(div);
+list.appendChild(div);
 
 });
 
 }
+
+
+function escapeHTML(text){
+
+const div=document.createElement("div");
+
+div.textContent=text;
+
+return div.innerHTML;
+
+}
+
 
 /* =========================
    FOOTBALL AI
 ========================= */
 
-function footballGame(){
+function footballMatch(){
 
 if(cards.length<3){
 
-alert("برای بازی فوتبال حداقل ۳ کارت لازم داری.");
+toast("⚽ حداقل ۳ کارت لازم داری.");
 
-page("shop");
+showPage("shop");
 
 return;
 
 }
 
-let myPower=0;
+let total=0;
 
-cards.forEach(function(c){
-myPower+=c.power;
+cards.forEach(function(card){
+total+=Number(card.power)||0;
 });
 
-myPower=Math.round(myPower/cards.length);
+const myPower=
+Math.round(total/cards.length);
 
-let aiPower=
-Math.floor(Math.random()*16)+82;
+const aiPower=
+80+Math.floor(Math.random()*19);
 
-document.getElementById("myPower")
-.textContent=myPower;
+document.getElementById("myPower").textContent=myPower;
+document.getElementById("aiPower").textContent=aiPower;
 
-document.getElementById("aiPower")
-.textContent=aiPower;
-
-let result=document.getElementById("footballResult");
+const result=
+document.getElementById("footballResult");
 
 if(myPower>aiPower){
 
-let reward=Math.floor(Math.random()*11)+10;
+const reward=
+Math.floor(Math.random()*16)+10;
 
 money+=reward;
 
 result.textContent=
-"🏆 بردی! +"+reward+" سکه";
+"🏆 بردی! +"+reward+" سکه گرفتی.";
 
 save();
 
@@ -931,18 +1866,19 @@ save();
 money+=5;
 
 result.textContent=
-"🤝 مساوی! +۵ سکه";
+"🤝 مساوی شد! +۵ سکه.";
 
 save();
 
 }else{
 
 result.textContent=
-"😢 باختی! این بار سکه‌ای نگرفتی.";
+"😢 باختی! این مسابقه جایزه نداشت.";
 
 }
 
 }
+
 
 /* =========================
    PROFILE
@@ -950,34 +1886,127 @@ result.textContent=
 
 function saveName(){
 
-let name=document.getElementById("playerName").value.trim();
+const value=
+document.getElementById("playerName").value.trim();
 
-if(!name){
-alert("یک نام وارد کن.");
+if(!value){
+
+toast("نامت را وارد کن.");
+
 return;
+
 }
 
-playerName=name;
+playerName=value;
 
-localStorage.setItem("gp_name",playerName);
+save();
 
 showName();
 
-alert("نام ذخیره شد.");
+toast("👤 نام ذخیره شد.");
 
 }
+
 
 function showName(){
 
-let box=document.getElementById("savedName");
+const box=
+document.getElementById("profileName");
 
-if(playerName){
-
-box.textContent="👤 بازیکن: "+playerName;
+box.textContent=
+playerName?
+"👤 بازیکن: "+playerName:
+"بازیکن مهمان";
 
 }
 
+
+/* =========================
+   QUIZ
+========================= */
+
+const questions=[
+
+{
+q:"کدام شرکت سازنده پلی‌استیشن است؟",
+a:["Sony","Nintendo","Valve","Ubisoft"],
+correct:0
+},
+
+{
+q:"Minecraft توسط کدام شرکت ساخته شده؟",
+a:["Mojang","EA","Ubisoft","Konami"],
+correct:0
+},
+
+{
+q:"Fortnite توسط کدام شرکت ساخته شده؟",
+a:["Epic Games","Valve","Sony","Sega"],
+correct:0
+},
+
+{
+q:"GTA توسط کدام شرکت ساخته می‌شود؟",
+a:["Rockstar Games","Nintendo","Mojang","Capcom"],
+correct:0
 }
+
+];
+
+
+function loadQuestion(){
+
+const q=questions[quizIndex];
+
+document.getElementById("questionText").textContent=q.q;
+
+const buttons=
+document.querySelectorAll(".answer");
+
+buttons.forEach(function(btn,i){
+
+btn.textContent=q.a[i];
+
+});
+
+document.getElementById("quizResult").textContent=
+"جواب درست را انتخاب کن.";
+
+}
+
+
+function answerQuiz(index){
+
+const q=questions[quizIndex];
+
+if(index===q.correct){
+
+coins+=8;
+
+document.getElementById("quizResult").textContent=
+"🎉 درست! +۸ کوین";
+
+save();
+
+}else{
+
+document.getElementById("quizResult").textContent=
+"❌ اشتباه بود.";
+
+}
+
+quizIndex++;
+
+if(quizIndex>=questions.length){
+
+quizIndex=0;
+
+}
+
+setTimeout(loadQuestion,700);
+
+}
+
 
 /* =========================
    START
@@ -985,10 +2014,20 @@ box.textContent="👤 بازیکن: "+playerName;
 
 document.getElementById("playerName").value=playerName;
 
-update();
+updateUI();
 showName();
+loadQuestion();
+
+/* فعال کردن خانه در شروع */
+
+const homeButton=
+document.querySelector('nav button[data-page="home"]');
+
+if(homeButton){
+homeButton.classList.add("active");
+}
 
 </script>
 
 </body>
-</html>
+   </html>
